@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Karen Complaint Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <header>
+        <h1>Complaint Form</h1>
+    </header>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/Purple-Swirl-Background.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            perspective: 1000px;
+        }
+
+        .slideshow-container {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .slideshow {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .pagination-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .pagination {
+            display: inline-block;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .pagination button {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background-color: purple;
+            border-radius: 5px;
+        }
+
+        .pagination button.active {
+            background: #555;
+        }
+
+        .slide ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+
+        }
+
+        .slide ul li {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+
+        }
+
+        .slide ul li button {
+            display: flex;
+            background-color: #ffc400;
+            text-emphasis-color: white;
+            font-family: "Special Elite", Arial, sans-serif;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 2.5vw;
+            padding: 4px;
+            box-shadow: 2px 5px 5px #040404;
+            transform-origin: center center;
+            text-transform: capitalize;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .slide ul li button:hover {
+            background-color: rgb(140, 120, 3);
+        }
+
+        .slide ul li button:active {
+            transform: scale(1.4);
+        }
+
+
+        .arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .arrow.left {
+            left: 0;
+        }
+
+        .arrow.right {
+            right: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: rgb(0, 0, 0);
+            text-shadow: 2px 2px 2px #ffcc00;
+            font-family: "Permanent Marker", Arial, sans-serif;
+            font-size: 2vw;
+        }
+
+        :root {
+            --max-columns: 5;
+            --num-rows: 5;
+            --button-width: calc(100% / var(--max-columns));
+            --button-height: calc(100% / var(--num-rows));
+            --button-margin: 5px;
+        }
+
+        .fullscreen-button {
+            position: fixed;
+            top: 5px;
+            right: 10px;
+            padding: 5px;
+            background: transparent;
+            font-size: x-large;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .fullscreen-button i {
+            margin-right: 5px;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/Purple-Swirl-Background.jpg');
+            background-size: 100% 100%;
+            transform-origin: center center;
+        }
+
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .batman-logo {
+            display: none;
+            position: relative;
+            width: 650px;
+            height: 400px;
+            background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
+            background-size: cover;
+            background-position: center;
+            border: none;
+            transition: transform 1s;
+        }
+
+        .animate {
+            animation: pulsate 0.7s infinite;
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(0.6);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(0.6);
+            }
+        }
+
+
+
+        @keyframes rotateBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+
+        .mute-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+
+<body>
+
+    <button class="fullscreen-button" onclick="toggleFullscreen()">
+        <i class="fa-solid fa-maximize"></i>
+    </button>
+
+
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <!-- Generate slides for each letter of the alphabet -->
+            <!-- Add more slides for the remaining letters -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination">
+                <!-- Generate buttons for each letter of the alphabet -->
+            </div>
+        </div>
+
+        <div class="arrow left">&lt;</div>
+        <div class="arrow right">&gt;</div>
+    </div>
+
+    <i class="mute-button fas fa-volume-up"></i>
+
+    <script>
+        var entries = ["321",
+            "a",
+            "achild",
+            "airhorn",
+            "airwolf",
+            "ak47",
+            "alle3",
+            "animals",
+            "ante",
+            "arena",
+            "arky",
+            "armesocke",
+            "asshole",
+            "aurora",
+            "bbbbbb",
+            "beback",
+            "beenasfar",
+            "beenasfar2",
+            "bekehrten",
+            "bellmarch",
+            "bennett",
+            "bertruhe",
+            "bestlife",
+            "betray",
+            "between",
+            "between2",
+            "bier",
+            "blau",
+            "bong",
+            "boring",
+            "boys",
+            "brain",
+            "brokeit",
+            "bvnbh",
+            "calm",
+            "carleave",
+            "chewbacca",
+            "children",
+            "choppa",
+            "chuck",
+            "chuck2",
+            "clap",
+            "coin",
+            "computersaysno",
+            "convoy",
+            "convoy2",
+            "convoy3",
+            "coronan",
+            "cricket",
+            "damage",
+            "danger",
+            "dangly",
+            "dasvolk",
+            "dasvolk2",
+            "dasvolk3",
+            "deja",
+            "demons",
+            "den",
+            "dergeht",
+            "diablo",
+            "dinkleberg",
+            "disappointed",
+            "dj",
+            "djhorn",
+            "doh",
+            "doom",
+            "downtown",
+            "dramatic",
+            "drogen",
+            "drones",
+            "dump",
+            "east",
+            "einwas",
+            "elch",
+            "elected",
+            "eliminator",
+            "esel",
+            "exce",
+            "excellent",
+            "excludi1",
+            "excludi2",
+            "excludi3",
+            "fanfare",
+            "fatal",
+            "fattening",
+            "feind",
+            "fhritp",
+            "fit",
+            "flanders",
+            "flasche",
+            "franzosisch",
+            "fresh",
+            "fressen",
+            "fuhrer",
+            "fun",
+            "gay",
+            "gefunden",
+            "geld",
+            "genji",
+            "getout",
+            "gleiten",
+            "got",
+            "gott",
+            "grease",
+            "grease2",
+            "grip",
+            "gum",
+            "haha",
+            "hard",
+            "hehehe",
+            "heli",
+            "high",
+            "hill",
+            "hookers",
+            "hum",
+            "hunger",
+            "hunting",
+            "hutstander",
+            "ice",
+            "ichfrag",
+            "imp",
+            "importante",
+            "indy",
+            "insects",
+            "intel",
+            "internet",
+            "jalol",
+            "jameister",
+            "jawohl",
+            "jaws",
+            "jebus",
+            "jebus2",
+            "jeopardy",
+            "johncena",
+            "jordan",
+            "junge",
+            "jurassic",
+            "justdoit",
+            "kapriolen",
+            "kaufmich",
+            "kazoo",
+            "keiner",
+            "keinerussen",
+            "keingeld",
+            "kinder",
+            "kleinarbeit",
+            "knecht",
+            "kohlen",
+            "kohlen2",
+            "kohlen3",
+            "kucken",
+            "laugh",
+            "lead",
+            "legion",
+            "leute",
+            "liebe",
+            "lololo",
+            "lololo2",
+            "los",
+            "lost",
+            "lower",
+            "maechtiger",
+            "mahok2",
+            "matt",
+            "matt2",
+            "maul",
+            "mcg",
+            "messer",
+            "mister",
+            "monster",
+            "monsterkill",
+            "mosq",
+            "mosq2",
+            "muy",
+            "nanu",
+            "napalm2",
+            "nett",
+            "nice",
+            "nichtjeder",
+            "no",
+            "nonono",
+            "nope",
+            "normal",
+            "normal3",
+            "nuke",
+            "oh",
+            "ohhh",
+            "ohno",
+            "onward",
+            "oof",
+            "ooh",
+            "osteo",
+            "oxy",
+            "perimeter",
+            "pflaster",
+            "pfui",
+            "phintro",
+            "physik",
+            "pinky",
+            "planeleave",
+            "plsfix",
+            "plus350",
+            "pokal1",
+            "pokal2",
+            "poochie",
+            "popeye",
+            "powerhouse",
+            "praise",
+            "praiselong",
+            "price",
+            "problematik",
+            "prost",
+            "pumpgun",
+            "quad",
+            "quiet",
+            "rainbow",
+            "random",
+            "raumfahrt",
+            "retard",
+            "retard2",
+            "rickroll",
+            "rohrich",
+            "ruhm",
+            "russenda",
+            "sachenmachen",
+            "sadmusic",
+            "salat",
+            "schabernack",
+            "scots",
+            "segata",
+            "segata2",
+            "segata3",
+            "senat",
+            "senior",
+            "shoes",
+            "skill",
+            "skills",
+            "snuffelstuck",
+            "sodom",
+            "soviet",
+            "speedra",
+            "steelrain",
+            "suddensus",
+            "surprise",
+            "surrender",
+            "talk",
+            "tank",
+            "tasty",
+            "teacher",
+            "thebest",
+            "thermo",
+            "thuglife",
+            "tief",
+            "timmy",
+            "titan",
+            "toofar",
+            "tuba",
+            "tumbleweed",
+            "tumor",
+            "tutnot",
+            "twauma",
+            "twilight",
+            "twoknife",
+            "vector",
+            "veralbern",
+            "verhort",
+            "vigo",
+            "vigo2",
+            "violence",
+            "vogt",
+            "wah",
+            "wah2",
+            "wahnsinn",
+            "wahnsinnraus",
+            "wait",
+            "waluigi",
+            "warmth",
+            "wee",
+            "weewoo",
+            "west",
+            "whip",
+            "wildsau",
+            "willhelm",
+            "willi",
+            "wissen",
+            "wissenschaften",
+            "wits",
+            "wow",
+            "wow1",
+            "wow2",
+            "wrong",
+            "wtf",
+            "wuerstchen",
+            "wunsch",
+            "wurm",
+            "x",
+            "yello",
+            "yoink",
+            "zahlen",
+            "zelda",
+            "zerstorer",
+            "zink",
+            "zonk",
+            "zufett",
+            "zuhause"];
+
+        var slidesContainer = document.querySelector('.slideshow');
+        var paginationContainer = document.querySelector('.pagination');
+        var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Generate slides and buttons for each letter
+        alphabet.split('').forEach(function (letter, index) {
+            var entriesForLetter = entries.filter(function (entry) {
+                return entry.charAt(0).toUpperCase() === letter;
+            });
+
+            if (entriesForLetter.length > 0) {
+                var slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.id = 'slide-' + letter;
+
+                var slideContent = '';
+
+                slideContent += '<ul>';
+
+                for (var j = 0; j < entriesForLetter.length; j++) {
+                    slideContent += '<li><button>' + entriesForLetter[j] + '</button></li>';
+                }
+
+                slideContent += '</ul>';
+
+                slide.innerHTML = slideContent;
+                slidesContainer.appendChild(slide);
+
+                var button = document.createElement('button');
+                button.textContent = letter;
+                button.dataset.slide = 'slide-' + letter;
+                button.addEventListener('click', navigateToSlide);
+                paginationContainer.appendChild(button);
+
+                if (index === 0) {
+                    slide.classList.add('active');
+                    button.classList.add('active');
+                }
+                var slideButtons = document.querySelectorAll('.slide ul li button');
+
+                ;
+
+            }
+
+        });
+
+        var slides = document.querySelectorAll('.slide');
+        var pageButtons = document.querySelectorAll('.pagination button');
+        var arrowLeft = document.querySelector('.arrow.left');
+        var arrowRight = document.querySelector('.arrow.right');
+        var currentSlideIndex = 0;
+
+        arrowLeft.addEventListener('click', function () {
+            navigateSlides('left');
+        });
+
+        arrowRight.addEventListener('click', function () {
+            navigateSlides('right');
+        });
+
+
+        function navigateToSlide(event) {
+            var targetSlide = event.target.dataset.slide;
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+                pageButtons[i].classList.remove('active');
+            }
+
+            document.getElementById(targetSlide).classList.add('active');
+            event.target.classList.add('active');
+            currentSlideIndex = Array.from(pageButtons).findIndex(function (button) {
+                return button.classList.contains('active');
+            });
+        }
+
+        function navigateSlides(direction) {
+            slides[currentSlideIndex].classList.remove('active');
+            pageButtons[currentSlideIndex].classList.remove('active');
+
+            if (direction === 'left') {
+                currentSlideIndex = (currentSlideIndex === 0) ? slides.length - 1 : currentSlideIndex - 1;
+            } else {
+                currentSlideIndex = (currentSlideIndex === slides.length - 1) ? 0 : currentSlideIndex + 1;
+            }
+
+            slides[currentSlideIndex].classList.add('active');
+            pageButtons[currentSlideIndex].classList.add('active');
+        }
+
+        slidesContainer.addEventListener('click', function (event) {
+            var clickedButton = event.target.closest('li button');
+            if (clickedButton) {
+                var audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3');
+                audio.play();
+            }
+        });
+
+        function toggleFullscreen() {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                document.documentElement.requestFullscreen().catch((err) => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            }
+        }
+
+
+        function divClick(soundBox) {
+            playSound();
+            startAnimation();
+            playDiscord(soundBox);
+        }
+
+        function startAnimation() {
+            const spinningImage = document.getElementById('spinningImagea');
+            spinningImage.style.display = 'block'; // Show the image
+            spinningImage.style.animationPlayState = 'running'; // Start the animation
+            setTimeout(function () {
+                spinningImage.style.display = 'none'; // Hide the image after 2 seconds
+            }, 2000);
+        }
+
+        function playSound() {
+            const backgroundMusic = document.getElementById("backgroundMusic");
+            backgroundMusic.play();
+        }
+
+        function playDiscord(soundName) {
+            content = "!" + soundName.id; //Add the prefix for Karen
+            console.log(content);
+            const url = "https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn"; //Url to Webhook
+
+            jQuery.post(url, { "content": content }); //Post the "content to the "url"
+        }
+
+    </script>
+
+</body>
+
+</html>

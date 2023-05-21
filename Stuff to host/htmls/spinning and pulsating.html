@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rotate Background</title>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/Purple-Swirl-Background.jpg');
+      background-size: 100% 100%;
+      transform-origin: center center;
+    }
+    
+    
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      overflow: hidden;
+    }
+    
+    .batman-logo {
+      display: none;
+      position: relative;
+      width: 650px;
+      height: 400px;
+      background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
+      background-size: cover;
+      background-position: center;
+      border: none;
+      transition: transform 1s;
+    }
+    
+    .animate {
+      animation: pulsate 0.7s infinite;
+    }
+    
+    @keyframes pulsate {
+      0% {
+        transform: scale(0.6);
+      }
+       50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(0.6);
+      }
+    }
+    
+    .button-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    
+    
+    @keyframes rotateBackground {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(720deg);
+      }
+    }
+  </style>
+
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="batman-logo"></div>
+  </div>
+  
+  <div class="button-container">
+    <button class="button" onclick="startRotation()">Rotate</button>
+  </div>
+
+  <script>
+    function startRotation() {
+      var background = document.querySelector('.background');
+      var logo = document.querySelector('.batman-logo');
+      logo.style.display = 'block';
+      logo.classList.add('animate');
+      background.style.animation = 'rotateBackground 2s linear forwards'; // Duration set to 2s
+      setTimeout(function() {
+        logo.style.display = 'none';
+        background.style.animation = '';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
