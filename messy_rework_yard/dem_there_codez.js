@@ -231,29 +231,29 @@ document.addEventListener('scroll', () => {
   contextMenu.hidden = true
 })
 
-function toggleFavorite(buttonId) {
-  // Read favorites from LocalStorage, updating the global variable
-  favorites = JSON.parse(localStorage.getItem('favorites')) || []
+// function toggleFavorite(buttonId) {
+//   // Read favorites from LocalStorage, updating the global variable
+//   favorites = JSON.parse(localStorage.getItem('favorites')) || []
 
-  // Check if the button is already a favourite
-  const index = favorites.indexOf(buttonId)
-  if (index === -1) {
-    // Add to favorites
-    favorites.push(buttonId)
-  } else {
-    // Remove from favorites
-    favorites.splice(index, 1)
-  }
-  // Write favorites back to LocalStorage
-  localStorage.setItem('favorites', JSON.stringify(favorites))
+//   // Check if the button is already a favourite
+//   const index = favorites.indexOf(buttonId)
+//   if (index === -1) {
+//     // Add to favorites
+//     favorites.push(buttonId)
+//   } else {
+//     // Remove from favorites
+//     favorites.splice(index, 1)
+//   }
+//   // Write favorites back to LocalStorage
+//   localStorage.setItem('favorites', JSON.stringify(favorites))
 
-  const favButton = document.querySelector('.pagination button[data-slide="slide-FAV-1"]')
-  if (!favButton) {
-    createFavButton()
-  } else {
-    updateFavButtonVisibility()
-  }
-}
+//   const favButton = document.querySelector('.pagination button[data-slide="slide-FAV-1"]')
+//   if (!favButton) {
+//     createFavButton()
+//   } else {
+//     updateFavButtonVisibility()
+//   }
+// }
 
 function updateFavButtonVisibility() {
   // Get the FAV button
@@ -272,7 +272,7 @@ function updateFavButtonVisibility() {
 
 function createFavButton() {
   const button = document.createElement('button')
-  button.textContent = 'FAV'
+  button.textContent = "⭐️"
   button.dataset.slide = 'slide-FAV-1'
   button.addEventListener('click', navigateToSlide)
 
@@ -281,3 +281,90 @@ function createFavButton() {
 
 // Initially hide the FAV button if there are no favorites
 updateFavButtonVisibility()
+
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault()
+  const menu = document.getElementById('context-menu')
+  menu.style.display = 'block'
+  menu.style.transform = 'scale(0)'
+  menu.style.top = `${e.clientY}px`
+  menu.style.left = `${e.clientX}px`
+  setTimeout(() => {
+    menu.style.transform = 'scale(1)'
+  }, 1) // Set the scale back to normal after 1 millisecond
+})
+
+document.addEventListener('click', function (e) {
+  const menu = document.getElementById('context-menu')
+  if (e.target !== menu && !menu.contains(e.target)) {
+    menu.style.transform = 'scale(0)'
+    setTimeout(() => {
+      menu.style.display = 'none'
+    }, 300) // Hide the menu after the "implosion" animation completes
+  }
+})
+
+function toggleFavorite(buttonId) {
+  // Check if the button is already a favourite
+  const index = favorites.indexOf(buttonId)
+  if (index === -1) {
+    // Add to favorites
+    favorites.push(buttonId)
+  } else {
+    // Remove from favorites
+    favorites.splice(index, 1)
+  }
+
+  // Write favorites back to LocalStorage
+  localStorage.setItem('favorites', JSON.stringify(favorites))
+
+  // Update 'FAV' in groupedEntries
+  groupedEntries.set('FAV', favorites)
+
+  // Remove all 'FAV' slides and buttons
+  document.querySelectorAll(`[id^='slide-FAV-'], [data-slide^='slide-FAV-']`).forEach(el => el.remove())
+
+  // Recreate 'FAV' slides and buttons
+  createSlidesAndButtons('FAV', favorites)
+}
+
+function createSlidesAndButtons(letter, entriesForLetter) {
+  // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
+  let chunks = []
+  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+  }
+
+  // For each chunk, create a slide and button
+  chunks.forEach((chunk, chunkIndex, all_chunks) => {
+    // Create slide
+    const slide = document.createElement('div')
+    slide.className = 'slide'
+    slide.id = `slide-${letter}-${chunkIndex + 1}`
+
+    // Create slide content
+    let slideContent = document.createElement('ul')
+    chunk.forEach(entry => {
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      button.textContent = entry
+      button.addEventListener('click', () => divClick(entry))
+      listItem.appendChild(button)
+      slideContent.appendChild(listItem)
+    })
+    slide.appendChild(slideContent)
+
+    // Add slide to slidesContainer
+    slidesContainer.appendChild(slide)
+
+    // Create button
+    const button = document.createElement('button')
+    button.textContent = `${letter == 'FAV' ? "⭐️" : letter}${all_chunks.length > 1 ? " #" + (chunkIndex + 1) : ""}`
+    button.dataset.slide = slide.id
+    button.addEventListener('click', navigateToSlide)
+
+    // Add button to paginationContainer
+    paginationContainer.appendChild(button)
+  })
+}
+
