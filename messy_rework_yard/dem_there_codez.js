@@ -1,8 +1,13 @@
+// Define the maximum entries per slide
+const MAX_ENTRIES_PER_SLIDE = 30
+
 // Select DOM elements
 const slidesContainer = document.querySelector('.slideshow')
 const paginationContainer = document.querySelector('.pagination')
 const arrowLeft = document.querySelector('.arrow.left')
 const arrowRight = document.querySelector('.arrow.right')
+
+const audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3')
 
 // We build a Map data structure that groups entries by their first letter.
 // Using JavaScript's reduce function, we construct the Map
@@ -27,48 +32,59 @@ const groupedEntries = entries.reduce((map, entry) => {
 // Now that we have our entries grouped by their first letter,
 // we iterate over the keys of the Map (i.e., the first letters).
 groupedEntries.forEach((entriesForLetter, letter) => {
-  // Create a new slide and assign it a class and id
-  const slide = document.createElement('div')
-  slide.className = 'slide'
-  slide.id = `slide-${letter}`
+  // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
+  let chunks = []
+  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+  }
 
-  // Create the content for this slide
-  // We use the map function to transform the entriesForLetter array
-  // into an array of list item strings. We then join these strings
-  // into a single string to be used as HTML content.
-  const slideContent = entriesForLetter
-    .map(entry => `<li><button>${entry}</button></li>`)
-    .join('')
+  // For each chunk, create a slide
+  chunks.forEach((chunk, chunkIndex, all_chunks) => {
+    // Create a new slide and assign it a class and id
+    const slide = document.createElement('div')
+    slide.className = 'slide'
+    slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
 
-  // Set the inner HTML of the slide to our content
-  // and append it to the slideshow container
-  slide.innerHTML = `<ul>${slideContent}</ul>`
-  slidesContainer.appendChild(slide)
+    // Create an unordered list element for this slide's content
+    let slideContent = document.createElement('ul')
 
-  // Create a new button for this slide, set its text and data attribute,
-  // and add an event listener for the click event.
-  // When clicked, the button will trigger the navigateToSlide function.
-  const button = document.createElement('button')
-  button.textContent = letter
-  button.dataset.slide = slide.id
-  button.addEventListener('click', navigateToSlide)
+    // Iterate through each entry in the chunk
+    chunk.forEach(entry => {
+      // Create a new list item and button for each entry
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      // Set the button's text content to the entry
+      button.textContent = entry
+      // Attach an event listener to the button that calls the divClick function when clicked
+      button.addEventListener('click', () => divClick(entry))
+      // Append the button to the list item
+      listItem.appendChild(button)
+      // Append the list item to the unordered list
+      slideContent.appendChild(listItem)
+    })
+    // Set the slide's inner content to the unordered list we created
+    slide.appendChild(slideContent)
 
-  // Add the button to the pagination container
-  paginationContainer.appendChild(button)
+    // Append the new slide to the slideshow container
+    slidesContainer.appendChild(slide)
 
+    // Create a new button for this slide, set its text and data attribute,
+    // and add an event listener for the click event.
+    // When clicked, the button will trigger the navigateToSlide function.
+    const button = document.createElement('button')
+    button.textContent = `${letter}${all_chunks.length > 1 ? " #" + (chunkIndex + 1) : ""}`
+    button.dataset.slide = slide.id
+    button.addEventListener('click', navigateToSlide)
+
+    // Add the button to the pagination container
+    paginationContainer.appendChild(button)
+  })
 })
 
 // Set the first slide and button as active
-const firstSlide = slidesContainer.querySelector('.slide').classList.add('active')
-const firstButton = paginationContainer.querySelector('button').classList.add('active')
+slidesContainer.querySelector('.slide').classList.add('active')
+paginationContainer.querySelector('button').classList.add('active')
 
-if (firstSlide) {
-  firstSlide.classList.add('active')
-}
-
-if (firstButton) {
-  firstButton.classList.add('active')
-}
 // Variable to keep track of the current slide index.
 let currentSlideIndex = 0
 
@@ -103,16 +119,7 @@ function navigateSlides(direction) {
 arrowLeft.addEventListener('click', () => navigateSlides('left'))
 arrowRight.addEventListener('click', () => navigateSlides('right'))
 
-slidesContainer.addEventListener('click', (event) => {
-  const clickedButton = event.target.closest('li button')
-  if (clickedButton) {
-    const audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3')
-    audio.play()
-  }
-})
-
 function toggleFullscreen() {
-  console.log('toggleFullscreen')
   if (document.fullscreenElement) {
     document.exitFullscreen()
   } else {
@@ -124,29 +131,23 @@ function toggleFullscreen() {
 
 // The following functions are not used within this script yet, it seems
 function divClick(soundBox) {
-  playSound()
+  audio.play()
   startAnimation()
   playDiscord(soundBox)
 }
 
 function startAnimation() {
-  const spinningImage = document.getElementById('spinningImagea')
-  spinningImage.style.display = 'block'
-  spinningImage.style.animationPlayState = 'running'
+  const background = document.getElementById('background')
+  background.classList.add('spin')
 
-  setTimeout(() => {
-    spinningImage.style.display = 'none'
-  }, 2000)
-}
-
-function playSound() {
-  const backgroundMusic = document.getElementById('backgroundMusic')
-  backgroundMusic.play()
+  // remove the 'spin' class after the animation ends
+  background.addEventListener('animationend', () => {
+    background.classList.remove('spin')
+  })
 }
 
 function playDiscord(soundName) {
-  const content = "!" + soundName.id
-  console.log(content)
+  const content = "!" + soundName
   const url = "https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn"
 
   fetch(url, {

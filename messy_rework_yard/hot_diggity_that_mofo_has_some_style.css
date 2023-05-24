@@ -1,9 +1,19 @@
+#background {
+    position: fixed;
+    top: -25%;
+    left: -23%;
+    height: 150%;
+    width: 150%;
+    z-index: -1;
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/Purple-Swirl-Background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+}
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/Purple-Swirl-Background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     overflow: hidden;
     position: relative;
     width: 100vw;
@@ -11,6 +21,12 @@ body {
     display: flex;
     perspective: 1000px;
 }
+
+/* Spin background in old hanna-barbara style action sequeance */
+.spin {
+    animation: spin 1s linear;
+    /* Adjust the duration, easing, and iteration count as needed */
+  }
 
 .slideshow-container {
     position: fixed;
@@ -251,3 +267,13 @@ header {
     color: white;
     font-size: 20px;
 }
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
