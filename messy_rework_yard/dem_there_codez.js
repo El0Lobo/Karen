@@ -87,10 +87,14 @@ groupedEntries.forEach((entriesForLetter, letter) => {
   })
 })
 
-// Set the first slide and button as active
-slidesContainer.querySelector('.slide').classList.add('active')
-paginationContainer.querySelector('button').classList.add('active')
-
+// If there are favorites, set the favorites slide as active. Otherwise, set the first slide as active
+if (favorites.length > 0) {
+  document.getElementById('slide-FAV-1').classList.add('active')
+  paginationContainer.querySelector('button[data-slide="slide-FAV-1"]').classList.add('active')
+} else {
+  slidesContainer.querySelector('.slide').classList.add('active')
+  paginationContainer.querySelector('button').classList.add('active')
+}
 // Variable to keep track of the current slide index.
 let currentSlideIndex = 0
 
@@ -139,7 +143,7 @@ function toggleFullscreen() {
 function divClick(soundBox) {
   audio.play()
   startAnimation()
-  // playDiscord(soundBox)
+  playDiscord(soundBox)
 }
 
 function startAnimation() {
