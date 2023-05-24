@@ -6,14 +6,18 @@ const slidesContainer = document.querySelector('.slideshow')
 const paginationContainer = document.querySelector('.pagination')
 const arrowLeft = document.querySelector('.arrow.left')
 const arrowRight = document.querySelector('.arrow.right')
+const muteButton = document.querySelector('.mute-button')
 
 const audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3')
+
+let favorites = JSON.parse(localStorage.getItem('favorites')) || []
 
 // We build a Map data structure that groups entries by their first letter.
 // Using JavaScript's reduce function, we construct the Map
 // from our entries array. 
 // (in the form of { letter => [entries] })
 const groupedEntries = entries.reduce((map, entry) => {
+
   let firstLetter = entry.charAt(0).toUpperCase() // Extract the first letter
   if (!isNaN(firstLetter)) firstLetter = '0-9' // if it's not a number, set it to 0-9
 
@@ -28,6 +32,8 @@ const groupedEntries = entries.reduce((map, entry) => {
 
   return map // Return the updated Map to the next step in the reduce function
 }, new Map())
+
+groupedEntries.set('FAV', favorites || [])
 
 // Now that we have our entries grouped by their first letter,
 // we iterate over the keys of the Map (i.e., the first letters).
@@ -72,7 +78,7 @@ groupedEntries.forEach((entriesForLetter, letter) => {
     // and add an event listener for the click event.
     // When clicked, the button will trigger the navigateToSlide function.
     const button = document.createElement('button')
-    button.textContent = `${letter}${all_chunks.length > 1 ? " #" + (chunkIndex + 1) : ""}`
+    button.textContent = `${letter == 'FAV' ? "⭐️" : letter}${all_chunks.length > 1 ? " #" + (chunkIndex + 1) : ""}`
     button.dataset.slide = slide.id
     button.addEventListener('click', navigateToSlide)
 
@@ -133,7 +139,7 @@ function toggleFullscreen() {
 function divClick(soundBox) {
   audio.play()
   startAnimation()
-  playDiscord(soundBox)
+  // playDiscord(soundBox)
 }
 
 function startAnimation() {
@@ -159,3 +165,115 @@ function playDiscord(soundName) {
   })
     .catch((error) => console.log('Error:', error))
 }
+
+// Add event listener to the mute button
+muteButton.addEventListener('click', () => {
+  // Check if the audio is currently not muted
+  if (!audio.muted) {
+    // If the audio is not muted, mute the audio
+    audio.muted = true
+    // Change the mute button icon to a muted volume icon
+    muteButton.className = 'mute-button fas fa-volume-mute'
+  } else {
+    // If the audio is muted, unmute the audio
+    audio.muted = false
+    // Change the mute button icon to an unmuted volume icon
+    muteButton.className = 'mute-button fas fa-volume-up'
+  }
+})
+
+// Get the context menu elements
+const contextMenu = document.getElementById('context-menu')
+const favouriteButton = document.getElementById('favourite-button')
+
+// Keep track of the current button
+let currentButton = null
+
+// Handle right-click on a button
+document.addEventListener('contextmenu', (event) => {
+  // Prevent the default context menu from showing
+  event.preventDefault()
+
+  // Check if a button was clicked
+  if (event.target.tagName === 'BUTTON') {
+    // Store the current button
+    currentButton = event.target
+
+    // Show the context menu at the cursor position
+    contextMenu.style.left = `${event.clientX}px`
+    contextMenu.style.top = `${event.clientY}px`
+    contextMenu.hidden = false
+  }
+})
+
+// Handle click on the favourite button
+favouriteButton.addEventListener('click', () => {
+  // Toggle the favourite status of the current button
+  toggleFavorite(currentButton.innerHTML)
+
+  // Hide the context menu
+  contextMenu.hidden = true
+})
+
+// Handle click anywhere else on the document
+document.addEventListener('click', () => {
+  // Hide the context menu
+  contextMenu.hidden = true
+})
+
+// Handle scroll on the document
+document.addEventListener('scroll', () => {
+  // Hide the context menu
+  contextMenu.hidden = true
+})
+
+function toggleFavorite(buttonId) {
+  // Read favorites from LocalStorage, updating the global variable
+  favorites = JSON.parse(localStorage.getItem('favorites')) || []
+
+  // Check if the button is already a favourite
+  const index = favorites.indexOf(buttonId)
+  if (index === -1) {
+    // Add to favorites
+    favorites.push(buttonId)
+  } else {
+    // Remove from favorites
+    favorites.splice(index, 1)
+  }
+  // Write favorites back to LocalStorage
+  localStorage.setItem('favorites', JSON.stringify(favorites))
+
+  const favButton = document.querySelector('.pagination button[data-slide="slide-FAV-1"]')
+  if (!favButton) {
+    createFavButton()
+  } else {
+    updateFavButtonVisibility()
+  }
+}
+
+function updateFavButtonVisibility() {
+  // Get the FAV button
+  const favButton = document.querySelector('.pagination button[data-slide="slide-FAV-1"]')
+
+  if (!favButton) return
+  // if there is a FAV button, check if there are any favorites
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || []
+
+  if (favorites.length > 0) {
+    favButton.style.display = ''
+  } else {
+    favButton.style.display = 'none'
+  }
+}
+
+function createFavButton() {
+  const button = document.createElement('button')
+  button.textContent = 'FAV'
+  button.dataset.slide = 'slide-FAV-1'
+  button.addEventListener('click', navigateToSlide)
+
+  paginationContainer.appendChild(button)
+}
+
+// Initially hide the FAV button if there are no favorites
+updateFavButtonVisibility()
