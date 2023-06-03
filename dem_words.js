@@ -317,6 +317,7 @@ entries = [
   "veralbern",
   "verbrennen",
   "verhort",
+  "victorymusic",
   "vigo",
   "vigo2",
   "violence",
