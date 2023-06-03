@@ -117,8 +117,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 0px;
     box-shadow: 2px 5px 5px #040404;
     transform-origin: center center;
