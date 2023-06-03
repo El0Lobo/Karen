@@ -360,8 +360,6 @@ entries = [
   "zerstorer",
   "zink",
   "zonk",
-  "zufett",
-  "zufruh",
   "zuhause",
   "zwangslage",
   "zynisch"
