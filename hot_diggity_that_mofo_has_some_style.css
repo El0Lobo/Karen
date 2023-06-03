@@ -1,15 +1,12 @@
 #background {
     position: fixed;
-    top: -25%;
-    left: -23%;
-    height: 150%;
-    width: 150%;
+    top: -74%;
+    left: -72%;
+    height: 250%;
+    width: 250%;
     z-index: -1;
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
-    transform-origin: center;
 }
 body {
     margin: 0;
