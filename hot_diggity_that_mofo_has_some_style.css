@@ -78,7 +78,7 @@ body {
     color: #fff;
     background-color: purple;
     border-radius: 5px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .pagination button.active {
@@ -98,7 +98,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1%;
+    padding: 10px;
 
 }
 
@@ -115,6 +115,8 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     padding-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-bottom: 0px;
     box-shadow: 2px 5px 5px #040404;
     transform-origin: center center;
@@ -125,7 +127,7 @@ body {
 }
 
 .slide ul li button:hover {
-    background-color: rgb(140, 120, 3);
+    background-color: rgb(140, 97, 3);
 }
 
 .slide ul li button:active {
