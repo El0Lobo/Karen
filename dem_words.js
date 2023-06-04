@@ -261,7 +261,7 @@ entries = [
   "quad",
   "quiet",
   "rainbow",
-  "random",
+  "randomcitizen",
   "raumfahrt",
   "raw",
   "rawrawraw",
