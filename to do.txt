@@ -1,0 +1,10 @@
+Add permanent skip and stop buttons top left (audio symbols) (should just send !skip !stop)
+purge local storage and cache button top right = trashcan 
+batlogo still not appearing (very essential)
+favorite function works on everything not just the generated buttons
+<sup> for stuff somehow not working
+favorite function to "special"
+add footer
+
+very maybe:
+somehow add a tagging system
