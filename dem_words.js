@@ -1,5 +1,4 @@
 entries = [
-  "321",
   "a",
   "achild",
   "agameofchess",
