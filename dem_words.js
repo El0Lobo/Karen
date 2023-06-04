@@ -245,6 +245,7 @@ entries = [
   "osteo",
   "oxy",
   "pack",
+  "paddlin",
   "pause",
   "perimeter",
   "pflaster",
