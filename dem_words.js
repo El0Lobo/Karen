@@ -26,6 +26,7 @@ entries = [
   "batgurt",
   "bbbbbb",
   "beback",
+  "bee",
   "beenasfar",
   "beenasfar2",
   "bekehrten",
