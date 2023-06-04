@@ -5,7 +5,7 @@
     height: 250%;
     width: 250%;
     z-index: -1;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple.png');
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
     background-position: center;
 }
 body {
@@ -199,7 +199,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple.png');
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
     background-size: 100% 100%;
     transform-origin: center center;
 }
