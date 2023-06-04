@@ -303,6 +303,7 @@ entries = [
   "sodom",
   "soviet",
   "speedra",
+  "spinnengift",
   "steelrain",
   "suddensus",
   "surprise",
