@@ -21,7 +21,7 @@ body {
 
 /* Spin background in old hanna-barbara style action sequeance */
 .spin {
-    animation: spin 1s linear;
+    animation: spin 2s linear;
     /* Adjust the duration, easing, and iteration count as needed */
   }
 
