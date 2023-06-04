@@ -188,6 +188,7 @@ entries = [
   "kiffen2",
   "kinder",
   "kleinarbeit",
+  "kluk",
   "knecht",
   "kohlen",
   "kohlen2",
