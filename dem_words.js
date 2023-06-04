@@ -13,6 +13,8 @@ entries = [
   "arena",
   "arky",
   "arky2",
+  "arky3",
+  "arky4",
   "armesocke",
   "asshole",
   "aufmerksamkeit",
