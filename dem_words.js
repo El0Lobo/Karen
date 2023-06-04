@@ -286,6 +286,7 @@ entries = [
   "sachenmachen",
   "sadmusic",
   "salat",
+  "sand",
   "schabernack",
   "scots",
   "segata",
