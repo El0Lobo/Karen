@@ -266,6 +266,7 @@ entries = [
   "price",
   "problematik",
   "prost",
+  "publicschool",
   "pumpgun",
   "quad",
   "quiet",
