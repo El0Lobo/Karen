@@ -287,7 +287,6 @@ entries = [
   "soviet",
   "speedra",
   "steelrain",
-  "stop",
   "suddensus",
   "surprise",
   "surrender",
