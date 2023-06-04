@@ -121,7 +121,7 @@ body {
     text-transform: capitalize;
     align-content: center;
     justify-content: center;
-    font-size: 5vw;
+    font-size: 3em;
 }
 
 .slide ul li button:hover {
@@ -165,7 +165,7 @@ header {
     color: #ffc400;
     text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
     font-family: "Permanent Marker", Arial, sans-serif;
-    font-size: 2vw;
+    font-size: 2.5em;
 }
 
 :root {
