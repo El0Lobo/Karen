@@ -5,7 +5,7 @@
     height: 250%;
     width: 250%;
     z-index: -1;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple.png');
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
     background-position: center;
 }
 body {
@@ -21,7 +21,7 @@ body {
 
 /* Spin background in old hanna-barbara style action sequeance */
 .spin {
-    animation: spin 1s linear;
+    animation: spin 2s linear;
     /* Adjust the duration, easing, and iteration count as needed */
   }
 
@@ -78,7 +78,7 @@ body {
     color: #fff;
     background-color: purple;
     border-radius: 5px;
-    font-size: 2vw;
+    font-size: 1.5em;
 }
 
 .pagination button.active {
@@ -98,7 +98,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1%;
+    padding: 10px;
 
 }
 
@@ -114,18 +114,17 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 15px;
-    padding-bottom: 0px;
-    box-shadow: 2px 5px 5px #040404;
+    padding: 10px 8px 0px;
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3), 2px 5px 5px #040404;
     transform-origin: center center;
     text-transform: capitalize;
     align-content: center;
     justify-content: center;
-    font-size: 5vw;
+    font-size: 3em;
 }
 
 .slide ul li button:hover {
-    background-color: rgb(140, 120, 3);
+    background-color: rgb(140, 97, 3);
 }
 
 .slide ul li button:active {
@@ -162,10 +161,10 @@ header {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: rgb(0, 0, 0);
-    text-shadow: 2px 2px 2px #ffcc00;
+    color: #ffc400;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
     font-family: "Permanent Marker", Arial, sans-serif;
-    font-size: 2vw;
+    font-size: 2em;
 }
 
 :root {
@@ -199,7 +198,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple.png');
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
     background-size: 100% 100%;
     transform-origin: center center;
 }
