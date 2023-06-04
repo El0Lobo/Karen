@@ -183,7 +183,6 @@ entries = [
   "kohlen",
   "kohlen2",
   "kohlen3",
-  "kreuzwortbanane",
   "kucken",
   "kustenwache",
   "laugh",
