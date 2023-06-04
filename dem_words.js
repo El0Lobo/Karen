@@ -29,6 +29,7 @@ entries = [
   "bee",
   "beenasfar",
   "beenasfar2",
+  "bees",
   "bekehrten",
   "bellmarch",
   "bennett",
