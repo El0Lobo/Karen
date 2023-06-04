@@ -285,6 +285,7 @@ entries = [
   "rohrich",
   "ruhm",
   "russenda",
+  "sabbat",
   "sachenmachen",
   "sadmusic",
   "salat",
