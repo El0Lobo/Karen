@@ -36,6 +36,7 @@ entries = [
   "bertruhe",
   "bestlife",
   "betray",
+  "betrunken",
   "between",
   "between2",
   "bier",
