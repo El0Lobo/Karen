@@ -389,6 +389,7 @@ entries = [
   "zufruh",
   "zuhause",
   "zwangslage",
+  "zweilebensfragen",
   "zwiebel",
   "zynisch"
 ]
