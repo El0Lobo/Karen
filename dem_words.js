@@ -306,6 +306,7 @@ entries = [
   "speedra",
   "spinnengift",
   "steelrain",
+  "streikbrecher",
   "suddensus",
   "surprise",
   "surrender",
@@ -385,5 +386,6 @@ entries = [
   "zufruh",
   "zuhause",
   "zwangslage",
+  "zwiebel",
   "zynisch"
 ]
