@@ -291,6 +291,7 @@ entries = [
   "salat",
   "sand",
   "schabernack",
+  "schinkengeklaut",
   "scots",
   "segata",
   "segata2",
