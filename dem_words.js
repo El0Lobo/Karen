@@ -366,7 +366,6 @@ entries = [
   "wissenschaften",
   "wits",
   "wow",
-  "wow1",
   "wow2",
   "wrong",
   "wtf",
