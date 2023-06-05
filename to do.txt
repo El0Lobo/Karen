@@ -8,6 +8,7 @@ add footer
 make it work on mobile (scaling is completly broken)
 if there are multiple pages for a letter it would be nice to have buttons (empty circles) at the bottom of the slide to navigate to the others (full circle showing where you are)
 it should choose by itelf how many buttons fit on the screen instead of forcing it to have 20
+force the page to be horizontal always (make them bitches turn their phones)
 
 
 very maybe:
