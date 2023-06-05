@@ -108,6 +108,7 @@ entries = [
   "excludi1",
   "excludi2",
   "excludi3",
+  "failedyou",
   "fanfare",
   "fatal",
   "fattening",
