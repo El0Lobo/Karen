@@ -235,6 +235,7 @@ entries = [
   "nope",
   "normal",
   "normal3",
+  "norules",
   "nuke",
   "oh",
   "ohhh",
