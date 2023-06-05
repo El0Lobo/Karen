@@ -1,5 +1,4 @@
 entries = [
-  "321",
   "a",
   "achild",
   "agameofchess",
@@ -386,6 +385,5 @@ entries = [
   "zufruh",
   "zuhause",
   "zwangslage",
-  "zwiebel",
-  "zynisch"
+  "zwiebel"
 ]
