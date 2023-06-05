@@ -385,5 +385,6 @@ entries = [
   "zufruh",
   "zuhause",
   "zwangslage",
-  "zwiebel"
+  "zwiebel",
+  "zynisch"
 ]
