@@ -332,6 +332,8 @@ entries = [
   "twilight",
   "twoknife",
   "unserlied",
+  "uter",
+  "uter2",
   "vector",
   "veralbern",
   "verbrennen",
