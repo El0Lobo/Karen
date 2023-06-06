@@ -206,6 +206,7 @@ entries = [
   "lektion",
   "leute",
   "liebe",
+  "lighter",
   "lololo",
   "lololo2",
   "los",
