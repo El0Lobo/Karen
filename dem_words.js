@@ -375,7 +375,6 @@ entries = [
   "wow",
   "wow2",
   "wrong",
-  "wtf",
   "wuerstchen",
   "wunsch",
   "wurm",
