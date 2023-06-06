@@ -131,6 +131,7 @@ entries = [
   "genji",
   "getout",
   "gewitter",
+  "girls",
   "gleiten",
   "going",
   "gong",
