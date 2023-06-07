@@ -1,5 +1,5 @@
 // Define the maximum entries per slide
-const MAX_ENTRIES_PER_SLIDE = 15
+const MAX_ENTRIES_PER_SLIDE = 20
 
 // Select DOM elements
 const slidesContainer = document.querySelector('.slideshow')
