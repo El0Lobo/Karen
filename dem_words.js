@@ -131,6 +131,7 @@ entries = [
   "geistigemechanismen",
   "geld",
   "genji",
+  "geschick",
   "getout",
   "gewitter",
   "girls",
