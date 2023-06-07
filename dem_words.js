@@ -81,6 +81,7 @@ entries = [
   "den",
   "dergeht",
   "diablo",
+  "diearbeit",
   "diegaben",
   "dinkleberg",
   "disappointed",
