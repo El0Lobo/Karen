@@ -201,7 +201,6 @@ entries = [
   "kohlen",
   "kohlen2",
   "kohlen3",
-  "kommaher",
   "konig",
   "kreuzwortbanane",
   "kucken",
