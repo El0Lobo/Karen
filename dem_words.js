@@ -215,6 +215,7 @@ entries = [
   "lost",
   "lower",
   "maechtiger",
+  "magie",
   "mahok2",
   "matt",
   "matt2",
