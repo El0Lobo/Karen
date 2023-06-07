@@ -371,6 +371,7 @@ entries = [
   "willhelm",
   "willi",
   "wissen",
+  "wissenschaften",
   "wits",
   "wow",
   "wow2",
