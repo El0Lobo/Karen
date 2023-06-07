@@ -34,6 +34,7 @@ entries = [
   "bellmarch",
   "bennett",
   "bertruhe",
+  "bescheisser",
   "bestlife",
   "betray",
   "betrunken",
