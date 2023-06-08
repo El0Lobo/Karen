@@ -6,6 +6,7 @@ entries = [
   "airhorn",
   "airwolf",
   "ak47",
+  "alarm",
   "alle3",
   "animals",
   "ante",
