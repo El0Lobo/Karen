@@ -254,6 +254,7 @@ entries = [
   "ooh",
   "osteo",
   "oxy",
+  "oz",
   "pack",
   "paddlin",
   "pause",
