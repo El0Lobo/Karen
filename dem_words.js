@@ -235,6 +235,7 @@ entries = [
   "muy",
   "nanu",
   "napalm2",
+  "navalinvade",
   "nett",
   "nice",
   "nicht",
