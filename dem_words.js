@@ -79,6 +79,7 @@ entries = [
   "deja",
   "demons",
   "den",
+  "derblitz",
   "dergeht",
   "diablo",
   "diearbeit",
