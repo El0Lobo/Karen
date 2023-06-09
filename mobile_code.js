@@ -186,6 +186,19 @@ function divClick(soundBox) {
   animateLogo();
 }
 
+function animateLogo() {
+  const logo = document.querySelector('.batman-logo');
+  logo.classList.add('visible');
+
+  // Remove the 'visible' class after the animation ends with a small delay
+  logo.addEventListener('animationend', () => {
+    setTimeout(() => {
+      logo.classList.remove('visible');
+    }, 2);
+  });
+}
+;
+
 function startAnimation() {
   const background = document.getElementById('background');
   background.classList.add('spin');
@@ -196,15 +209,9 @@ function startAnimation() {
   });
 }
 
-function animateLogo() {
-  const logo = document.querySelector('.batman-logo');
-  logo.classList.add('pulsate');
 
-  // remove the 'animate' class after the animation ends
-  logo.addEventListener('animationend', () => {
-    logo.classList.remove('pulsate');
-  });
-}
+const button = document.querySelector('.slide ul li button');
+button.addEventListener('click', animateLogo);
 
 function playDiscord(soundName) {
   const content = "!" + soundName

@@ -140,17 +140,13 @@ body {
     border: none;
     cursor: pointer;
     color: #fff;
-    background-color: purple;
     border-radius: 5px;
     font-size: large;
 }
 
 .pagination button {
     display: none;
-}
-
-.pagination button.active {
-    background: #f7f7f7;
+    color: #484747;
 }
 
 #paginationbutton {    
@@ -159,13 +155,12 @@ body {
     padding: 5px;
     border: none;
     cursor: pointer;
-    color: #fff;
+    color: #ffffff;
     background-color: purple;
     border-radius: 5px;
     font-size: large;
 }
      
-
 .slide ul {
     display: flex;
     flex-wrap: wrap;
@@ -242,17 +237,25 @@ body {
 }
 
 .batman-logo {
-    display: none;
-    position: center;
+    position: absolute;
+    transform:translateY(50%);
+    transform:translateX(50%);
     width: 650px;
     height: 400px;
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
     background-size: cover;
     background-position: center;
     border: none;
-    transition: transform 1s;
-    animation: pulsate 0.7s infinite
-}
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .batman-logo.visible {
+    opacity: 1;
+    z-index: 15;
+    animation: pulsate 2s
+  }
+
 
 
 @keyframes pulsate {
@@ -286,36 +289,6 @@ body {
 
     100% {
         transform: rotate(360deg);
-    }
-}
-
-@keyframes swing {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    10% {
-        transform: rotate(10deg);
-    }
-
-    30% {
-        transform: rotate(-10deg);
-    }
-
-    50% {
-        transform: rotate(10deg);
-    }
-
-    70% {
-        transform: rotate(-10deg);
-    }
-
-    90% {
-        transform: rotate(10deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
     }
 }
 
