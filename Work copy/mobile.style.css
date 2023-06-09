@@ -46,11 +46,40 @@ body {
 
 .mute-button {
     position: absolute;
-    top: 10px;
+    top: 12px;
     left: 10px;
     cursor: pointer;
     color: white;
     font-size: 20px;
+}
+
+.skip-button {
+    content: "\f04b";
+    position: absolute;
+    margin-left: 5px;
+    left: 50px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.stop-button {
+    content: "\f04d";
+    position: absolute;
+    margin-left: 10px;
+    left: 80px;
+}
+
+.skip-button,
+.stop-button {
+    position: absolute;
+    top: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 /* Spin background in old hanna-barbara style action sequeance */
@@ -70,8 +99,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     position: center;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 0px;
+    margin-right: 40px;
     align-items: center;
     justify-content: center;
 }
@@ -102,13 +131,13 @@ body {
 .pagination button {
     display: inline-block;
     margin: 5px;
-    padding: 10px;
+    padding: 5px;
     border: none;
     cursor: pointer;
     color: #fff;
     background-color: purple;
     border-radius: 5px;
-    font-size: small;
+    font-size: large;
 }
 
 .pagination button.active {
@@ -271,38 +300,25 @@ body {
 #context-menu {
     position: fixed;
     z-index: 1;
-    background-color: #FFC107;
-    /* Bright Yellow */
-    border: 10px double #FF5722;
-    /* Deep Orange */
-    padding: 20px;
-    border-radius: 50%;
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive;
+    border-radius: 10%;
+    font-family: "Special Elite", Arial, sans-serif;
     color: #3F51B5;
-    /* Indigo */
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2), 0px 6px 20px 0px rgba(0, 0, 0, 0.19);
 
 }
 
 #context-menu button {
-    background-color: #8BC34A;
-    /* Light Green */
     border: none;
-    border-radius: 50%;
-    color: white;
-    padding: 8px 14px;
+    border-radius: 12%;
+    padding: 8px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 10px;
     transition-duration: 0.4s;
     cursor: pointer;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.15);
 
 }
 
 #context-menu button:hover {
     background-color: #4CAF50;
-    /* Green */
-    color: white;
 }

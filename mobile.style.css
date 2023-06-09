@@ -60,7 +60,6 @@ body {
     left: 50px;
     cursor: pointer;
     margin-right: 5px;
-    z-index: 10;
 }
 
 .stop-button {
@@ -68,7 +67,6 @@ body {
     position: absolute;
     margin-left: 10px;
     left: 80px;
-    z-index: 10;
 }
 
 .skip-button,
@@ -139,7 +137,7 @@ body {
     color: #fff;
     background-color: purple;
     border-radius: 5px;
-    font-size: small;
+    font-size: large;
 }
 
 .pagination button.active {
