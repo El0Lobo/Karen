@@ -132,9 +132,9 @@ body {
 
 .pagination button.active {
     display: inline-block;
-    position: fixed;
-    left: 50%;
-    bottom:50px;
+    position: relative;
+    left: 450px;
+    bottom:40px;
     margin: 5px;
     padding: 5px;
     border: none;
@@ -144,6 +144,7 @@ body {
     border-radius: 5px;
     font-size: large;
 }
+
 .pagination button {
     display: none;
 }
