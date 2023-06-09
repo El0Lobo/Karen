@@ -94,6 +94,7 @@ groupedEntries.forEach((entriesForLetter, letter) => {
   let dataset = `-${letter}-` // IDs are now of the form `slide-A`, `slide-B`, etc.
 
   const button = document.createElement('button')
+    button.id = "paginationbutton"
     button.textContent = `${letter == 'FAV' ? "⭐️" : letter}`
     button.addEventListener('click', navigateToSubPagination)
     button.dataset.pagination = dataset

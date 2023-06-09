@@ -45,41 +45,42 @@ body {
 }
 
 .mute-button {
-    position: absolute;
-    top: 12px;
-    left: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
     cursor: pointer;
     color: white;
     font-size: 20px;
-}
-
-.skip-button {
-    content: "\f04b";
-    position: absolute;
-    margin-left: 5px;
-    left: 50px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-.stop-button {
-    content: "\f04d";
-    position: absolute;
+    margin-top: 13px;
     margin-left: 10px;
-    left: 80px;
 }
 
 .skip-button,
 .stop-button {
-    position: absolute;
-    top: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    position: fixed;
+    top: 0;
     cursor: pointer;
     color: white;
-    font-size: 20px;
-    z-index: 10;
+    font-size: 22px;
     background-color: transparent;
     border: none;
     padding: 0;
+    z-index: 10;
+}
+
+.skip-button {
+    left: 30px; /* Adjust the left position as needed */
+}
+
+.stop-button {
+    left: 60px; /* Adjust the left position as needed */
+}
+
+.skip-button span,
+.stop-button span {
+    margin-left: 5px;
 }
 
 /* Spin background in old hanna-barbara style action sequeance */
@@ -114,7 +115,7 @@ body {
 }
 
 .pagination-container {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -126,10 +127,14 @@ body {
     display: inline-block;
     margin: 0;
     padding: 10px;
+    
 }
 
 .pagination button.active {
     display: inline-block;
+    position: fixed;
+    left: 50%;
+    bottom:50px;
     margin: 5px;
     padding: 5px;
     border: none;
@@ -144,8 +149,21 @@ body {
 }
 
 .pagination button.active {
-    background: #555;
+    background: #f7f7f7;
 }
+
+#paginationbutton {    
+    display: fixed;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: purple;
+    border-radius: 5px;
+    font-size: large;
+}
+     
 
 .slide ul {
     display: flex;
