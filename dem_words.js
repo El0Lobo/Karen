@@ -216,6 +216,7 @@ entries = [
   "lighter",
   "lololo",
   "lololo2",
+  "looting",
   "los",
   "lost",
   "lower",
