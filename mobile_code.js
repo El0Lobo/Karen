@@ -1,47 +1,7 @@
-function createSlidesAndButtons(letter, entriesForLetter) {
-  // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
-  let chunks = [];
-  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
-    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE));
-  }
-
-  // For each chunk, create a slide and button
-  chunks.forEach((chunk, chunkIndex, all_chunks) => {
-    // Create slide
-    const slide = document.createElement('div');
-    slide.className = 'slide';
-    slide.id = `slide-${letter}-${chunkIndex + 1}`;
-
-    // Create slide content
-    let slideContent = document.createElement('ul');
-    chunk.forEach(entry => {
-      let listItem = document.createElement('li');
-      let button = document.createElement('button');
-      button.textContent = entry;
-      button.addEventListener('click', () => divClick(entry));
-      listItem.appendChild(button);
-      slideContent.appendChild(listItem);
-    });
-    slide.appendChild(slideContent);
-
-    // Add slide to slidesContainer
-    slidesContainer.appendChild(slide);
-
-    // Create button
-    const button = document.createElement('button');
-    button.textContent = `${letter === 'FAV' ? "⭐️" : letter}${all_chunks.length > 1 ? " " + getSuperscript(chunkIndex + 1) : ""}`; // Update button text
-    button.dataset.slide = slide.id;
-    button.addEventListener('click', navigateToSlide);
-
-    // Add button to paginationContainer
-    paginationContainer.appendChild(button);
-  });
-}
-
-
 // Select DOM elements
 const slidesContainer = document.querySelector('.slideshow')
-const paginationContainer = document.querySelector('.pagination')
+const pagination = document.querySelector('.pagination')
+const paginationContainer = document.querySelector('.pagination-container')
 const arrowLeft = document.querySelector('.arrow.left')
 const arrowRight = document.querySelector('.arrow.right')
 const muteButton = document.querySelector('.mute-button')
@@ -88,6 +48,7 @@ groupedEntries.forEach((entriesForLetter, letter) => {
     const slide = document.createElement('div')
     slide.className = 'slide'
     slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
+    pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
 
     // Create an unordered list element for this slide's content
     let slideContent = document.createElement('ul')
@@ -112,37 +73,77 @@ groupedEntries.forEach((entriesForLetter, letter) => {
     // Append the new slide to the slideshow container
     slidesContainer.appendChild(slide)
 
-    // Create a new button for this slide, set its text and data attribute,
+    // Create a new button for this subPagination, set its text and data attribute,
     // and add an event listener for the click event.
     // When clicked, the button will trigger the navigateToSlide function.
     const button = document.createElement('button')
-    button.textContent = `${letter == 'FAV' ? "⭐️" : letter}${all_chunks.length > 1 ? " #" + (chunkIndex + 1) : ""}`
+    button.textContent = ``
     button.dataset.slide = slide.id
+    button.dataset.pagination = pagination.id
     button.addEventListener('click', navigateToSlide)
 
-    // Add the button to the pagination container
-    paginationContainer.appendChild(button)
+    // Add the button of the subPAgination to the pagination container
+    pagination.appendChild(button)
   })
 })
+// Now we create all Pagination buttons
+groupedEntries.forEach((entriesForLetter, letter) => {
+
+  let firstLetter = letter.charAt(0).toUpperCase() // Extract the first letter
+  if (!isNaN(firstLetter)) firstLetter = '#' // if it's not a number, set it to #
+  let dataset = `-${letter}-` // IDs are now of the form `slide-A`, `slide-B`, etc.
+
+  const button = document.createElement('button')
+    button.id = "paginationbutton"
+    button.textContent = `${letter == 'FAV' ? "⭐️" : letter}`
+    button.addEventListener('click', navigateToSubPagination)
+    button.dataset.pagination = dataset
+    paginationContainer.appendChild(button)
+})
+
+function navigateToSubPagination(event){
+  const targetSlide = event.target.dataset.pagination
+  console.log(targetSlide)
+  const pagination = document.querySelectorAll('.slide')
+  const pageButtons = document.querySelectorAll('.pagination button')
+  const subPagination = document.querySelectorAll(`[data-slide*= ${targetSlide} ]`)
+
+  pagination.forEach(pagination => pagination.classList.remove('active'))
+  pageButtons.forEach(button => button.classList.remove('active'))
+
+  //Activates all matching subPaginations
+  subPagination.forEach((element) => {
+    element.classList.add('active')
+  })
+  //Activate the first slide of this letter
+  const slide = document.getElementById(`slide${targetSlide}1`)
+  slide.classList.add('active')
+}
 
 // If there are favorites, set the favorites slide as active. Otherwise, set the first slide as active
 if (favorites.length > 0) {
   document.getElementById('slide-FAV-1').classList.add('active')
-  paginationContainer.querySelector('button[data-slide="slide-FAV-1"]').classList.add('active')
+  pagination.querySelector('button[data-slide="slide-FAV-1"]').classList.add('active')
 } else {
   slidesContainer.querySelector('.slide').classList.add('active')
-  paginationContainer.querySelector('button').classList.add('active')
+  pagination.querySelector('button').classList.add('active')
 }
 // Variable to keep track of the current slide index.
 let currentSlideIndex = 0
 
 function navigateToSlide(event) {
   const targetSlide = event.target.dataset.slide
+  const targetPagination = event.target.dataset.pagination
   const slides = document.querySelectorAll('.slide')
   const pageButtons = document.querySelectorAll('.pagination button')
+  const subPagination = document.querySelectorAll(`[data-pagination*= ${targetPagination} ]`)
 
   slides.forEach(slide => slide.classList.remove('active'))
   pageButtons.forEach(button => button.classList.remove('active'))
+
+  subPagination.forEach((element) => {
+    element.classList.add('active')
+  })
 
   document.getElementById(targetSlide).classList.add('active')
   event.target.classList.add('active')
@@ -342,7 +343,7 @@ function createFavButton() {
   button.dataset.slide = 'slide-FAV-1'
   button.addEventListener('click', navigateToSlide)
 
-  paginationContainer.appendChild(button)
+  pagination.appendChild(button)
 }
 
 // Initially hide the FAV button if there are no favorites
@@ -393,46 +394,3 @@ function toggleFavorite(buttonId) {
   // Recreate 'FAV' slides and buttons
   createSlidesAndButtons('FAV', favorites)
 }
-
-
-function createSlidesAndButtons(letter, entriesForLetter) {
-  // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
-  let chunks = [];
-  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
-    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE));
-  }
-
-  // For each chunk, create a slide and button
-  chunks.forEach((chunk, chunkIndex, all_chunks) => {
-    // Create slide
-    const slide = document.createElement('div');
-    slide.className = 'slide';
-    slide.id = `slide-${letter}-${chunkIndex + 1}`;
-
-    // Create slide content
-    let slideContent = document.createElement('ul');
-    chunk.forEach(entry => {
-      let listItem = document.createElement('li');
-      let button = document.createElement('button');
-      button.textContent = entry;
-      button.addEventListener('click', () => divClick(entry));
-      listItem.appendChild(button);
-      slideContent.appendChild(listItem);
-    });
-    slide.appendChild(slideContent);
-
-    // Add slide to slidesContainer
-    slidesContainer.appendChild(slide);
-
-    // Create button
-    const button = document.createElement('button');
-    button.textContent = `${letter === 'FAV' ? "⭐️" : letter}${all_chunks.length > 1 ? " " + getSuperscript(chunkIndex + 1) : ""}`; // Update button text
-    button.dataset.slide = slide.id;
-    button.addEventListener('click', navigateToSlide);
-
-    // Add button to pagination container
-    paginationContainer.appendChild(button);
-  });
-
-}
-
