@@ -73,9 +73,9 @@ function adjustEntriesPerSlide() {
     const screenWidth = window.innerWidth;
     if (screenWidth <= 375) {
         MAX_ENTRIES_PER_SLIDE = 10; // Set the value for minimal mobile screen resolution
-    } else if (screenWidth <= 1080) {
+    } else if (screenWidth <= 720) {
         MAX_ENTRIES_PER_SLIDE = 30; // Set the value for tablet screen resolution in portrait mode
-    } else if (screenWidth <= 1920) {
+    } else if (screenWidth <= 1080) {
         MAX_ENTRIES_PER_SLIDE = 30; // Set the value for desktop screen resolution
     } else if (screenWidth <= 1980) {
         MAX_ENTRIES_PER_SLIDE = 80; // Set the value for desktop screen resolution

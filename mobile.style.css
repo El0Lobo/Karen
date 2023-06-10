@@ -170,6 +170,7 @@ body {
     align-content: center;
     justify-content: center;
     position: center;
+    padding-right: 1px;
 }
 
 .slide ul li {
