@@ -139,6 +139,7 @@ body {
     color: #fff;
     border-radius: 5px;
     font-size: large;
+    z-index: 25;
 }
 
 .pagination button {
