@@ -341,15 +341,6 @@ function updateFavButtonVisibility() {
   }
 }
 
-function createFavButton() {
-  const button = document.createElement('button')
-  button.textContent = "⭐️"
-  button.dataset.slide = 'slide-FAV-1'
-  button.addEventListener('click', navigateToSlide)
-
-  pagination.appendChild(button)
-}
-
 // Initially hide the FAV button if there are no favorites
 updateFavButtonVisibility()
 
@@ -376,6 +367,8 @@ document.addEventListener('click', function (e) {
 })
 
 function toggleFavorite(buttonId) {
+  //check if i remove or add
+  let remove = false
   // Check if the button is already a favourite
   const index = favorites.indexOf(buttonId)
   if (index === -1) {
@@ -384,6 +377,8 @@ function toggleFavorite(buttonId) {
   } else {
     // Remove from favorites
     favorites.splice(index, 1)
+    //
+    remove = true
   }
 
   // Write favorites back to LocalStorage
@@ -393,8 +388,57 @@ function toggleFavorite(buttonId) {
   groupedEntries.set('FAV', favorites)
 
   // Remove all 'FAV' slides and buttons
-  document.querySelectorAll(`[id^='slide-FAV-'], [data-slide^='slide-FAV-']`).forEach(el => el.remove())
+  document.querySelectorAll(`[id^='slide-FAV-']`).forEach(el => el.remove())
 
   // Recreate 'FAV' slides and buttons
-  createSlidesAndButtons('FAV', favorites)
+  createSlidesAndButtons('FAV', favorites, remove)
+}
+
+// For each chunk, create a slide
+function createSlidesAndButtons(letter, entriesForLetter, remove) {
+
+  let chunks = []
+  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+  }
+
+  chunks.forEach((chunk, chunkIndex, all_chunks) => {
+    // Create a new slide and assign it a class and id
+    const slide = document.createElement('div')
+    slide.className = 'slide'
+    slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
+    pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
+  
+    // Create an unordered list element for this slide's content
+    let slideContent = document.createElement('ul')
+  
+    // Iterate through each entry in the chunk
+    chunk.forEach(entry => {
+      // Create a new list item and button for each entry
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      // Set the button's text content to the entry
+      button.textContent = entry
+      // Attach an event listener to the button that calls the divClick function when clicked
+      button.addEventListener('click', () => divClick(entry))
+      // Append the button to the list item
+      listItem.appendChild(button)
+      // Append the list item to the unordered list
+      slideContent.appendChild(listItem)
+    })
+    // Set the slide's inner content to the unordered list we created
+    slide.appendChild(slideContent)
+  
+    // Append the new slide to the slideshow container
+    slidesContainer.appendChild(slide)
+  })
+  if(remove) {
+    if (favorites.length > 0) {
+      document.getElementById('slide-FAV-1').classList.add('active')
+      pagination.querySelector('button[data-slide="slide-FAV-1"]').classList.add('active')
+    } else {
+      slidesContainer.querySelector('.slide').classList.add('active')
+      pagination.querySelector('button').classList.add('active')
+    }
+  }
 }
