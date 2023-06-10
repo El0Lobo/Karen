@@ -106,8 +106,12 @@ function navigateToSubPagination(event){
   console.log(targetSlide)
   const pagination = document.querySelectorAll('.slide')
   const pageButtons = document.querySelectorAll('.pagination button')
-  const subPagination = document.querySelectorAll(`[data-slide*= ${targetSlide} ]`)
-
+  let subPagination
+  if (targetSlide === '-#-') {
+    subPagination = document.querySelectorAll(`[data-slide*= -\\#- ]`)
+  } else {
+    subPagination = document.querySelectorAll(`[data-slide*= ${targetSlide} ]`)
+  }
   pagination.forEach(pagination => pagination.classList.remove('active'))
   pageButtons.forEach(button => button.classList.remove('active'))
 
