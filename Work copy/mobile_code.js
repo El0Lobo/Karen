@@ -31,61 +31,62 @@ const groupedEntries = entries.reduce((map, entry) => {
   return map // Return the updated Map to the next step in the reduce function
 }, new Map())
 
-groupedEntries.set('FAV', favorites || [])
-
 // Now that we have our entries grouped by their first letter,
 // we iterate over the keys of the Map (i.e., the first letters).
-groupedEntries.forEach((entriesForLetter, letter) => {
-  // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
-  let chunks = []
-  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
-    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
-  }
-
-  // For each chunk, create a slide
-  chunks.forEach((chunk, chunkIndex, all_chunks) => {
-    // Create a new slide and assign it a class and id
-    const slide = document.createElement('div')
-    slide.className = 'slide'
-    slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
-    pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
-
-    // Create an unordered list element for this slide's content
-    let slideContent = document.createElement('ul')
-
-    // Iterate through each entry in the chunk
-    chunk.forEach(entry => {
-      // Create a new list item and button for each entry
-      let listItem = document.createElement('li')
-      let button = document.createElement('button')
-      // Set the button's text content to the entry
-      button.textContent = entry
-      // Attach an event listener to the button that calls the divClick function when clicked
-      button.addEventListener('click', () => divClick(entry))
-      // Append the button to the list item
-      listItem.appendChild(button)
-      // Append the list item to the unordered list
-      slideContent.appendChild(listItem)
+function createSlidesAndButtons() {
+  groupedEntries.set('FAV', favorites || [])
+  groupedEntries.forEach((entriesForLetter, letter) => {
+    // Split entriesForLetter into chunks of size MAX_ENTRIES_PER_SLIDE
+    let chunks = []
+    for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+      chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+    }
+  
+    // For each chunk, create a slide
+    chunks.forEach((chunk, chunkIndex, all_chunks) => {
+      // Create a new slide and assign it a class and id
+      const slide = document.createElement('div')
+      slide.className = 'slide'
+      slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
+      pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
+  
+      // Create an unordered list element for this slide's content
+      let slideContent = document.createElement('ul')
+  
+      // Iterate through each entry in the chunk
+      chunk.forEach(entry => {
+        // Create a new list item and button for each entry
+        let listItem = document.createElement('li')
+        let button = document.createElement('button')
+        // Set the button's text content to the entry
+        button.textContent = entry
+        // Attach an event listener to the button that calls the divClick function when clicked
+        button.addEventListener('click', () => divClick(entry))
+        // Append the button to the list item
+        listItem.appendChild(button)
+        // Append the list item to the unordered list
+        slideContent.appendChild(listItem)
+      })
+      // Set the slide's inner content to the unordered list we created
+      slide.appendChild(slideContent)
+  
+      // Append the new slide to the slideshow container
+      slidesContainer.appendChild(slide)
+  
+      // Create a new button for this subPagination, set its text and data attribute,
+      // and add an event listener for the click event.
+      // When clicked, the button will trigger the navigateToSlide function.
+      const button = document.createElement('button')
+      button.textContent = ``
+      button.dataset.slide = slide.id
+      button.dataset.pagination = pagination.id
+      button.addEventListener('click', navigateToSlide)
+  
+      // Add the button of the subPAgination to the pagination container
+      pagination.appendChild(button)
     })
-    // Set the slide's inner content to the unordered list we created
-    slide.appendChild(slideContent)
-
-    // Append the new slide to the slideshow container
-    slidesContainer.appendChild(slide)
-
-    // Create a new button for this subPagination, set its text and data attribute,
-    // and add an event listener for the click event.
-    // When clicked, the button will trigger the navigateToSlide function.
-    const button = document.createElement('button')
-    button.textContent = ``
-    button.dataset.slide = slide.id
-    button.dataset.pagination = pagination.id
-    button.addEventListener('click', navigateToSlide)
-
-    // Add the button of the subPAgination to the pagination container
-    pagination.appendChild(button)
   })
-})
+}
 // Now we create all Pagination buttons
 groupedEntries.forEach((entriesForLetter, letter) => {
 
