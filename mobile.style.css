@@ -94,15 +94,15 @@ body {
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    position: center;
+    position: flex;
+    width: max-content;
+    margin-right: 50px;
+    margin-left: auto;
 }
 
 .slideshow {
     display: flex;
-    flex-wrap: wrap;
     position: center;
-    margin-left: 0px;
-    margin-right: 40px;
     align-items: center;
     justify-content: center;
 }
@@ -121,14 +121,12 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    z-index: 1;
 }
 
 .pagination {
     display: inline-block;
     margin: 0;
     padding: 10px;
-    
 }
 
 .pagination button.active {
@@ -229,13 +227,6 @@ body {
     right: 0;
 }
 
-.container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
 
 .batman-logo {
     position: absolute;
