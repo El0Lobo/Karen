@@ -1,11 +1,11 @@
-Make pagination at the bottom permanent always show every possible button
-the new generated files hould appear when you are on the coresponding slide
 purge local storage and cache button top right (resets favorites? (not sure if possible to keep them) and fetches the site new) = trashcan 
 batlogo still not appearing (very essential)
 favorite function works on everything not just the generated buttons
 add footer
 force the page to be horizontal always (make them bitches turn their phones)
 when reloading the page the favorited buttons appear on every slide until you click or navigate to the star after that it fixes itself
+arrows broken
+show on which slide you are in the pagination and subpagination
 
 maybe:
 it should choose by itelf how many buttons fit on the screen instead of forcing it to have a set amount
