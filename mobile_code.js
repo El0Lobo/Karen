@@ -190,12 +190,9 @@ function animateLogo() {
   const logo = document.querySelector('.batman-logo');
   logo.classList.add('visible');
 
-  // Remove the 'visible' class after the animation ends with a small delay
-  logo.addEventListener('animationend', () => {
-    setTimeout(() => {
-      logo.classList.remove('visible');
-    }, 2);
-  });
+  setTimeout(() => {
+    logo.classList.remove('visible');
+  }, 2000);
 }
 ;
 
