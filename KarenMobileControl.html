@@ -9,7 +9,7 @@
     <link rel="manifest" href="/Stuff to host/site.webmanifest">
     <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png" type="image/png">
 
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, height=device-height initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
@@ -68,19 +68,27 @@
 
 // Define the maximum entries per slide based on screen resolution
 let MAX_ENTRIES_PER_SLIDE;
-
 function adjustEntriesPerSlide() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 375) {
-        MAX_ENTRIES_PER_SLIDE = 10; // Set the value for minimal mobile screen resolution
-    } else if (screenWidth <= 720) {
-        MAX_ENTRIES_PER_SLIDE = 30; // Set the value for tablet screen resolution in portrait mode
-    } else if (screenWidth <= 1080) {
-        MAX_ENTRIES_PER_SLIDE = 30; // Set the value for desktop screen resolution
-    } else if (screenWidth <= 1980) {
-        MAX_ENTRIES_PER_SLIDE = 80; // Set the value for desktop screen resolution
-    } else 
-        MAX_ENTRIES_PER_SLIDE = 100;
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  if (screenWidth <= 375 && screenHeight <= 667) {
+    MAX_ENTRIES_PER_SLIDE = 10; // Set the value for minimal mobile screen resolution (e.g., iPhone SE)
+  } else if (screenWidth <= 414 && screenHeight <= 736) {
+    MAX_ENTRIES_PER_SLIDE = 12; // Set the value for larger mobile screen resolution (e.g., iPhone 8 Plus)
+  } else if (screenWidth <= 768 && screenHeight <= 1024) {
+    MAX_ENTRIES_PER_SLIDE = 15; // Set the value for tablet screen resolution (e.g., iPad)
+  } else if (screenWidth <= 1280 && screenHeight <= 720) {
+    MAX_ENTRIES_PER_SLIDE = 16; // Set the value for 1280x720 screen resolution
+  } else if (screenWidth <= 1920 && screenHeight <= 1080) {
+    MAX_ENTRIES_PER_SLIDE = 70; // Set the value for 1920x1080 screen resolution
+  } else if (screenWidth <= 2560 && screenHeight <= 1440) {
+    MAX_ENTRIES_PER_SLIDE = 80; // Set the value for 2560x1440 screen resolution
+  } else if (screenWidth <= 3840 && screenHeight <= 2160) {
+    MAX_ENTRIES_PER_SLIDE = 90; // Set the value for 3840x2160 screen resolution
+  } else {
+    MAX_ENTRIES_PER_SLIDE = 100; // Set the default value for larger screen resolutions
+  }
     // Call a function to update the number of entries per slide in the slideshow
     updateEntriesPerSlide();
 }
