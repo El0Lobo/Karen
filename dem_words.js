@@ -371,7 +371,6 @@ entries = [
   "wait",
   "waluigi",
   "wambo1",
-  "wambo2",
   "warmth",
   "wasserpfeife",
   "waterstyle",
