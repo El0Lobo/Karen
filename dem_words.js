@@ -167,7 +167,6 @@ entries = [
   "ice",
   "ichfrag",
   "imp",
-  "importante",
   "indy",
   "insects",
   "intel",
