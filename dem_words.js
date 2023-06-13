@@ -326,6 +326,7 @@ entries = [
   "steelrain",
   "streikbrecher",
   "suddensus",
+  "sunrise",
   "superhot",
   "surprise",
   "surrender",
