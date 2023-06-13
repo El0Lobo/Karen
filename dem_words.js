@@ -203,6 +203,7 @@ entries = [
   "kohlen2",
   "kohlen3",
   "konig",
+  "korn",
   "kreuzwortbanane",
   "kucken",
   "kustenwache",
