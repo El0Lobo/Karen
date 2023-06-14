@@ -70,6 +70,7 @@ entries = [
   "convoy3",
   "coronan",
   "cricket",
+  "cursed",
   "damage",
   "danger",
   "dangly",
