@@ -63,7 +63,6 @@ entries = [
   "chuck",
   "chuck2",
   "clap",
-  "cletus",
   "clutch",
   "coin",
   "computersaysno",
