@@ -8,6 +8,7 @@ entries = [
   "ak47",
   "alarm",
   "alle3",
+  "allthekids",
   "animals",
   "ante",
   "apparate",
