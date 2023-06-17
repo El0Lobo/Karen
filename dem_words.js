@@ -378,6 +378,7 @@ entries = [
   "warmth",
   "wasserpfeife",
   "waterstyle",
+  "weast",
   "wee",
   "weewoo",
   "west",
