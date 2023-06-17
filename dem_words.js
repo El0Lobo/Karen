@@ -383,6 +383,7 @@ entries = [
   "wee",
   "weewoo",
   "west",
+  "westfired",
   "whip",
   "wildsau",
   "willhelm",
