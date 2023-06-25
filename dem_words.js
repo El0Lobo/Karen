@@ -130,6 +130,7 @@ entries = [
   "fresh",
   "fressen",
   "frozennorth",
+  "fuckthehostage",
   "fuhrer",
   "fun",
   "fussspuren",
