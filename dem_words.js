@@ -341,6 +341,7 @@ entries = [
   "suddensus",
   "sunrise",
   "superhot",
+  "supremenavalinvade",
   "surprise",
   "surrender",
   "sweetvictory",
