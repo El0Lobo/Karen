@@ -186,7 +186,12 @@ function toggleFullscreen() {
 function divClick(soundBox) {
   audio.play();
   startAnimation();
-  playDiscord(soundBox);
+  var number = Math.floor(Math.random() * 50)
+  if(number == 1) {
+    playDiscord("supremenavalinvade")
+  } else {
+    playDiscord(soundBox)
+  }
   animateLogo();
 }
 
