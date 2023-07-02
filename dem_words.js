@@ -284,6 +284,7 @@ entries = [
   "pokal2",
   "poochie",
   "popeye",
+  "power",
   "powerhouse",
   "praise",
   "praiselong",
