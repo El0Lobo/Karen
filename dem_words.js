@@ -390,6 +390,7 @@ entries = [
   "wambo1",
   "wambo2",
   "warmth",
+  "waserlaube",
   "wasserpfeife",
   "waterstyle",
   "weast",
