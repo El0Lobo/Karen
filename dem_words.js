@@ -111,7 +111,6 @@ entries = [
   "eliminator",
   "energiekrise",
   "epigram",
-  "erstertag",
   "erstertag1",
   "erstertag2",
   "esel",
