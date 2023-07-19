@@ -334,6 +334,7 @@ entries = [
   "segata3",
   "senat",
   "senior",
+  "servusmarshall",
   "shoes",
   "silencium",
   "skill",
