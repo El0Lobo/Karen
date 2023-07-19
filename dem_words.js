@@ -328,6 +328,7 @@ entries = [
   "schabernack",
   "schinkengeklaut",
   "scots",
+  "sechstreffer",
   "segata",
   "segata2",
   "segata3",
