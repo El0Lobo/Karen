@@ -107,6 +107,7 @@ entries = [
   "dump",
   "earthstyle",
   "east",
+  "eineidee",
   "einwas",
   "elch",
   "elected",
