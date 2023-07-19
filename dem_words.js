@@ -377,6 +377,7 @@ entries = [
   "twoknife",
   "unfall",
   "unserlied",
+  "unsistsofad",
   "uter",
   "uter2",
   "vector",
