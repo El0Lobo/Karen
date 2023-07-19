@@ -10,6 +10,7 @@ entries = [
   "alle3",
   "allthekids",
   "alteleier",
+  "amusiert",
   "animals",
   "ante",
   "apparate",
