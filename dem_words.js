@@ -239,6 +239,7 @@ entries = [
   "maul",
   "mcg",
   "messer",
+  "miristfad",
   "mister",
   "mojito",
   "monster",
