@@ -406,6 +406,7 @@ entries = [
   "weast",
   "wee",
   "weewoo",
+  "weistduwasdasist",
   "west",
   "westfired",
   "whip",
