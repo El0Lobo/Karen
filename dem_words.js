@@ -385,6 +385,7 @@ entries = [
   "veralbern",
   "verbrennen",
   "verhort",
+  "verschwinden",
   "victorymusic",
   "vigo",
   "vigo2",
