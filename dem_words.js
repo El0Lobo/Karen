@@ -240,6 +240,7 @@ entries = [
   "maechtiger",
   "magie",
   "mahok2",
+  "majestet",
   "matt",
   "matt2",
   "maul",
