@@ -247,6 +247,7 @@ entries = [
   "miristfad",
   "mister",
   "mojito",
+  "monarchenschweine",
   "monster",
   "monsterkill",
   "mosq",
