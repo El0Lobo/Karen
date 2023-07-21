@@ -83,6 +83,7 @@ entries = [
   "dasvolk2",
   "dasvolk3",
   "deckungdeswaldes",
+  "deinname",
   "deja",
   "demons",
   "den",
