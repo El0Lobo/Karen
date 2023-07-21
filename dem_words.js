@@ -270,6 +270,7 @@ entries = [
   "norules",
   "nuke",
   "oesterreich",
+  "oesterreich2",
   "oh",
   "ohhh",
   "ohno",
