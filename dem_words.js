@@ -1,5 +1,6 @@
 entries = [
   "200puls",
+  "200schwarzerbildschirm",
   "321",
   "a",
   "achild",
