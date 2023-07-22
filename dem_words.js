@@ -365,6 +365,7 @@ entries = [
   "surprise",
   "surrender",
   "sweetvictory",
+  "tagimarsch",
   "talk",
   "tank",
   "tasty",
