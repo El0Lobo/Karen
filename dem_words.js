@@ -232,6 +232,7 @@ entries = [
   "lead",
   "legion",
   "lektion",
+  "letsgo",
   "leute",
   "liebe",
   "lighter",
