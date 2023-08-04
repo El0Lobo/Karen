@@ -430,6 +430,7 @@ entries = [
   "wissen",
   "wissenschaften",
   "wits",
+  "wochenende",
   "wow",
   "wow2",
   "wrong",
