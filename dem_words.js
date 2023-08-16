@@ -434,6 +434,7 @@ entries = [
   "wee",
   "weewoo",
   "weistduwasdasist",
+  "wert",
   "west",
   "westfired",
   "whip",
