@@ -340,6 +340,7 @@ entries = [
   "sand",
   "schabernack",
   "schinkengeklaut",
+  "schwachsinn",
   "scots",
   "sechstreffer",
   "segata",
