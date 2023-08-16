@@ -192,6 +192,7 @@ entries = [
   "ichbegrueszesie",
   "ichfrag",
   "imp",
+  "implosionstechnologie",
   "indy",
   "insects",
   "intel",
