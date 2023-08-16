@@ -361,6 +361,7 @@ entries = [
   "sodom",
   "sogutwietot",
   "soklug",
+  "sonne",
   "soviet",
   "speedra",
   "spinnengift",
