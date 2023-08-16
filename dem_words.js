@@ -4,6 +4,7 @@ entries = [
   "200puls",
   "200schwarzerbildschirm",
   "321",
+  "90prozent",
   "a",
   "achild",
   "agameofchess",
