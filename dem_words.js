@@ -368,6 +368,7 @@ entries = [
   "speedra",
   "spinnengift",
   "steelrain",
+  "strafplanet",
   "streikbrecher",
   "suddensus",
   "sunrise",
