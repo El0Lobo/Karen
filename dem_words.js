@@ -187,6 +187,7 @@ entries = [
   "hurr",
   "hutstander",
   "ice",
+  "ichbegrueszesie",
   "ichfrag",
   "imp",
   "indy",
