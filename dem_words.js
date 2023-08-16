@@ -345,6 +345,7 @@ entries = [
   "sand",
   "schabernack",
   "schinkengeklaut",
+  "schnee",
   "schwachsinn",
   "scots",
   "sechstreffer",
