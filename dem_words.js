@@ -443,6 +443,7 @@ entries = [
   "willi",
   "wissen",
   "wissenschaften",
+  "wissenumdiewahrephysik",
   "wits",
   "wochenende",
   "wow",
