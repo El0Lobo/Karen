@@ -437,6 +437,7 @@ entries = [
   "wert",
   "west",
   "westfired",
+  "wetterkrieg",
   "whip",
   "wildsau",
   "willhelm",
