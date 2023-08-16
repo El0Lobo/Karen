@@ -94,6 +94,7 @@ entries = [
   "demons",
   "den",
   "derblitz",
+  "derelektrojude",
   "dergeht",
   "diablo",
   "diearbeit",
