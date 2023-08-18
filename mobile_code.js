@@ -290,33 +290,14 @@ document.addEventListener('contextmenu', (event) => {
   if (event.target.tagName === 'BUTTON') {
     // Store the current button
     currentButton = event.target
-
-    // Show the context menu at the cursor position
-    contextMenu.style.left = `${event.clientX}px`
-    contextMenu.style.top = `${event.clientY}px`
-    contextMenu.hidden = false
+    const menu = document.getElementById('context-menu')
+    menu.style.display = 'block'
   }
-})
-
-// Handle click on the favourite button
-favouriteButton.addEventListener('click', () => {
-  // Toggle the favourite status of the current button
-  toggleFavorite(currentButton.innerHTML)
-
-  // Hide the context menu
-  contextMenu.hidden = true
-})
-
-// Handle click anywhere else on the document
-document.addEventListener('click', () => {
-  // Hide the context menu
-  contextMenu.hidden = true
 })
 
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault()
   const menu = document.getElementById('context-menu')
-  menu.style.display = 'block'
   menu.style.transform = 'scale(0)'
   menu.style.top = `${e.clientY}px`
   menu.style.left = `${e.clientX}px`
@@ -326,14 +307,28 @@ document.addEventListener('contextmenu', function (e) {
 })
 
 document.addEventListener('click', function (e) {
-  const menu = document.getElementById('context-menu')
-  if (e.target !== menu && !menu.contains(e.target)) {
-    menu.style.transform = 'scale(0)'
-    setTimeout(() => {
-      menu.style.display = 'none'
-    }, 300) // Hide the menu after the "implosion" animation completes
-  }
+      const menu = document.getElementById('context-menu')
+      if (e.target !== menu && !menu.contains(e.target)) {
+        menu.style.transform = 'scale(0)'
+        setTimeout(() => {
+          menu.style.display = 'none'
+        }, 300) // Hide the menu after the "implosion" animation completes
+      }
+    })
+
+// Handle click on the favourite button
+favouriteButton.addEventListener('click', () => {
+  // Toggle the favourite status of the current button
+  toggleFavorite(currentButton.innerHTML)
 })
+
+// Handle click anywhere else on the document
+document.addEventListener('click', () => {
+  // Hide the context menu
+  contextMenu.hidden = true
+})
+
+
 
 function updateFavButtonVisibility() {
   // Get the FAV button
@@ -352,28 +347,6 @@ function updateFavButtonVisibility() {
 
 // Initially hide the FAV button if there are no favorites
 updateFavButtonVisibility()
-
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault()
-  const menu = document.getElementById('context-menu')
-  menu.style.display = 'block'
-  menu.style.transform = 'scale(0)'
-  menu.style.top = `${e.clientY}px`
-  menu.style.left = `${e.clientX}px`
-  setTimeout(() => {
-    menu.style.transform = 'scale(1)'
-  }, 1) // Set the scale back to normal after 1 millisecond
-})
-
-document.addEventListener('click', function (e) {
-  const menu = document.getElementById('context-menu')
-  if (e.target !== menu && !menu.contains(e.target)) {
-    menu.style.transform = 'scale(0)'
-    setTimeout(() => {
-      menu.style.display = 'none'
-    }, 300) // Hide the menu after the "implosion" animation completes
-  }
-})
 
 function toggleFavorite(buttonId) {
   //check if i remove or add
@@ -401,6 +374,10 @@ function toggleFavorite(buttonId) {
 
   // Recreate 'FAV' slides and buttons
   createSlidesAndButtons('FAV', favorites, remove)
+
+  // Hide the context menu
+  const menu = document.getElementById('context-menu')
+  menu.style.display = 'block'
 }
 
 // For each chunk, create a slide
