@@ -9,7 +9,7 @@
     <link rel="manifest" href="/Stuff to host/site.webmanifest">
     <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png" type="image/png">
 
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, height=device-height initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
@@ -56,7 +56,7 @@
     </div>
 
     <div class="batman-logo"></div>
-
+    
     <button class="skip-button">
         <span class="fas fa-forward"></span>
     </button>
@@ -65,36 +65,47 @@
     </button>
     
     <script>
-        // Define the maximum entries per slide based on screen resolution
-        let MAX_ENTRIES_PER_SLIDE;
 
-        function adjustEntriesPerSlide() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth <= 640) {
-            MAX_ENTRIES_PER_SLIDE = 10; // Set the value for small screen resolution
-        } else if (screenWidth <= 1280) {
-            MAX_ENTRIES_PER_SLIDE = 30; // Set the value for HD resolution
-        } else if (screenWidth <= 1920) {
-            MAX_ENTRIES_PER_SLIDE = 80; // Set the value for FHD resolution
-        } else {
-            MAX_ENTRIES_PER_SLIDE = 70; // Set the value for UHD resolution
-        }
-            // Call a function to update the number of entries per slide in the slideshow
-            updateEntriesPerSlide();
-        }
+// Define the maximum entries per slide based on screen resolution
+let MAX_ENTRIES_PER_SLIDE;
+function adjustEntriesPerSlide() {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
 
-        function updateEntriesPerSlide() {
-            // You can use the MAX_ENTRIES_PER_SLIDE variable to update the number of entries per slide dynamically
-            // For example, you can select the slideshow element and modify its behavior or content based on the value of MAX_ENTRIES_PER_SLIDE
-            const slideshow = document.querySelector('.slideshow');
-            // ... Perform necessary updates to the slideshow based on MAX_ENTRIES_PER_SLIDE ...
-        }
+  if (screenWidth <= 375 && screenHeight <= 667) {
+    MAX_ENTRIES_PER_SLIDE = 10; // Set the value for minimal mobile screen resolution (e.g., iPhone SE)
+  } else if (screenWidth <= 414 && screenHeight <= 736) {
+    MAX_ENTRIES_PER_SLIDE = 12; // Set the value for larger mobile screen resolution (e.g., iPhone 8 Plus)
+  } else if (screenWidth <= 768 && screenHeight <= 1024) {
+    MAX_ENTRIES_PER_SLIDE = 15; // Set the value for tablet screen resolution (e.g., iPad)
+  } else if (screenWidth <= 1280 && screenHeight <= 720) {
+    MAX_ENTRIES_PER_SLIDE = 28; // Set the value for 1280x720 screen resolution
+  } else if (screenWidth <= 1920 && screenHeight <= 1080) {
+    MAX_ENTRIES_PER_SLIDE = 70; // Set the value for 1920x1080 screen resolution
+  } else if (screenWidth <= 2560 && screenHeight <= 1440) {
+    MAX_ENTRIES_PER_SLIDE = 80; // Set the value for 2560x1440 screen resolution
+  } else if (screenWidth <= 3840 && screenHeight <= 2160) {
+    MAX_ENTRIES_PER_SLIDE = 90; // Set the value for 3840x2160 screen resolution
+  } else {
+    MAX_ENTRIES_PER_SLIDE = 100; // Set the default value for larger screen resolutions
+  }
+    // Call a function to update the number of entries per slide in the slideshow
+    updateEntriesPerSlide();
+}
 
-        // Adjust the entries per slide initially
-        adjustEntriesPerSlide();
+function updateEntriesPerSlide() {
+    // You can use the MAX_ENTRIES_PER_SLIDE variable to update the number of entries per slide dynamically
+    // For example, you can select the slideshow element and modify its behavior or content based on the value of MAX_ENTRIES_PER_SLIDE
+    const slideshow = document.querySelector('.slideshow');
+    // ... Perform necessary updates to the slideshow based on MAX_ENTRIES_PER_SLIDE ...
+}
 
-        // Add an event listener for screen resize
-        window.addEventListener('resize', adjustEntriesPerSlide);
+// Adjust the entries per slide initially
+adjustEntriesPerSlide();
+
+// Add an event listener for screen resize
+window.addEventListener('resize', adjustEntriesPerSlide);
+
     </script>
 
     <script src="mobile_code.js"></script>
