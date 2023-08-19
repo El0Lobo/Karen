@@ -2,8 +2,6 @@
 const slidesContainer = document.querySelector('.slideshow')
 const pagination = document.querySelector('.pagination')
 const paginationContainer = document.querySelector('.pagination-container')
-const arrowLeft = document.querySelector('.arrow.left')
-const arrowRight = document.querySelector('.arrow.right')
 const muteButton = document.querySelector('.mute-button')
 
 const audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3')
@@ -154,23 +152,13 @@ function navigateToSlide(event) {
   currentSlideIndex = Array.from(pageButtons).findIndex(button => button.classList.contains('active'))
 }
 
-function navigateSlides(direction) {
-  const slides = document.querySelectorAll('.slide')
-  const pageButtons = document.querySelectorAll('.pagination button')
-
-  slides[currentSlideIndex].classList.remove('active')
-  pageButtons[currentSlideIndex].classList.remove('active')
-
-  currentSlideIndex = direction === 'left'
-    ? (currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1)
-    : (currentSlideIndex === slides.length - 1 ? 0 : currentSlideIndex + 1)
-
-  slides[currentSlideIndex].classList.add('active')
-  pageButtons[currentSlideIndex].classList.add('active')
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
 }
 
-arrowLeft.addEventListener('click', () => navigateSlides('left'))
-arrowRight.addEventListener('click', () => navigateSlides('right'))
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
 
 function toggleFullscreen() {
   if (document.fullscreenElement) {
@@ -182,7 +170,6 @@ function toggleFullscreen() {
   }
 }
 
-// The following functions are not used within this script yet, it seems
 function divClick(soundBox) {
   audio.play();
   startAnimation();
@@ -379,6 +366,62 @@ function toggleFavorite(buttonId) {
   const menu = document.getElementById('context-menu')
   menu.style.display = 'block'
 }
+
+//Handling of Tags
+tags.forEach(element => {
+  tagSlide = document.getElementById('mySidenav')
+  //Create a Textlabel inside the Side Navigation
+  const tagLabel = document.createElement('a')
+  //Name the Textlabel
+  tagLabel.textContent = element[0]
+  //Create a new Slide and atatch it to the Slide-Container
+  createTagSlide(element[0], element[1])
+  tagLabel.dataset.slide = element[0]
+  tagLabel.dataset.pagination = `-${element[0]}-`
+  tagLabel.addEventListener('click', navigateToSubPagination)
+  tagSlide.appendChild(tagLabel)
+  
+});
+
+function createTagSlide (letter, entriesForLetter){
+
+  let chunks = []
+  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+  }
+
+  chunks.forEach((chunk, chunkIndex, all_chunks) => {
+    // Create a new slide and assign it a class and id
+    const slide = document.createElement('div')
+    slide.className = 'slide'
+    slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
+    pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
+  
+    // Create an unordered list element for this slide's content
+    let slideContent = document.createElement('ul')
+  
+    // Iterate through each entry in the chunk
+    chunk.forEach(entry => {
+      // Create a new list item and button for each entry
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      // Set the button's text content to the entry
+      button.textContent = entry
+      // Attach an event listener to the button that calls the divClick function when clicked
+      button.addEventListener('click', () => divClick(entry))
+      // Append the button to the list item
+      listItem.appendChild(button)
+      // Append the list item to the unordered list
+      slideContent.appendChild(listItem)
+    })
+    // Set the slide's inner content to the unordered list we created
+    slide.appendChild(slideContent)
+  
+    // Append the new slide to the slideshow container
+    slidesContainer.appendChild(slide)
+  })
+}
+
 
 // For each chunk, create a slide
 function createSlidesAndButtons(letter, entriesForLetter, remove) {
