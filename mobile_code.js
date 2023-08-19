@@ -158,7 +158,9 @@ function openNav() {
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-} 
+  tags[0][1].push("test")
+  console.log(tags[0][1])
+}
 
 function toggleFullscreen() {
   if (document.fullscreenElement) {
