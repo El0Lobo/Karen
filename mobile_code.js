@@ -473,3 +473,12 @@ function createSlidesAndButtons(letter, entriesForLetter, remove) {
     }
   }
 }
+
+const toggleStyleButton = document.getElementById("toggle-style-button");
+const styleSheets = document.querySelectorAll('link[rel="stylesheet"]');
+
+toggleStyleButton.addEventListener("click", () => {
+    for (const stylesheet of styleSheets) {
+        stylesheet.disabled = !stylesheet.disabled;
+    }
+});

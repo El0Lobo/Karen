@@ -29,19 +29,18 @@ header {
 
 #background {
     position: fixed;
-    height: 250%;
-    width: 250%;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
     z-index: -1;
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    overflow: visible; 
 }
 
 .mute-button {
@@ -93,27 +92,24 @@ body {
 }
 
 .slideshow-container {
-    overflow: hidden;
-    align-items: center;
+    align-items: center; /* Vertically center the container */
+    justify-content: center; /* Horizontally center the container */
+    display: flex;
+    height: 96vh; /* Set an appropriate height for the container */
     width: 100%;
+    flex-wrap: wrap; /* Wrap overflowing items to the next line */
 }
 
 .slideshow {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
 }
 
 .slide {
     display: none;
-    width: 100%;
-    justify-content: center;
 }
 
 .slide.active {
     display: flex;
-    width: 100%;
 }
 
 .pagination-container {
@@ -130,22 +126,8 @@ body {
     margin: 0;
     padding: 10px;    
     width: 100%;
+    margin-top: 20px; 
 }
-
-.pagination button.active {
-    display: inline-block;
-    position: relative;
-    justify-content: center;
-    transform: translateX(50%);
-    margin: 10px;
-    padding: 8px;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    border-radius: 20px;
-    z-index: 12;
-}
-
 
 .pagination button {
  display: none;
@@ -169,18 +151,20 @@ body {
 .slide ul {
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center; /* Vertically center the items */
     justify-content: center;
-    position: center;
+    position: relative;
     margin-right: 2%;
+    overflow: visible;
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 
 .slide ul li {
     display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
     position: center;
+    overflow: visible;
 }
 
 .slide ul li button {
@@ -193,7 +177,6 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     padding: 10px 8px 0px;
     box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3), 2px 5px 5px #040404;
@@ -230,42 +213,6 @@ body {
     left: 0;
 }
 
-.batman-logo {
-    position: absolute;
-    transform:translateY(50%);
-    transform:translateX(50%);
-    width: 650px;
-    height: 400px;
-    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
-    background-size: cover;
-    background-position: center;
-    border: none;
-    z-index: -1;
-    opacity: 0;
-  }
-  
-  .batman-logo.visible {
-    opacity: 1;
-    z-index: 35;
-    animation: pulsate 0.7s infinite
-  }
-
-
-
-@keyframes pulsate {
-    0% {
-        transform: scale(0.6);
-    }
-
-    50% {
-        transform: scale(1.5);
-    }
-
-    100% {
-        transform: scale(0.6);
-    }
-}
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -279,25 +226,47 @@ body {
 #context-menu {
     position: fixed;
     z-index: 1;
-    border-radius: 10%;
+    border-radius: 40%;
     font-family: "Special Elite", Arial, sans-serif;
+    display: inline-block;
 }
 
 #context-menu button {
     border: none;
-    border-radius: 12%;
-    padding: 8px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
     transition-duration: 0.4s;
     cursor: pointer;
-
+    border-radius: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: #921196;
 }
 
+#toggle-style-button {
+    z-index: 100;
+    position: fixed;
+    background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/nobatkaren.png) no-repeat center center;
+    background-size: contain; /* Adjust this property to control how the image fits within the button */
+    width: 7em; /* Set a specific width for the button */
+    height: 7em; /* Set a specific height for the button */
+    border: none;
+    bottom: 0px;
+    left: 0px;
+}
+    
 #context-menu button:hover {
-    background-color: #4CAF50;
+    background-color: #d7d3aa;
+}
+
+.star-icon {
+    font-size: 3em; /* Adjust the font size to make the star larger */
+    text-align: center;
+    color:  #cab600;
+    transition: color 0.4s;
+    cursor: pointer;
+}
+ 
+.star-icon:hover {
+    color: #000000; /* Change the color on hover */
 }
 
 .sidenav {
@@ -322,11 +291,14 @@ body {
     display: block;
     transition: 0.3s;
     font-family: "Permanent Marker", Arial, sans-serif;
+    cursor: none;
+    background: none;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
     color: #f1f1f1;
+    cursor: pointer;
   }
   
   /* Position and style the close button (top right corner) */
@@ -336,10 +308,52 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    cursor: pointer;
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+
   }
+
+/* Define the pulsate animation separately */
+@keyframes pulsate {
+    0% {
+        transform: scale(0.6) ;
+    }
+
+    50% {
+        transform: scale(1.5) ;
+    }
+
+    100% {
+        transform: scale(0.6) ;
+    } 
+}
+
+.batman-logo {
+    position: fixed;
+    top: -50%;
+    left: -1%;
+    width: 650px;
+    height: 400px;
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    opacity: 0;
+    z-index: -1;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 30%;
+    margin-bottom: 30%;
+}
+
+
+.batman-logo.visible {
+    opacity: 1 !important;
+    z-index: 1000 !important;
+    animation: pulsate 0.7s infinite !important;
+}
