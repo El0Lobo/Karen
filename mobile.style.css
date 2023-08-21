@@ -40,7 +40,9 @@ header {
 }
 
 body {
-    overflow: visible; 
+    overflow: visible;
+    width: 98%;
+    height: 96vh;
 }
 
 .mute-button {
@@ -72,11 +74,13 @@ body {
 }
 
 .skip-button {
-    left: 30px; /* Adjust the left position as needed */
+    left: 30px;
+    /* Adjust the left position as needed */
 }
 
 .stop-button {
-    left: 60px; /* Adjust the left position as needed */
+    left: 60px;
+    /* Adjust the left position as needed */
 }
 
 .skip-button span,
@@ -92,12 +96,16 @@ body {
 }
 
 .slideshow-container {
-    align-items: center; /* Vertically center the container */
-    justify-content: center; /* Horizontally center the container */
+    align-items: center;
+    /* Vertically center the container */
+    justify-content: center;
+    /* Horizontally center the container */
     display: flex;
-    height: 96vh; /* Set an appropriate height for the container */
+    height: 96vh;
+    /* Set an appropriate height for the container */
     width: 100%;
-    flex-wrap: wrap; /* Wrap overflowing items to the next line */
+    flex-wrap: wrap;
+    /* Wrap overflowing items to the next line */
 }
 
 .slideshow {
@@ -124,16 +132,16 @@ body {
 .pagination {
     display: inline-block;
     margin: 0;
-    padding: 10px;    
+    padding: 10px;
     width: 100%;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .pagination button {
- display: none;
+    display: none;
 }
 
-#paginationbutton {    
+#paginationbutton {
     display: inline-block;
     position: relative;
     bottom: 0;
@@ -147,11 +155,12 @@ body {
     font-size: large;
     z-index: 11;
 }
-     
+
 .slide ul {
     display: flex;
     flex-wrap: wrap;
-    align-items: center; /* Vertically center the items */
+    align-items: center;
+    /* Vertically center the items */
     justify-content: center;
     position: relative;
     margin-right: 2%;
@@ -245,46 +254,59 @@ body {
     z-index: 100;
     position: fixed;
     background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/nobatkaren.png) no-repeat center center;
-    background-size: contain; /* Adjust this property to control how the image fits within the button */
-    width: 7em; /* Set a specific width for the button */
-    height: 7em; /* Set a specific height for the button */
+    background-size: contain;
+    /* Adjust this property to control how the image fits within the button */
+    width: 7em;
+    /* Set a specific width for the button */
+    height: 7em;
+    /* Set a specific height for the button */
     border: none;
     bottom: -20px;
     left: -20px;
-    cursor: pointer;
 }
-    
+
 #context-menu button:hover {
     background-color: #d7d3aa;
 }
 
 .star-icon {
-    font-size: 3em; /* Adjust the font size to make the star larger */
+    font-size: 3em;
+    /* Adjust the font size to make the star larger */
     text-align: center;
-    color:  #cab600;
+    color: #cab600;
     transition: color 0.4s;
     cursor: pointer;
 }
- 
+
 .star-icon:hover {
-    color: #000000; /* Change the color on hover */
+    color: #000000;
+    /* Change the color on hover */
 }
 
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -294,63 +316,81 @@ body {
     font-family: "Permanent Marker", Arial, sans-serif;
     cursor: none;
     background: none;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
     color: #f1f1f1;
     cursor: pointer;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
     cursor: pointer;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+}
 
-  }
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+
+}
 
 /* Define the pulsate animation separately */
 @keyframes pulsate {
     0% {
-        transform: scale(0.6) ;
+        transform: scale(0.6);
     }
 
     50% {
-        transform: scale(1.5) ;
+        transform: scale(1.5);
     }
 
     100% {
-        transform: scale(0.6) ;
-    } 
+        transform: scale(0.6);
+    }
 }
 
 .batman-logo {
-    position: fixed !important;
-    top: 23% !important;
-    left: 28% !important;
-    width: 650px;
-    height: 400px;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 96vh;
+    width: 100%;
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
     background-size: cover;
     background-position: center;
     border: none;
     opacity: 0;
-    z-index: -1;
+    z-index: -1; /* Set a positive initial z-index */
+    overflow: visible;
 }
 
 
+
 .batman-logo.visible {
-    opacity: 1 !important;
-    z-index: 1000 !important;
-    animation: pulsate 0.7s infinite !important;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    opacity: 1;
+    z-index: 1000;
+    animation: pulsate 0.7s infinite;
+    height: 40vh;
+    width: 60vh;
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    overflow: visible;
 }

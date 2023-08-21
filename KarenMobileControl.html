@@ -2,31 +2,34 @@
 <html>
 
 <head>
-    <title>Karen Complaint Form</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/Stuff to host/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Stuff to host/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Stuff to host/favicon-16x16.png">
     <link rel="manifest" href="/Stuff to host/site.webmanifest">
-    <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png" type="image/png">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="mobile.style.css">
-    
     <script src="dem_words.js"></script>
     <script src="dem_tags.js"></script>
-</head>        
+    <title>Karen Complaint Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="mobile.style.css">
+
+    <script src="dem_words.js"></script>
+    <script src="dem_tags.js"></script>
+</head>
 
 <body>
     <header>
         <h1 style="margin-top: 0px;">Complaint Form</h1>
     </header>
     <div id="background"></div>
+    <div class="batman-logo"></div>
     <button class="fullscreen-button" onclick="toggleFullscreen()">
         <i class="fa-solid fa-maximize"></i>
     </button>
@@ -46,10 +49,10 @@
         </div>
 
 
-        
+
         <div class="arrow left" onclick="openNav()">&gt;</div>
         <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
     </div>
 
@@ -59,13 +62,11 @@
     <div id="context-menu" hidden>
         <button id="favourite-button">
             <div class="star-icon">&#9733;</div>
-        </div>
-        
-        </button>
     </div>
 
-    <div class="batman-logo"></div>
-    
+    </button>
+    </div>
+
     <button class="skip-button">
         <span class="fas fa-forward"></span>
     </button>
@@ -75,32 +76,32 @@
     <button id="toggle-style-button"></button>
     <script>
 
-// Define the maximum entries per slide based on screen resolution
-let MAX_ENTRIES_PER_SLIDE;
-function adjustEntriesPerSlide() {
-  const screenWidth = window.innerWidth;
+        // Define the maximum entries per slide based on screen resolution
+        let MAX_ENTRIES_PER_SLIDE;
+        function adjustEntriesPerSlide() {
+            const screenWidth = window.innerWidth;
 
-  if (screenWidth <= 375 ) {
-    MAX_ENTRIES_PER_SLIDE = 100; // Set the value for minimal mobile screen resolution (e.g., iPhone SE)
-  } else {
-    MAX_ENTRIES_PER_SLIDE = 1000; // Set the default value for larger screen resolutions
-  }
-    // Call a function to update the number of entries per slide in the slideshow
-    updateEntriesPerSlide();
-}
+            if (screenWidth <= 375) {
+                MAX_ENTRIES_PER_SLIDE = 100; // Set the value for minimal mobile screen resolution (e.g., iPhone SE)
+            } else {
+                MAX_ENTRIES_PER_SLIDE = 1000; // Set the default value for larger screen resolutions
+            }
+            // Call a function to update the number of entries per slide in the slideshow
+            updateEntriesPerSlide();
+        }
 
-function updateEntriesPerSlide() {
-    // You can use the MAX_ENTRIES_PER_SLIDE variable to update the number of entries per slide dynamically
-    // For example, you can select the slideshow element and modify its behavior or content based on the value of MAX_ENTRIES_PER_SLIDE
-    const slideshow = document.querySelector('.slideshow');
-    // ... Perform necessary updates to the slideshow based on MAX_ENTRIES_PER_SLIDE ...
-}
+        function updateEntriesPerSlide() {
+            // You can use the MAX_ENTRIES_PER_SLIDE variable to update the number of entries per slide dynamically
+            // For example, you can select the slideshow element and modify its behavior or content based on the value of MAX_ENTRIES_PER_SLIDE
+            const slideshow = document.querySelector('.slideshow');
+            // ... Perform necessary updates to the slideshow based on MAX_ENTRIES_PER_SLIDE ...
+        }
 
-// Adjust the entries per slide initially
-adjustEntriesPerSlide();
+        // Adjust the entries per slide initially
+        adjustEntriesPerSlide();
 
-// Add an event listener for screen resize
-window.addEventListener('resize', adjustEntriesPerSlide);
+        // Add an event listener for screen resize
+        window.addEventListener('resize', adjustEntriesPerSlide);
 
     </script>
 
