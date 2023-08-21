@@ -334,9 +334,9 @@ body {
 }
 
 .batman-logo {
-    position: fixed;
-    top: -30%;
-    left: -1%;
+    position: fixed !important;
+    top: 23% !important;
+    left: 28% !important;
     width: 650px;
     height: 400px;
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png');
@@ -345,10 +345,6 @@ body {
     border: none;
     opacity: 0;
     z-index: -1;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 30%;
-    margin-bottom: 30%;
 }
 
 
