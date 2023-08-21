@@ -249,8 +249,8 @@ body {
     width: 7em; /* Set a specific width for the button */
     height: 7em; /* Set a specific height for the button */
     border: none;
-    bottom: 0px;
-    left: 0px;
+    bottom: -20px;
+    left: -20px;
 }
     
 #context-menu button:hover {
