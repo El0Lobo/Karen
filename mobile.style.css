@@ -263,6 +263,7 @@ body {
     border: none;
     bottom: -20px;
     left: -20px;
+    cursor: pointer;
 }
 
 #context-menu button:hover {
