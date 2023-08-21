@@ -2,8 +2,6 @@
 const slidesContainer = document.querySelector('.slideshow')
 const pagination = document.querySelector('.pagination')
 const paginationContainer = document.querySelector('.pagination-container')
-const arrowLeft = document.querySelector('.arrow.left')
-const arrowRight = document.querySelector('.arrow.right')
 const muteButton = document.querySelector('.mute-button')
 
 const audio = new Audio('https://www.myinstants.com/media/sounds/batman-transition-download-sound-link.mp3')
@@ -154,23 +152,15 @@ function navigateToSlide(event) {
   currentSlideIndex = Array.from(pageButtons).findIndex(button => button.classList.contains('active'))
 }
 
-function navigateSlides(direction) {
-  const slides = document.querySelectorAll('.slide')
-  const pageButtons = document.querySelectorAll('.pagination button')
-
-  slides[currentSlideIndex].classList.remove('active')
-  pageButtons[currentSlideIndex].classList.remove('active')
-
-  currentSlideIndex = direction === 'left'
-    ? (currentSlideIndex === 0 ? slides.length - 1 : currentSlideIndex - 1)
-    : (currentSlideIndex === slides.length - 1 ? 0 : currentSlideIndex + 1)
-
-  slides[currentSlideIndex].classList.add('active')
-  pageButtons[currentSlideIndex].classList.add('active')
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
 }
 
-arrowLeft.addEventListener('click', () => navigateSlides('left'))
-arrowRight.addEventListener('click', () => navigateSlides('right'))
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  tags[0][1].push("test")
+  console.log(tags[0][1])
+}
 
 function toggleFullscreen() {
   if (document.fullscreenElement) {
@@ -182,7 +172,6 @@ function toggleFullscreen() {
   }
 }
 
-// The following functions are not used within this script yet, it seems
 function divClick(soundBox) {
   audio.play();
   startAnimation();
@@ -290,33 +279,14 @@ document.addEventListener('contextmenu', (event) => {
   if (event.target.tagName === 'BUTTON') {
     // Store the current button
     currentButton = event.target
-
-    // Show the context menu at the cursor position
-    contextMenu.style.left = `${event.clientX}px`
-    contextMenu.style.top = `${event.clientY}px`
-    contextMenu.hidden = false
+    const menu = document.getElementById('context-menu')
+    menu.style.display = 'block'
   }
-})
-
-// Handle click on the favourite button
-favouriteButton.addEventListener('click', () => {
-  // Toggle the favourite status of the current button
-  toggleFavorite(currentButton.innerHTML)
-
-  // Hide the context menu
-  contextMenu.hidden = true
-})
-
-// Handle click anywhere else on the document
-document.addEventListener('click', () => {
-  // Hide the context menu
-  contextMenu.hidden = true
 })
 
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault()
   const menu = document.getElementById('context-menu')
-  menu.style.display = 'block'
   menu.style.transform = 'scale(0)'
   menu.style.top = `${e.clientY}px`
   menu.style.left = `${e.clientX}px`
@@ -326,14 +296,28 @@ document.addEventListener('contextmenu', function (e) {
 })
 
 document.addEventListener('click', function (e) {
-  const menu = document.getElementById('context-menu')
-  if (e.target !== menu && !menu.contains(e.target)) {
-    menu.style.transform = 'scale(0)'
-    setTimeout(() => {
-      menu.style.display = 'none'
-    }, 300) // Hide the menu after the "implosion" animation completes
-  }
+      const menu = document.getElementById('context-menu')
+      if (e.target !== menu && !menu.contains(e.target)) {
+        menu.style.transform = 'scale(0)'
+        setTimeout(() => {
+          menu.style.display = 'none'
+        }, 300) // Hide the menu after the "implosion" animation completes
+      }
+    })
+
+// Handle click on the favourite button
+favouriteButton.addEventListener('click', () => {
+  // Toggle the favourite status of the current button
+  toggleFavorite(currentButton.innerHTML)
 })
+
+// Handle click anywhere else on the document
+document.addEventListener('click', () => {
+  // Hide the context menu
+  contextMenu.hidden = true
+})
+
+
 
 function updateFavButtonVisibility() {
   // Get the FAV button
@@ -352,28 +336,6 @@ function updateFavButtonVisibility() {
 
 // Initially hide the FAV button if there are no favorites
 updateFavButtonVisibility()
-
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault()
-  const menu = document.getElementById('context-menu')
-  menu.style.display = 'block'
-  menu.style.transform = 'scale(0)'
-  menu.style.top = `${e.clientY}px`
-  menu.style.left = `${e.clientX}px`
-  setTimeout(() => {
-    menu.style.transform = 'scale(1)'
-  }, 1) // Set the scale back to normal after 1 millisecond
-})
-
-document.addEventListener('click', function (e) {
-  const menu = document.getElementById('context-menu')
-  if (e.target !== menu && !menu.contains(e.target)) {
-    menu.style.transform = 'scale(0)'
-    setTimeout(() => {
-      menu.style.display = 'none'
-    }, 300) // Hide the menu after the "implosion" animation completes
-  }
-})
 
 function toggleFavorite(buttonId) {
   //check if i remove or add
@@ -401,7 +363,67 @@ function toggleFavorite(buttonId) {
 
   // Recreate 'FAV' slides and buttons
   createSlidesAndButtons('FAV', favorites, remove)
+
+  // Hide the context menu
+  const menu = document.getElementById('context-menu')
+  menu.style.display = 'block'
 }
+
+//Handling of Tags
+tags.forEach(element => {
+  tagSlide = document.getElementById('mySidenav')
+  //Create a Textlabel inside the Side Navigation
+  const tagLabel = document.createElement('a')
+  //Name the Textlabel
+  tagLabel.textContent = element[0]
+  //Create a new Slide and atatch it to the Slide-Container
+  createTagSlide(element[0], element[1])
+  tagLabel.dataset.slide = element[0]
+  tagLabel.dataset.pagination = `-${element[0]}-`
+  tagLabel.addEventListener('click', navigateToSubPagination)
+  tagSlide.appendChild(tagLabel)
+  
+});
+
+function createTagSlide (letter, entriesForLetter){
+
+  let chunks = []
+  for (let i = 0; i < entriesForLetter.length; i += MAX_ENTRIES_PER_SLIDE) {
+    chunks.push(entriesForLetter.slice(i, i + MAX_ENTRIES_PER_SLIDE))
+  }
+
+  chunks.forEach((chunk, chunkIndex, all_chunks) => {
+    // Create a new slide and assign it a class and id
+    const slide = document.createElement('div')
+    slide.className = 'slide'
+    slide.id = `slide-${letter}-${chunkIndex + 1}` // IDs are now of the form `slide-A-1`, `slide-A-2`, etc.
+    pagination.id = `pagination-${letter}` // IDs are now of the form `pagination-A`, `pagination-B`, etc.
+  
+    // Create an unordered list element for this slide's content
+    let slideContent = document.createElement('ul')
+  
+    // Iterate through each entry in the chunk
+    chunk.forEach(entry => {
+      // Create a new list item and button for each entry
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+      // Set the button's text content to the entry
+      button.textContent = entry
+      // Attach an event listener to the button that calls the divClick function when clicked
+      button.addEventListener('click', () => divClick(entry))
+      // Append the button to the list item
+      listItem.appendChild(button)
+      // Append the list item to the unordered list
+      slideContent.appendChild(listItem)
+    })
+    // Set the slide's inner content to the unordered list we created
+    slide.appendChild(slideContent)
+  
+    // Append the new slide to the slideshow container
+    slidesContainer.appendChild(slide)
+  })
+}
+
 
 // For each chunk, create a slide
 function createSlidesAndButtons(letter, entriesForLetter, remove) {
@@ -451,3 +473,12 @@ function createSlidesAndButtons(letter, entriesForLetter, remove) {
     }
   }
 }
+
+const toggleStyleButton = document.getElementById("toggle-style-button");
+const styleSheets = document.querySelectorAll('link[rel="stylesheet"]');
+
+toggleStyleButton.addEventListener("click", () => {
+    for (const stylesheet of styleSheets) {
+        stylesheet.disabled = !stylesheet.disabled;
+    }
+});
