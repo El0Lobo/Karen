@@ -82,16 +82,24 @@
 
     let tags = new Map();
     let soundTagsMap = new Map();
-    let enteredTags = new Set(); // Store entered tags separately
 
     function addTag() {
-      const tagName = tagInput.value.trim();
-      if (tagName !== '') {
-        if (!tags.has(tagName) && !enteredTags.has(tagName)) {
-          enteredTags.add(tagName);
-          createTagCheckbox(tagName);
-        }
-      }
+  const tagName = tagInput.value.trim();
+  if (tagName !== '') {
+    if (!tags.has(tagName)) {
+      tags.set(tagName, []);
+      createTagCheckbox(tagName);
+      updateLocalStorage(); // Update local storage here
+    }
+    tagInput.value = ''; // Clear the input after adding the tag
+  }
+}
+
+
+    function addTagToDropdown(tagName) {
+      const option = document.createElement('option');
+      option.text = tagName;
+      soundList.add(option);
     }
 
     function createTagCheckbox(tagName) {
@@ -113,6 +121,7 @@
 
       soundTagsMap.set(selectedSound, selectedTags);
       updateAssociatedTagsList();
+      updateLocalStorage();
     }
 
     function updateAssociatedTagsList() {
@@ -178,8 +187,39 @@
       soundList.add(option);
     });
 
+    function updateLocalStorage() {
+      localStorage.setItem('soundTagsData', JSON.stringify({
+        tags: Array.from(tags),
+        soundTags: Array.from(soundTagsMap)
+      }));
+    }
+
+    function loadFromLocalStorage() {
+      const storedData = localStorage.getItem('soundTagsData');
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        tags = new Map(parsedData.tags);
+        soundTagsMap = new Map(parsedData.soundTags);
+        updateTagCheckboxes();
+        updateAssociatedTagsList();
+        loadTagsToDropdown(); // Load tags to the dropdown from local storage
+      }
+    }
+
+    function updateTagCheckboxes() {
+      tagCheckboxes.innerHTML = '';
+      tags.forEach((value, tagName) => createTagCheckbox(tagName));
+    }
+
+    function loadTagsToDropdown() {
+      tags.forEach((_value, tagName) => {
+        addTagToDropdown(tagName);
+      });
+    }
+
     // Load data from local storage when the page loads
     window.addEventListener('DOMContentLoaded', loadFromLocalStorage);
+
   </script>
 </body>
 </html>
