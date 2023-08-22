@@ -3,14 +3,12 @@
 <head>
   <title>Sound Tagging Tool</title>
   <style>
-    /* Your CSS styling here */
-
-    /* Center the content */
+    
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: 90vh;
       width: 100%;
       margin: 0;
       background-color: #292828;
@@ -21,18 +19,57 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto;
-      grid-gap: 20px;
+      grid-gap: 10px;
       width: 100%;
-      height: 94%;
-      padding: 20px;
+      height: 100%;
       background-color: rgb(50, 50, 50);
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .Title1 {
+      position: absolute;
+      top: 0%;
+      right: 40%;
+    }
+
+    .question-mark {
+      position: fixed;
+      cursor: pointer;
+      display: inline-block;
+      top: 1%;
+      right: 1%;
+    }
+
+    .question-mark span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #ffc400;
+      color: #292828;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 50%;
+      line-height: 20px;
+    }
+
+    .floating-text-container {
+      display: none;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1; /* Ensure it's above other content */
+      top: 0;
+      right: 320px; /* Adjust this value as needed */
+      transform: translateX(100%); /* Move container to the left */
+      width: 250px;
+      height: 320px;
     }
 
     .section {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
     }
 
@@ -46,10 +83,61 @@
       font-weight: bold;
     }
 
+    .intro-text {
+      font-size: 16px;
+      color: #ffc400;
+      position: absolute;
+      margin-top: 20px;
+      top: 15%;
+      left: 25%;
+      width: 15em;
+    }
+
+    .bottom-button-container {
+      position: fixed;
+      margin-top: 20px;
+      bottom: 2%;
+      left: 90%;
+    }
+
+    .floating-text-container {
+      display: none;
+      position: absolute;
+      background-color: #8d8c8c;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
   </style>
   <script src="dem_words.js"></script>
 </head>
 <body>
+
+  <div class="Title1">
+    <h1><strong>SoundFrustration Express</strong></h1>
+  </div>
+
+  <div class="bottom-button-container">
+    <button onclick="saveToFile()">Save to File</button>
+  </div>
+
+  <div class="question-mark">
+    <span>?</span>
+    <div class="floating-text-container">
+      <p><strong>Welcome to the Sound Tagging Tool!</strong></p>
+      <p>Tag sounds with associated tags using the options below:</p>
+      <ul>
+        <li><strong>Add Tag:</strong> Create new tags for sound associations.</li>
+        <li><strong>Associate Tags:</strong> Link selected tags with sound names.</li>
+        <li><strong>Combine:</strong> Merge content from two JavaScript files.</li>
+        <li><strong>Save to File:</strong> Download tag associations as a JavaScript file.</li>
+      </ul>
+      <p>Get started by selecting sounds, adding tags, and associating them!</p>
+    </div>
+  </div>
+    
+
   <div class="main-container">
     <div class="section" style="grid-column: 1 / span 1; grid-row: 1 / span 3;">
       <h2>Sound Names</h2>
@@ -69,18 +157,20 @@
       <div id="tagCheckboxes"></div>
     </div>
 
-    <div class="section" style="grid-column: 3 / span 1; grid-row: 1 / span 2;">
+    <div class="section" style="grid-column: 3 / span 1;">
       <h2>Sound List with Associated Tags</h2>
       <ul id="associatedTagsList"></ul>
     </div>
 
-    <div class="section" style="grid-column: 2 / span 1; grid-row: 3 / span 1;">
+    <div class="section" style="grid-column: 2 / span 1; grid-row: 3 / span 1; padding-bottom: -50px;">
       <h2>Combine</h2>
       <input type="file" id="upload1" accept=".js">
       <input type="file" id="upload2" accept=".js">
       <button onclick="combineFiles()">Combine</button>
     </div>
-    <button onclick="saveToFile()" style="grid-column: 2 / span 1; justify-self: center;">Save to File</button>
+   
+  <div class="bottom-button-container">
+    <button onclick="saveToFile()">Save to File</button>
   </div>
 
   <script>
@@ -301,5 +391,23 @@ fetch('dem_tags.js')
   window.addEventListener('DOMContentLoaded', loadFromLocalStorage);
 
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const questionMark = document.querySelector(".question-mark");
+    const floatingTextContainer = questionMark.querySelector(".floating-text-container");
+
+    questionMark.addEventListener("click", function() {
+      floatingTextContainer.style.display = "block";
+    });
+
+    document.addEventListener("click", function(event) {
+      if (!questionMark.contains(event.target)) {
+        floatingTextContainer.style.display = "none";
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
