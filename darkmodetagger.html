@@ -14,6 +14,7 @@
       margin: 0;
       background-color: #292828;
       color: #ffc400;
+
     }
 
     .main-container {
@@ -21,7 +22,7 @@
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto;
       grid-gap: 20px;
-      width: 800px;
+      width: 100%;
       padding: 20px;
       background-color: rgb(50, 50, 50);
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -37,6 +38,7 @@
     #soundList {
     background-color: #8d8c8c; /* Change this color to your preferred color */
     font-weight: bold;
+    height: 40vh;
   }
 
     #tagInput {
@@ -44,6 +46,12 @@
     font-weight: bold;
   }
 
+  #associatedTagsList {
+    margin-right: 60%;
+    font-weight: bold;
+    height: 40vh;
+  }
+  
   </style>
   <script src="dem_words.js"></script> 
 </head>
@@ -51,10 +59,19 @@
   <div class="main-container">
     <div class="section" style="grid-column: 1 / span 1; grid-row: 1 / span 2;">
       <h2>Sound Names</h2>
-      <select id="soundList" size="10"></select>
+      <select id="soundList" size="10" multiple></select>
+      <h6>* hold ctrl to select multiple entries</h6>
       <button onclick="associateTags()">Associate Tags</button>
     </div>
-
+    
+    
+    <div class="section" style="grid-column: 1 / span 3;">
+      <h2>Combiner</h2>
+      <input type="file" id="fileInput1">
+      <input type="file" id="fileInput2">
+      <button onclick="combineFiles()">Combine</button>
+    </div>
+    
     <div class="section" style="grid-column: 2 / span 1; grid-row: 1 / span 1;">
       <h2>Tags</h2>
       <input type="text" id="tagInput" placeholder="Enter a tag">
@@ -94,16 +111,28 @@
         updateLocalStorage();
       }
     }
+    function combineFiles() {
+      const fileInput1 = document.getElementById('fileInput1');
+      const fileInput2 = document.getElementById('fileInput2');
 
-    function createTagCheckbox(tagName) {
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.name = 'tagCheckbox';
-      checkbox.value = tagName;
-      const label = document.createElement('label');
-      label.appendChild(document.createTextNode(tagName));
-      label.appendChild(checkbox);
-      tagCheckboxes.appendChild(label);
+      const reader1 = new FileReader();
+      const reader2 = new FileReader();
+
+      reader1.onload = function(event1) {
+        reader2.onload = function(event2) {
+          const mergedContent = event1.target.result + event2.target.result;
+          const mergedBlob = new Blob([mergedContent], { type: 'text/javascript' });
+
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(mergedBlob);
+          a.download = 'dem_tags.js';
+          a.click();
+        };
+
+        reader2.readAsText(fileInput2.files[0]);
+      };
+
+      reader1.readAsText(fileInput1.files[0]);
     }
     function createTagCheckbox(tagName) {
       const checkbox = document.createElement('input');
@@ -128,15 +157,17 @@
     }
 
     function associateTags() {
-      const selectedSound = soundList.options[soundList.selectedIndex].text;
-      const selectedTags = Array.from(
-        tagCheckboxes.querySelectorAll('input:checked')
-      ).map(checkbox => checkbox.value);
+  const selectedSounds = Array.from(soundList.selectedOptions).map(option => option.text);
+  const selectedTags = Array.from(tagCheckboxes.querySelectorAll('input:checked')).map(checkbox => checkbox.value);
 
-      soundTagsMap.set(selectedSound, selectedTags);
-      updateAssociatedTagsList();
-      updateLocalStorage();
-    }
+  selectedSounds.forEach(selectedSound => {
+    soundTagsMap.set(selectedSound, selectedTags);
+  });
+
+  updateAssociatedTagsList();
+  updateLocalStorage();
+}
+
 
     function updateAssociatedTagsList() {
       associatedTagsList.innerHTML = '';
