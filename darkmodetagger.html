@@ -84,22 +84,36 @@
     let soundTagsMap = new Map();
 
     function addTag() {
-  const tagName = tagInput.value.trim();
-  if (tagName !== '') {
-    if (!tags.has(tagName)) {
-      tags.set(tagName, []);
-      createTagCheckbox(tagName);
-      updateLocalStorage(); // Update local storage here
+      const tagName = tagInput.value.trim();
+      if (tagName !== '') {
+        if (!tags.has(tagName)) {
+          tags.set(tagName, []);
+          createTagCheckbox(tagName);
+        }
+        tagInput.value = ''; // Clear the tag input field
+        updateLocalStorage();
+      }
     }
-    tagInput.value = ''; // Clear the input after adding the tag
-  }
-}
 
-
-    function addTagToDropdown(tagName) {
-      const option = document.createElement('option');
-      option.text = tagName;
-      soundList.add(option);
+    function createTagCheckbox(tagName) {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'tagCheckbox';
+      checkbox.value = tagName;
+      const label = document.createElement('label');
+      label.appendChild(document.createTextNode(tagName));
+      label.appendChild(checkbox);
+      tagCheckboxes.appendChild(label);
+    }
+    function createTagCheckbox(tagName) {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'tagCheckbox';
+      checkbox.value = tagName;
+      const label = document.createElement('label');
+      label.appendChild(document.createTextNode(tagName));
+      label.appendChild(checkbox);
+      tagCheckboxes.appendChild(label);
     }
 
     function createTagCheckbox(tagName) {
@@ -150,24 +164,25 @@
     }
 
     function updateLocalStorage() {
-      localStorage.setItem('soundTagsData', JSON.stringify({
-        tags: Array.from(tags),
-        soundTags: Array.from(soundTagsMap)
-      }));
-    }
+    localStorage.setItem('soundTagsData', JSON.stringify({
+      tags: Array.from(tags),
+      soundTags: Array.from(soundTagsMap)
+    }));
+  }
 
-    function loadFromLocalStorage() {
-      const storedData = localStorage.getItem('soundTagsData');
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        tags = new Map(parsedData.tags);
-        soundTagsMap = new Map(parsedData.soundTags);
-        updateTagCheckboxes();
-        updateAssociatedTagsList();
-        loadTagsToDropdown(); // Load tags to the dropdown from local storage
-      }
-    }
+  function loadFromLocalStorage() {
+  const storedData = localStorage.getItem('soundTagsData');
+  if (storedData) {
+    const parsedData = JSON.parse(storedData);
+    tags = new Map(parsedData.tags);
+    soundTagsMap = new Map(parsedData.soundTags);
+    updateTagCheckboxes();
+    updateAssociatedTagsList();
+  }
 
+
+
+  }
     function updateTagCheckboxes() {
       tagCheckboxes.innerHTML = '';
       tags.forEach((value, tagName) => createTagCheckbox(tagName));
@@ -217,8 +232,50 @@
       });
     }
 
-    // Load data from local storage when the page loads
-    window.addEventListener('DOMContentLoaded', loadFromLocalStorage);
+
+
+// Load the content of dem_tags.js
+fetch('dem_tags.js')
+  .then(response => response.text())
+  .then(content => {
+    // Extract the JSON data from the content
+    const jsonContent = content.substring(content.indexOf('=') + 1).trim();
+
+    try {
+      // Parse the JSON content
+      const data = JSON.parse(jsonContent);
+
+      // Modify the data (similar to the mergeTagData function from previous response)
+      // For example:
+      data.forEach(([soundName, { tagEntires: newTags }]) => {
+        if (soundTagsMap.has(soundName)) {
+          const existingTags = soundTagsMap.get(soundName);
+          const mergedTags = Array.from(new Set([...existingTags, ...newTags]));
+          soundTagsMap.set(soundName, mergedTags);
+        } else {
+          soundTagsMap.set(soundName, newTags);
+        }
+      });
+
+      // Stringify the modified data
+      const modifiedData = 'tags = ' + JSON.stringify(data, null, 2) + ';';
+
+      // Save the modified content back to dem_tags.js
+      const blob = new Blob([modifiedData], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'dem_tags.js';
+      a.click();
+    } catch (error) {
+      console.error('Error parsing JSON content:', error);
+    }
+  })
+  .catch(error => {
+    console.error('Error loading or modifying dem_tags.js:', error);
+  });
+
+      // Load data from local storage when the page loads
+  window.addEventListener('DOMContentLoaded', loadFromLocalStorage);
 
   </script>
 </body>
