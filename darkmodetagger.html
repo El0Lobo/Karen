@@ -82,23 +82,16 @@
 
     let tags = new Map();
     let soundTagsMap = new Map();
+    let enteredTags = new Set(); // Store entered tags separately
 
     function addTag() {
       const tagName = tagInput.value.trim();
       if (tagName !== '') {
-        if (!tags.has(tagName)) {
-          tags.set(tagName, []);
+        if (!tags.has(tagName) && !enteredTags.has(tagName)) {
+          enteredTags.add(tagName);
           createTagCheckbox(tagName);
-          addTagToDropdown(tagName); 
         }
-        updateLocalStorage();
       }
-    }
-
-    function addTagToDropdown(tagName) {
-      const option = document.createElement('option');
-      option.text = tagName;
-      soundList.add(option);
     }
 
     function createTagCheckbox(tagName) {
@@ -120,7 +113,6 @@
 
       soundTagsMap.set(selectedSound, selectedTags);
       updateAssociatedTagsList();
-      updateLocalStorage();
     }
 
     function updateAssociatedTagsList() {
