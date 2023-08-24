@@ -26,7 +26,7 @@ tags = [
   ],
   [
     "Simpsons",
-    tagEntires = [
+    tagEntries = [
         "bbbbbb",
         "carleave",
         "excludi1",
@@ -51,7 +51,7 @@ tags = [
   ],
   [
     "Bully",
-    tagEntires = [
+    tagEntries = [
         "deckungdeswaldes",
         "deinname",
         "majestet",
@@ -63,7 +63,7 @@ tags = [
   ],
    [
     "Batman",
-    tagEntires = [
+    tagEntries = [
         "batfranzosisch",
         "batgurt",
         "epigram",
@@ -76,7 +76,7 @@ tags = [
   ],
   [
     "Game Sounds",
-    tagEntires = [
+    tagEntries = [
         "ak47",
         "brokeit",
         "dasvolk",
@@ -98,7 +98,7 @@ tags = [
   ],
   [
     "Werner",
-    tagEntires = [
+    tagEntries = [
         "einwas",
         "jameister",
         "keinerussen",
@@ -109,7 +109,7 @@ tags = [
   ],
   [
     "Filme",
-    tagEntires = [
+    tagEntries = [
         "airwolf",
         "alteleier",
         "bekehrten",
@@ -133,7 +133,7 @@ tags = [
   ],
   [
     "Songs",
-    tagEntires = [
+    tagEntries = [
         "arky",
         "arky2",
         "arky3",
@@ -157,7 +157,7 @@ tags = [
   ],
   [
     "Spongebob",
-    tagEntires = [
+    tagEntries = [
         "geistigemechanismen",
         "hinterdiefelsen",
         "wambo1",

@@ -111,6 +111,7 @@
 
   </style>
   <script src="dem_words.js"></script>
+  <script src = "dem_tags.js"></script>
 </head>
 <body>
 
@@ -179,16 +180,25 @@
     const tagCheckboxes = document.getElementById('tagCheckboxes');
     const associatedTagsList = document.getElementById('associatedTagsList');
 
-    let tags = new Map();
+    let tagMap = new Map();
     let soundTagsMap = new Map();
 
-    function addTag() {
-      const tagName = tagInput.value.trim();
+    tagsFromFile()
+
+    //Creats Tags from "dem_tags.js"
+    function tagsFromFile() {
+      tags.forEach(tag => {
+        addTag(true, tag[0])
+      })
+    }
+
+    function addTag(loadFromFile, tagNameFromFile) {
+      let tagName = tagInput.value.trim();
+      if (loadFromFile) {
+        tagName = tagNameFromFile
+      }
       if (tagName !== '') {
-        if (!tags.has(tagName)) {
-          tags.set(tagName, []);
-          createTagCheckbox(tagName);
-        }
+        createTagCheckbox(tagName);
         tagInput.value = ''; // Clear the tag input field
         updateLocalStorage();
       }
@@ -227,28 +237,18 @@
       tagCheckboxes.appendChild(label);
     }
 
-    function createTagCheckbox(tagName) {
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.name = 'tagCheckbox';
-      checkbox.value = tagName;
-      const label = document.createElement('label');
-      label.appendChild(document.createTextNode(tagName));
-      label.appendChild(checkbox);
-      tagCheckboxes.appendChild(label);
-    }
 
-    function associateTags() {
-  const selectedSounds = Array.from(soundList.selectedOptions).map(option => option.text);
-  const selectedTags = Array.from(tagCheckboxes.querySelectorAll('input:checked')).map(checkbox => checkbox.value);
+  function associateTags() {
+    const selectedSounds = Array.from(soundList.selectedOptions).map(option => option.text);
+    const selectedTags = Array.from(tagCheckboxes.querySelectorAll('input:checked')).map(checkbox => checkbox.value);
 
-  selectedSounds.forEach(selectedSound => {
-    soundTagsMap.set(selectedSound, selectedTags);
-  });
+    selectedSounds.forEach(selectedSound => {
+      soundTagsMap.set(selectedSound, selectedTags);
+    });
 
   updateAssociatedTagsList();
   updateLocalStorage();
-}
+  }
 
 
     function updateAssociatedTagsList() {
@@ -278,35 +278,10 @@
 
     function updateLocalStorage() {
     localStorage.setItem('soundTagsData', JSON.stringify({
-      tags: Array.from(tags),
+      tags: Array.from(tagMap),
       soundTags: Array.from(soundTagsMap)
     }));
   }
-
-  function loadFromLocalStorage() {
-  const storedData = localStorage.getItem('soundTagsData');
-  if (storedData) {
-    const parsedData = JSON.parse(storedData);
-    tags = new Map(parsedData.tags);
-    soundTagsMap = new Map(parsedData.soundTags);
-    updateTagCheckboxes();
-    updateAssociatedTagsList();
-  }
-
-
-
-  }
-    function updateTagCheckboxes() {
-      tagCheckboxes.innerHTML = '';
-      tags.forEach((value, tagName) => createTagCheckbox(tagName));
-    }
-
-    function loadTagsToDropdown() {
-      tags.forEach((_value, tagName) => {
-        addTagToDropdown(tagName);
-      });
-    }
-
     // Fetch the word list from dem_words.js
     const wordList = entries;
     wordList.forEach(word => {
@@ -317,7 +292,7 @@
 
     function updateLocalStorage() {
       localStorage.setItem('soundTagsData', JSON.stringify({
-        tags: Array.from(tags),
+        tags: Array.from(tagMap),
         soundTags: Array.from(soundTagsMap)
       }));
     }
@@ -326,7 +301,7 @@
       const storedData = localStorage.getItem('soundTagsData');
       if (storedData) {
         const parsedData = JSON.parse(storedData);
-        tags = new Map(parsedData.tags);
+        tagMap = new Map(parsedData.tags);
         soundTagsMap = new Map(parsedData.soundTags);
         updateTagCheckboxes();
         updateAssociatedTagsList();
@@ -335,12 +310,12 @@
     }
 
     function updateTagCheckboxes() {
-      tagCheckboxes.innerHTML = '';
-      tags.forEach((value, tagName) => createTagCheckbox(tagName));
+      //tagCheckboxes.innerHTML = '';
+      //tagMap.forEach((value, tagName) => createTagCheckbox(tagName));
     }
 
     function loadTagsToDropdown() {
-      tags.forEach((_value, tagName) => {
+      tagMap.forEach((_value, tagName) => {
         addTagToDropdown(tagName);
       });
     }
