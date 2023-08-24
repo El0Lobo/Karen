@@ -332,6 +332,7 @@ entries = [
   "rawrawraw",
   "recht",
   "reflekte",
+  "regierungplutonium",
   "reinsch",
   "retard",
   "retard2",
