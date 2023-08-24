@@ -255,6 +255,7 @@ entries = [
   "maechtiger",
   "magie",
   "mahok2",
+  "mais",
   "majestet",
   "matt",
   "matt2",
