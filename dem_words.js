@@ -63,6 +63,7 @@ entries = [
   "calm",
   "carleave",
   "carryme",
+  "chemtrails",
   "chewbacca",
   "children",
   "chocolate",
