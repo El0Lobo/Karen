@@ -80,6 +80,7 @@ entries = [
   "convoy2",
   "convoy3",
   "corn",
+  "corneliuscornwall",
   "coronan",
   "cricket",
   "cursed",
