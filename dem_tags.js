@@ -21,7 +21,7 @@ tags = [
         "wetterkrieg",
         "wissen",
         "wissenschaften",
-        "wissenumdiewahrephysik",
+        "wissenumdiewahrephysik"
     ]
   ],
   [
@@ -32,7 +32,6 @@ tags = [
         "excludi1",
         "excludi2",
         "excludi3",
-        
         "flanders",
         "kaufmich",
         "mahok2",
@@ -46,7 +45,7 @@ tags = [
         "streikbrecher",
         "wurm",
         "zink",
-        "zwiebel",
+        "zwiebel"
     ]
   ],
   [
@@ -58,10 +57,10 @@ tags = [
         "miristfad",
         "oesterreich",
         "oesterreich2",
-        "unsistsofad",
+        "unsistsofad"
     ]
   ],
-   [
+  [
     "Batman",
     tagEntries = [
         "batfranzosisch",
@@ -93,7 +92,7 @@ tags = [
         "superhot",
         "supremenavalinvade",
         "zelda",
-        "zahlen",
+        "zahlen"
     ]
   ],
   [
@@ -104,7 +103,7 @@ tags = [
         "keinerussen",
         "rohrich",
         "russenda",
-        "snuffelstuck",
+        "snuffelstuck"
     ]
   ],
   [
@@ -127,8 +126,7 @@ tags = [
         "nett",
         "senat",
         "verbrennen",
-        "wasserpfeife",
-        
+        "wasserpfeife"
     ]
   ],
   [
@@ -152,7 +150,7 @@ tags = [
         "segata3",
         "speedra",
         "titanic",
-        "unserlied",
+        "unserlied"
     ]
   ],
   [
@@ -164,8 +162,14 @@ tags = [
         "wambo2",
         "weewoo",
         "west",
-        "westfired",
+        "westfired"
     ]
   ],
-  
-]
+  [
+    "Nonsense",
+    tagEntries = [
+        "beenasfar",
+        "beenasfar2"
+    ]
+  ],
+];
