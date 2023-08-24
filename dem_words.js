@@ -81,6 +81,7 @@ entries = [
   "convoy3",
   "corn",
   "corneliuscornwall",
+  "cornpowers",
   "coronan",
   "cricket",
   "cursed",
