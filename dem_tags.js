@@ -75,7 +75,7 @@ tags = [
     ]
   ],
   [
-    "Game Sounds",
+    "VFX",
     tagEntries = [
         "ak47",
         "brokeit",
