@@ -392,6 +392,7 @@ entries = [
   "titan",
   "titanic",
   "toofar",
+  "totalasshole",
   "transmedialekontakte",
   "truman",
   "tuba",
