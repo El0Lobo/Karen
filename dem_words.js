@@ -172,6 +172,7 @@ entries = [
   "grease2",
   "griffin",
   "grip",
+  "grundbesitz",
   "gum",
   "guteidee",
   "habichgekauft",
