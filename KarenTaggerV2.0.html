@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+    <style>
+        body {
+            color: #ffc400;
+            background: #333;
+        }
+
+        .listbox-area {
+            display: grid;
+            grid-gap: 2em;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #222;
+            height: 90vh;
+        }
+
+        .button-wrapper {
+            display: flex;
+            position: absolute;
+            bottom: 0%;
+            left:40%;
+        }
+
+        .button-wrapper button {
+            padding: 10px 20px;
+            margin-right: 50px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            opacity: 100%;
+        }
+
+        .button-wrapper button:last-child {
+         margin-right: 0; /* Remove margin from the last button */
+}
+
+        .button-wrapper button:hover {
+            background-color: #0056b3;
+        }
+
+        [role="listbox"] {
+            margin: 1em 0 0;
+            padding: 0;
+            min-height: 18em;
+            border: 1px solid #ccc;
+            background: #333;
+            overflow: auto;
+            max-height: 40em;
+            height: 80vh;
+        }
+
+
+        [role="option"] {
+            position: relative;
+            line-height: 1.8em;
+        }
+
+        .tagsInRightBox {
+            position: relative;
+        }
+        
+        [role="option"][selected="true"]::before {
+            position: absolute;
+            left: -1em;
+            content: "✓";
+        }
+
+        .tagsInRightBox[selected="true"]::before {
+            position: absolute;
+            left: 0.5em;
+            content: "✓";
+        }
+
+        #listboxOfAllTags li[selected="true"]::before {
+            position: absolute;
+            left: 0.5em;
+            content: "✓";
+        }
+
+        button {
+            font-size: inherit;
+            opacity: 0.5;
+        }
+
+        .move-right-btn::after {
+            content: " →";
+        }
+
+        .move-left-btn::before {
+            content: "← ";
+        }
+
+        .hidden {
+            display: none;
+        }
+        #tagSelectBox {
+            width: 20em;
+        }
+        
+        #listboxOfAllTags li {
+            padding-left: 1.5em; 
+        }
+
+        .tagsInRightBox {
+            padding-left: 1.5em;
+        }
+
+        .soundAndTags {
+            padding-left: 1.5em;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .soundAndTags > li {
+            flex-basis: 50%;
+        }
+        
+        .soundAndTags > .tagsBesideSound {
+            margin-left: 0px;
+        }
+
+        #newTagInput {
+            width: 25em;
+        }
+    </style>
+    <head>
+        <title>Sound Tagging Tool</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <script src = "dem_words.js"></script>
+        <script src = "dem_tags.js"></script>
+    </head>
+    <body>
+        <div class="listbox-area">
+            <div class="left-area">
+              <span id="ms_av_l" class="listbox-label">Sounds:</span>
+              <ul id="ms_imp_list" tabindex="0" role="listbox" aria-labelledby="ms_av_l" aria-multiselectable="true"></ul>
+              <button type="button" id="ex2-add" class="move-right-btn" aria-disabled="true" onclick="addSoundsToTag()">Add</button>
+            </div>
+            <div class="middle-area">
+                <span class="listbox-label">All Tags:</span>
+                <ul id ="listboxOfAllTags" role="listbox" aria-multiselectable="true"></ul>
+                <input id="newTagInput">
+                <button id="newTagButton" type="button" onclick="addNewTag()">Add new Tag</button>
+            </div>
+            <div class="right-area">
+              <span id="ms_ch_l" class="listbox-label">Sounds in : <select id="tagSelectBox" onchange="changeSoundsInRightListbox()"></select></span>
+              <ul id="ms_unimp_list" tabindex="0" role="listbox" aria-labelledby="ms_ch_l" aria-activedescendant="" aria-multiselectable="true"></ul>
+              <button type="button" id="ex2-delete" class="move-left-btn" aria-keyshortcuts="Alt+ArrowLeft Delete" aria-disabled="true" onclick="removeTag()">Remove</button>
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <button type="button" onclick="saveToFileAndSendToDiscord()">Send to Discord</button>
+            <button type="button" onclick="saveToFile()">Save to File</button>
+        </div>
+        
+        </div>
+    </body>
+</html>
+<script>
+    addSoundsToLeftListbox()
+    addTagsToSelectBoxAndListbox()
+    changeSoundsInRightListbox()
+
+    function addSoundsToLeftListbox() {
+        let leftListboxUl = document.getElementById('ms_imp_list') 
+        leftListboxUl.innerHTML = ""
+        entries.forEach(element => {
+            const soundAndTags = document.createElement('ul')
+                soundAndTags.classList.add('soundAndTags')
+                const sounds = document.createElement('li')
+                    sounds.classList.add('soundLi')
+                    sounds.setAttribute('role', 'option')
+                    sounds.setAttribute('selected', 'false')
+                    sounds.textContent = element
+                    sounds.id = element
+                    sounds.addEventListener('click', () => liClicked(sounds))
+                    soundAndTags.appendChild(sounds)
+                const tag = document.createElement('li')
+                    let tagArray = []
+                    tags.forEach(element => {
+                        if(element[1].includes(sounds.textContent)){
+                            tagArray.push(element[0])
+                        }
+                    })
+                    tag.classList.add('tagsBesideSound')
+                    tag.id = element + "_tags"
+                    tagArray.forEach(element => {
+                        if(tag.textContent == ""){
+                            tag.textContent = element    
+                        } else {
+                            tag.textContent = tag.textContent + " | " + element
+                        }
+                    })
+                    soundAndTags.appendChild(tag)
+            leftListboxUl.appendChild(soundAndTags)
+        });
+    }
+
+    function addTagsToSelectBoxAndListbox() {
+        let tagSelectBox = document.getElementById('tagSelectBox')
+        let tagListbox = document.getElementById('listboxOfAllTags')
+        tagSelectBox.innerHTML = ''
+        tagListbox.innerHTML = ''
+        tags.forEach(element => {
+            let tagsForSelectbox = document.createElement('option')
+            tagsForSelectbox.textContent = element[0]
+        tagSelectBox.appendChild(tagsForSelectbox)
+            let tagsForListbox = document.createElement("li")
+            tagsForListbox.textContent = element[0]
+            tagsForListbox.setAttribute('role', 'option')
+            tagsForListbox.setAttribute('selected', 'false')
+            tagsForListbox.addEventListener('click', () => liClicked(tagsForListbox))
+        tagListbox.appendChild(tagsForListbox)
+        })
+    }
+
+    function changeSoundsInRightListbox() {
+        let selectedTag = document.getElementById('tagSelectBox').value
+        let rightListBoxUl = document.getElementById('ms_unimp_list') 
+        rightListBoxUl.innerHTML = ''
+        tags.forEach(element => {
+            if(element[0] === selectedTag){
+                element[1].forEach(soundInsideTag => {
+                    const sounds = document.createElement('li')
+                    sounds.classList.add('tagsInRightBox')
+                    sounds.setAttribute('role', 'option')
+                    sounds.setAttribute('selected', 'false')
+                    sounds.textContent = soundInsideTag
+                    sounds.addEventListener('click', () => liClicked(sounds))
+                    rightListBoxUl.appendChild(sounds)
+                })
+            }
+        })
+    }
+
+    function addNewTag(){
+        let newTagName = document.getElementById('newTagInput')
+        newTag = [newTagName.value, []]
+        tags.push(newTag)
+        newTagName.value = null
+        addTagsToSelectBoxAndListbox()
+    }
+
+    function liClicked(sound) {
+        let selected = sound.getAttribute("selected")
+        // Toggle selected
+        if(selected == "true") {
+            sound.setAttribute('selected', 'false')
+        } else {
+            sound.setAttribute('selected', "true")
+        }
+    }
+
+    function addSoundsToTag() {
+        //let tagSelectBox = document.getElementById('tagSelectBox')
+        const leftListBoxUl = document.getElementById('ms_imp_list')
+        const middleListBox = document.getElementById('listboxOfAllTags')
+        let selectedTags = []
+        //add all selected Tags to "selectedTags[]"
+        for (const tagsInMiddleBox of middleListBox.children) {
+            if (tagsInMiddleBox.getAttribute('selected') == "true") {
+                selectedTags.push(tagsInMiddleBox.textContent)
+            }
+        }
+        selectedTags.forEach(choosenTag => {
+            let tagIndex = 0 
+            tagIndex = lookForIndex(choosenTag, tags)
+            // Iterate through the <ul>'s child elements
+            for (const li of leftListBoxUl.children) {
+                for (const sound of li.children) {
+                    if (sound.getAttribute('selected') == 'true') {
+                        addSoundToTag(sound, tagIndex)
+                    }
+                }
+            }
+        });
+        changeSoundsInRightListbox()
+        addSoundsToLeftListbox()
+    }
+    function addSoundToTag(sound, tagIndex) {
+        //checks for Duplicates inside array
+        if(!tags[tagIndex][1].includes(sound.textContent)){
+            //adds the Sound to array
+            tags[tagIndex][1].push(sound.textContent)   
+        }
+        
+    }
+
+    function removeTag() {
+        const rightListbox = document.getElementById('ms_unimp_list')
+        const selectedTag = document.getElementById('tagSelectBox').value
+        const rightTag = lookForIndex(selectedTag, tags)
+        
+        for (const sound of rightListbox.children) {
+            if (sound.getAttribute('selected') == 'true') {
+                tags[rightTag][1].splice(lookForIndex(sound.textContent, tags[rightTag][1]), 1)
+            }
+        }
+        changeSoundsInRightListbox()
+        addSoundsToLeftListbox()
+    }
+
+    function lookForIndex(tagName, array){
+            let count = 0
+            let rightIndex = 0
+            array.forEach(element => {
+                // Search for the Index of the Tag inside "tags"
+                const isSearchedTag = element.indexOf(tagName)
+                if(isSearchedTag < 0){
+                    count++
+                } else {
+                    // Saves the right index
+                    rightIndex = count
+                } 
+            })
+            return rightIndex
+    }
+
+    function saveToFile() {
+    let data = 'tags = [\n';
+
+    tags.forEach((tag) => {
+        const tagSounds = tag[1];
+        if (tagSounds.length > 0) {
+            data += '  [\n';
+            data += '    "' + tag[0] + '",\n';
+            data += '    tagEntries = [\n        "' + tagSounds.join('",\n        "') + '"\n    ]\n';
+            data += '  ],\n';
+        }
+    });
+
+    data += '];';
+
+    const blob = new Blob([data], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'dem_tags.js';
+    a.click();
+}
+
+function saveToFileAndSendToDiscord() {
+    let data = 'tags = [\n';
+
+    tags.forEach((tag) => {
+        const tagSounds = tag[1];
+        if (tagSounds.length > 0) {
+            data += '  [\n';
+            data += '    "' + tag[0] + '",\n';
+            data += '    tagEntries = [\n        "' + tagSounds.join('",\n        "') + '"\n    ]\n';
+            data += '  ],\n';
+        }
+    });
+
+    data += '];';
+
+    const blob = new Blob([data], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+
+
+    // Send the file to Discord
+    sendFileToDiscord(data);
+}
+
+function sendFileToDiscord(fileContent) {
+    const webhookUrl = "https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn"
+
+    const formData = new FormData();
+    formData.append('content', 'Urgh, here is your file:');
+    formData.append('file', new Blob([fileContent], { type: 'text/plain' }), 'dem_tags.js');
+
+    fetch(webhookUrl, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        console.log('File sent to Discord:', response);
+    })
+    .catch(error => {
+        console.error('Error sending file to Discord:', error);
+    });
+}
+
+
+</script>

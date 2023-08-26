@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sound Tagging Tool</title>
+  <style>
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      width: 100%;
+      margin: 0;
+      background-color: #292828;
+      color: #ffc400;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-gap: 10px;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(50, 50, 50);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .Title1 {
+      position: absolute;
+      top: 0%;
+      right: 40%;
+    }
+
+    .question-mark {
+      position: fixed;
+      cursor: pointer;
+      display: inline-block;
+      top: 1%;
+      right: 1%;
+    }
+
+    .question-mark span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #ffc400;
+      color: #292828;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 50%;
+      line-height: 20px;
+    }
+
+    .floating-text-container {
+      display: none;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1; /* Ensure it's above other content */
+      top: 0;
+      right: 320px; /* Adjust this value as needed */
+      transform: translateX(100%); /* Move container to the left */
+      width: 250px;
+      height: 320px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #soundList {
+      background-color: #8d8c8c; /* Change this color to your preferred color */
+      font-weight: bold;
+    }
+
+    #tagInput {
+      background-color: #8d8c8c; /* Change this color to your preferred color */
+      font-weight: bold;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      color: #ffc400;
+      position: absolute;
+      margin-top: 20px;
+      top: 15%;
+      left: 25%;
+      width: 15em;
+    }
+
+    .bottom-button-container {
+      position: fixed;
+      margin-top: 20px;
+      bottom: 2%;
+      left: 90%;
+    }
+
+    .floating-text-container {
+      display: none;
+      position: absolute;
+      background-color: #8d8c8c;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+  </style>
+  <script src="dem_words.js"></script>
+  <script src = "dem_tags.js"></script>
+</head>
+<body>
+
+  <div class="Title1">
+    <h1><strong>SoundFrustration Express</strong></h1>
+  </div>
+
+  <div class="bottom-button-container">
+    <button onclick="saveToFile()">Save to File</button>
+  </div>
+
+  <div class="question-mark">
+    <span>?</span>
+    <div class="floating-text-container">
+      <p><strong>Welcome to the Sound Tagging Tool!</strong></p>
+      <p>Tag sounds with associated tags using the options below:</p>
+      <ul>
+        <li><strong>Add Tag:</strong> Create new tags for sound associations.</li>
+        <li><strong>Associate Tags:</strong> Link selected tags with sound names.</li>
+        <li><strong>Combine:</strong> Merge content from two JavaScript files.</li>
+        <li><strong>Save to File:</strong> Download tag associations as a JavaScript file.</li>
+      </ul>
+      <p>Don't worry about your progress, the Website stores everything, even after reload!</p>
+    </div>
+  </div>
+    
+
+  <div class="main-container">
+    <div class="section" style="grid-column: 1 / span 1; grid-row: 1 / span 3;">
+      <h2>Sound Names</h2>
+      <select id="soundList" size="25" multiple></select>
+      <button onclick="associateTags()">Associate Tags</button>
+      <h5>* hold ctrl to select multiple entries</h5>
+    </div>
+
+    <div class="section" style="grid-column: 2 / span 1; grid-row: 1 / span 1;">
+      <h2>Tags</h2>
+      <input type="text" id="tagInput" placeholder="Enter a tag">
+      <button onclick="addTag()">Add Tag</button>
+    </div>
+
+    <div class="section" style="grid-column: 2 / span 1; grid-row: 2 / span 1;">
+      <h2>Selected Tags</h2>
+      <div id="tagCheckboxes"></div>
+    </div>
+
+    <div class="section" style="grid-column: 3 / span 1;">
+      <h2>Sound List with Associated Tags</h2>
+      <ul id="associatedTagsList"></ul>
+    </div>
+
+    <div class="section" style="grid-column: 2 / span 1; grid-row: 3 / span 1; padding-bottom: -50px;">
+      <h2>JS Harmony Composer: Unite and Conquer!</h2>
+      <input type="file" id="upload1" accept=".js">
+      <input type="file" id="upload2" accept=".js">
+      <button onclick="combineFiles()">Combine</button>
+    </div>
+   
+  <div class="bottom-button-container">
+    <button onclick="saveToFile()">Save to File</button>
+  </div>
+
+  <script>
+    const soundList = document.getElementById('soundList');
+    const tagInput = document.getElementById('tagInput');
+    const tagCheckboxes = document.getElementById('tagCheckboxes');
+    const associatedTagsList = document.getElementById('associatedTagsList');
+
+    let tagMap = new Map();
+    let soundTagsMap = new Map();
+
+    tagsFromFile()
+
+    //Creats Tags from "dem_tags.js"
+    function tagsFromFile() {
+      tags.forEach(tag => {
+        addTag(true, tag[0])
+      })
+    }
+
+    function addTag(loadFromFile, tagNameFromFile) {
+      let tagName = tagInput.value.trim();
+      if (loadFromFile) {
+        tagName = tagNameFromFile
+      }
+      if (tagName !== '') {
+        createTagCheckbox(tagName);
+        tagInput.value = ''; // Clear the tag input field
+        updateLocalStorage();
+      }
+    }
+    function combineFiles() {
+      const fileInput1 = document.getElementById('fileInput1');
+      const fileInput2 = document.getElementById('fileInput2');
+
+      const reader1 = new FileReader();
+      const reader2 = new FileReader();
+
+      reader1.onload = function(event1) {
+        reader2.onload = function(event2) {
+          const mergedContent = event1.target.result + event2.target.result;
+          const mergedBlob = new Blob([mergedContent], { type: 'text/javascript' });
+
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(mergedBlob);
+          a.download = 'dem_tags.js';
+          a.click();
+        };
+
+        reader2.readAsText(fileInput2.files[0]);
+      };
+
+      reader1.readAsText(fileInput1.files[0]);
+    }
+    function createTagCheckbox(tagName) {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'tagCheckbox';
+      checkbox.value = tagName;
+      const label = document.createElement('label');
+      label.appendChild(document.createTextNode(tagName));
+      label.appendChild(checkbox);
+      tagCheckboxes.appendChild(label);
+    }
+
+
+  function associateTags() {
+    const selectedSounds = Array.from(soundList.selectedOptions).map(option => option.text);
+    const selectedTags = Array.from(tagCheckboxes.querySelectorAll('input:checked')).map(checkbox => checkbox.value);
+
+    selectedSounds.forEach(selectedSound => {
+      soundTagsMap.set(selectedSound, selectedTags);
+    });
+
+  updateAssociatedTagsList();
+  updateLocalStorage();
+  }
+
+
+    function updateAssociatedTagsList() {
+      associatedTagsList.innerHTML = '';
+      soundTagsMap.forEach((tags, soundName) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${soundName}: ${tags.join(', ')}`;
+        associatedTagsList.appendChild(listItem);
+      });
+    }
+
+    function saveToFile() {
+      const tagEntries = [];
+      soundTagsMap.forEach((tags, soundName) => {
+        if (tags.length > 0) {
+          tagEntries.push([soundName, { tagEntires: tags }]);
+        }
+      });
+      const data = 'tags = ' + JSON.stringify(tagEntries, null, 2) + ';';
+
+      const blob = new Blob([data], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'dem_tags.js';
+      a.click();
+    }
+
+    function updateLocalStorage() {
+    localStorage.setItem('soundTagsData', JSON.stringify({
+      tags: Array.from(tagMap),
+      soundTags: Array.from(soundTagsMap)
+    }));
+  }
+    // Fetch the word list from dem_words.js
+    const wordList = entries;
+    wordList.forEach(word => {
+      const option = document.createElement('option');
+      option.text = word;
+      soundList.add(option);
+    });
+
+    function updateLocalStorage() {
+      localStorage.setItem('soundTagsData', JSON.stringify({
+        tags: Array.from(tagMap),
+        soundTags: Array.from(soundTagsMap)
+      }));
+    }
+
+    function loadFromLocalStorage() {
+      const storedData = localStorage.getItem('soundTagsData');
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        tagMap = new Map(parsedData.tags);
+        soundTagsMap = new Map(parsedData.soundTags);
+        updateTagCheckboxes();
+        updateAssociatedTagsList();
+        loadTagsToDropdown(); // Load tags to the dropdown from local storage
+      }
+    }
+
+    function updateTagCheckboxes() {
+      //tagCheckboxes.innerHTML = '';
+      //tagMap.forEach((value, tagName) => createTagCheckbox(tagName));
+    }
+
+    function loadTagsToDropdown() {
+      tagMap.forEach((_value, tagName) => {
+        addTagToDropdown(tagName);
+      });
+    }
+
+
+
+// Load the content of dem_tags.js
+fetch('dem_tags.js')
+  .then(response => response.text())
+  .then(content => {
+    // Extract the JSON data from the content
+    const jsonContent = content.substring(content.indexOf('=') + 1).trim();
+
+    try {
+      // Parse the JSON content
+      const data = JSON.parse(jsonContent);
+
+      // Modify the data (similar to the mergeTagData function from previous response)
+      // For example:
+      data.forEach(([soundName, { tagEntires: newTags }]) => {
+        if (soundTagsMap.has(soundName)) {
+          const existingTags = soundTagsMap.get(soundName);
+          const mergedTags = Array.from(new Set([...existingTags, ...newTags]));
+          soundTagsMap.set(soundName, mergedTags);
+        } else {
+          soundTagsMap.set(soundName, newTags);
+        }
+      });
+
+      // Stringify the modified data
+      const modifiedData = 'tags = ' + JSON.stringify(data, null, 2) + ';';
+
+      // Save the modified content back to dem_tags.js
+      const blob = new Blob([modifiedData], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'dem_tags.js';
+      a.click();
+    } catch (error) {
+      console.error('Error parsing JSON content:', error);
+    }
+  })
+  .catch(error => {
+    console.error('Error loading or modifying dem_tags.js:', error);
+  });
+
+      // Load data from local storage when the page loads
+  window.addEventListener('DOMContentLoaded', loadFromLocalStorage);
+
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const questionMark = document.querySelector(".question-mark");
+    const floatingTextContainer = questionMark.querySelector(".floating-text-container");
+
+    questionMark.addEventListener("click", function() {
+      floatingTextContainer.style.display = "block";
+    });
+
+    document.addEventListener("click", function(event) {
+      if (!questionMark.contains(event.target)) {
+        floatingTextContainer.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
