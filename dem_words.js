@@ -30,6 +30,7 @@ entries = [
   "aufmerksamkeit",
   "aurora",
   "baby",
+  "baguette",
   "banal",
   "barbaricage",
   "batfranzosisch",
