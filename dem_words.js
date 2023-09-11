@@ -86,6 +86,7 @@ entries = [
   "cornpowers",
   "coronan",
   "cricket",
+  "critics",
   "cubanpete",
   "cursed",
   "damage",
