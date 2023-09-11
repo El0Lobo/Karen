@@ -416,6 +416,7 @@ entries = [
   "transmedialekontakte",
   "truman",
   "tuba",
+  "tuledi",
   "tumbleweed",
   "tumor",
   "tutnot",
