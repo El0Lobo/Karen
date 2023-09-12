@@ -446,6 +446,7 @@ entries = [
   "wahnsinn",
   "wahnsinnraus",
   "wait",
+  "walksoft",
   "waluigi",
   "wambo1",
   "wambo2",
