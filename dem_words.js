@@ -141,6 +141,7 @@ entries = [
   "excludi1",
   "excludi2",
   "excludi3",
+  "fachpresse",
   "failedyou",
   "fanfare",
   "fatal",
