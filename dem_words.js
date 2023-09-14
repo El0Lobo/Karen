@@ -378,6 +378,7 @@ entries = [
   "senat",
   "senior",
   "shoes",
+  "short",
   "silencium",
   "skill",
   "skills",
