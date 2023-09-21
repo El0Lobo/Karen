@@ -249,6 +249,7 @@ entries = [
   "kohlen3",
   "konig",
   "korn",
+  "korrektkorrekt",
   "kreuzwortbanane",
   "kucken",
   "kustenwache",
