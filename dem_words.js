@@ -494,6 +494,7 @@ entries = [
   "zerstorer",
   "zink",
   "zonk",
+  "zuege",
   "zufett",
   "zufruh",
   "zuhause",
