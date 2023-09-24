@@ -111,6 +111,7 @@ entries = [
   "dergeht",
   "diablo",
   "dichterdunklerwald",
+  "dickunddoof2",
   "diearbeit",
   "diegaben",
   "dinkleberg",
