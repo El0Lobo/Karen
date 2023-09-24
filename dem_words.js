@@ -174,6 +174,7 @@ entries = [
   "geld",
   "genji",
   "geschick",
+  "gesicht",
   "getout",
   "gewitter",
   "girls",
