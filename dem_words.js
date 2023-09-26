@@ -449,6 +449,7 @@ entries = [
   "uter2",
   "vector",
   "veralbern",
+  "verbrecherzwerg",
   "verbrennen",
   "verhort",
   "verschwinden",
