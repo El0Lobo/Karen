@@ -380,6 +380,7 @@ entries = [
   "sadmusic",
   "salat",
   "sand",
+  "sandmaennchen",
   "schabernack",
   "schinkengeklaut",
   "schnee",
