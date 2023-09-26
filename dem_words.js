@@ -501,6 +501,7 @@ entries = [
   "x",
   "yello",
   "yoink",
+  "yourmothersabitch",
   "zahlen",
   "zehnkindergaerten",
   "zelda",
