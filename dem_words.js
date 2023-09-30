@@ -140,6 +140,7 @@ entries = [
   "epigram",
   "erstertag1",
   "erstertag2",
+  "erwartetmein",
   "esel",
   "exce",
   "excellent",
