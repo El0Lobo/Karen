@@ -407,6 +407,7 @@ entries = [
   "soviet",
   "speedra",
   "spinnengift",
+  "spongemusic",
   "steelrain",
   "strafplanet",
   "streikbrecher",
