@@ -133,6 +133,7 @@ entries = [
   "eineidee",
   "einwas",
   "einwunderschoenesgefuehl",
+  "einzelfaelle",
   "elch",
   "elected",
   "eliminator",
