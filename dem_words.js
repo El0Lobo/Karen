@@ -174,6 +174,7 @@ entries = [
   "gefunden",
   "geistigemechanismen",
   "geld",
+  "geldmagnet",
   "genji",
   "geschick",
   "gesicht",
