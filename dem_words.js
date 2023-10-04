@@ -172,6 +172,7 @@ entries = [
   "galgenhumor",
   "gay",
   "gebusch",
+  "gefaerdet",
   "gefunden",
   "geistigemechanismen",
   "geld",
