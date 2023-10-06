@@ -238,6 +238,7 @@ entries = [
   "join",
   "jordan",
   "joydown",
+  "judas",
   "junge",
   "jungejunge",
   "jurassic",
