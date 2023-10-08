@@ -433,6 +433,7 @@ entries = [
   "thermo",
   "thuglife",
   "tief",
+  "tiger",
   "timmy",
   "titan",
   "titanic",
