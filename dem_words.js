@@ -267,6 +267,7 @@ entries = [
   "kreuzwortbanane",
   "kucken",
   "kustenwache",
+  "lasstunswaehlengehen",
   "laugh",
   "lead",
   "legion",
