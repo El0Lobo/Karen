@@ -1,4 +1,5 @@
 entries = [
+  "200kabelkasette",
   "200onoff",
   "200puls",
   "200schwarzerbildschirm",
