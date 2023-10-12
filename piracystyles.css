@@ -1,0 +1,124 @@
+body {
+            background: linear-gradient( #9a3c05, #731510);
+            min-height: 98vh;
+            background-attachment: fixed;
+            overflow-y: auto;
+            overflow: hidden;
+}
+
+.grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            max-height: 80vh;
+            overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+}
+
+.grid-container::-webkit-scrollbar {
+            width: 0; /* Hide the horizontal scrollbar for webkit browsers */
+}
+
+.website-preview {
+    background: linear-gradient(to bottom, #22005d, #2a0124);
+    border: 1px solid #ccc;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.3s;
+    width: calc(10% - 10px); /* 20% width for each item with some margin */
+    /* Add other styling as needed */
+}
+        .website-preview:hover {
+            transform: scale(1.05);
+        }
+
+        .website-name {
+            text-align: center;
+            padding-bottom: 10px;
+            color: #ff5d00;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .active-button {
+            background: linear-gradient(#22005d, #2a0124);
+            color: #fff;
+        }
+
+        .refresh-icon {
+            font-size: 10px;
+            color: #d27700;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: transform 0.3s;
+        }
+
+        .refresh-icon:hover {
+            transform: scale(2.2);
+        }
+
+        .center-buttons {
+            text-align: center;
+        }
+
+        .button-spacing {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .category-button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        .sub-category-button {
+            font-size: 16px;
+            padding: 8px 16px;
+        }
+
+        #toggle-colors{
+            position: absolute;
+            top: 10px; /* Place it at the bottom */
+            right: 20px; /* Center it horizontally */
+        }
+
+        #save-to-file {
+            position: absolute; /* Use fixed positioning */
+            bottom: 2%; /* Place it at the bottom */
+            left: 50%; /* Center it horizontally */
+            transform: translateX(-50%); /* Adjust for element width */
+        }
+
+        #website-url {
+            position: absolute; /* Use fixed positioning */
+            top: 10px; /* Place it at the bottom */
+            left: 100px; /* Center it horizontally */
+            transform: translateX(-50%); /* Adjust for element width */
+        }
+
+        #add-website {
+            position: absolute; /* Use fixed positioning */
+            top: 10px; /* Place it at the bottom */
+            left: 230px; /* Center it horizontally */
+            transform: translateX(-50%); /* Adjust for element width */
+        }
+
+        .online-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .online {
+            background-color: green;
+        }
+
+        .offline {
+            background-color: red;
+        }

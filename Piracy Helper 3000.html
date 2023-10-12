@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piracy Helper 3000</title>
+    <link rel="stylesheet" type="text/css" href="piracystyles.css">
+    <link rel="icon" type="image/png" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.tpbproxypirate.com/&size=64" sizes="64x64">
+</head>
+<body>
+    <button id="toggle-colors">Toggle Colors</button>
+
+    <div class="center-buttons">
+        <div id="category-buttons">
+            <button id="category-button1" class="button-spacing category-button">Streams</button>
+            <button id="category-button2" class="button-spacing category-button">Downloads</button>
+        </div>
+
+        <div id="sub-category-buttons">
+            <!-- Initially, this section will be empty -->
+        </div>
+        <div id="sortable-grid" class="grid-container">
+            <!-- Webpage previews will be added here -->
+        </div>
+        <div>
+            <input type="text" id="website-url" placeholder="Enter Website URL">
+            <button id="add-website">Add Website</button>
+        </div>
+
+        <div>
+            <button id="save-to-file">Save to File</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script>
+        const categoryButton1 = document.getElementById('category-button1');
+        const categoryButton2 = document.getElementById('category-button2');
+        const subCategoryButtons = document.getElementById('sub-category-buttons');
+        const websiteUrlInput = document.getElementById('website-url');
+        const addWebsiteButton = document.getElementById('add-website');
+        const gridContainer = document.getElementById('sortable-grid'); // Updated the id
+        const saveToFileButton = document.getElementById('save-to-file');
+
+        let currentCategory = null;
+        let currentSubCategory = null;
+
+        const toggleColorsButton = document.getElementById('toggle-colors');
+const body = document.body;
+const websitePreviews = document.querySelectorAll('.website-preview');
+
+// Define initial gradient values
+const bodyGradientOriginal = 'linear-gradient(#ff5d00, #731510)';
+const websitePreviewGradientOriginal = 'linear-gradient(to bottom, #22005d, #2a0124)';
+
+let colorsToggled = false;
+
+toggleColorsButton.addEventListener('click', () => {
+    if (colorsToggled) {
+        // Revert to the original colors
+        body.style.background = bodyGradientOriginal;
+        websitePreviews.forEach((preview) => {
+            preview.style.background = websitePreviewGradientOriginal;
+        });
+    } else {
+        // Toggle to the alternate colors
+        const bodyGradient = body.style.background;
+        body.style.background = websitePreviewGradientOriginal;
+        websitePreviews.forEach((preview) => {
+            const previewGradient = preview.style.background;
+            preview.style.background = bodyGradient;
+        });
+    }
+    colorsToggled = !colorsToggled;
+});
+
+
+
+        function handleCategoryButtonClick(button) {
+            subCategoryButtons.innerHTML = '';
+            categoryButton1.classList.remove('active-button');
+            categoryButton2.classList.remove('active-button');
+            button.classList.add('active-button');
+            if (button === categoryButton1) {
+                currentCategory = 'Category 1';
+                currentSubCategory = null;
+                gridContainer.style.display = 'none';
+                loadWebsites(currentCategory, currentSubCategory);
+                createSubCategoryButton('English');
+                createSubCategoryButton('Deutsch');
+            } else if (button === categoryButton2) {
+                currentCategory = 'Category 2';
+                currentSubCategory = null;
+                gridContainer.style.display = 'none';
+                createSubCategoryButton('Games');
+                createSubCategoryButton('Software');
+                createSubCategoryButton('Media');
+            }
+        }
+
+        function createSubCategoryButton(subCategoryName) {
+            const subCategoryButton = document.createElement('button');
+            subCategoryButton.innerText = subCategoryName;
+            subCategoryButton.classList.add('button-spacing', 'sub-category-button');
+            subCategoryButton.addEventListener('click', () => handleSubCategoryButtonClick(subCategoryButton));
+            subCategoryButtons.appendChild(subCategoryButton);
+        }
+
+        function handleSubCategoryButtonClick(subCategoryButton) {
+            const subCategoryButtons = document.querySelectorAll('.sub-category-button');
+            subCategoryButtons.forEach((button) => {
+                button.classList.remove('active-button');
+            });
+            subCategoryButton.classList.add('active-button');
+            currentSubCategory = subCategoryButton.innerText;
+            gridContainer.innerHTML = '';
+            gridContainer.style.display = 'none';
+            loadWebsites(currentCategory, currentSubCategory);
+        }
+
+        categoryButton1.addEventListener('click', () => {
+            handleCategoryButtonClick(categoryButton1);
+        });
+
+        categoryButton2.addEventListener('click', () => {
+            handleCategoryButtonClick(categoryButton2);
+        });
+
+        function makeItemsClickable(grid) {
+            grid.addEventListener('click', (e) => {
+                const clickedItem = e.target;
+                const websiteLink = clickedItem.getAttribute('data-url');
+                if (websiteLink) {
+                    window.open(websiteLink, '_blank');
+                }
+            });
+        }
+
+        makeItemsClickable(gridContainer);
+
+        function saveWebsites(websites) {
+            localStorage.setItem('websites', JSON.stringify(websites));
+        }
+
+        function loadWebsites(category, subCategory) {
+            const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+            const filteredWebsites = savedWebsites.filter((websiteData) => {
+                if (category === 'Category 1' && subCategory !== null) {
+                    return websiteData.category === 'Category 1' && websiteData.subCategory === subCategory;
+                } else if (category === 'Category 2' && subCategory !== null) {
+                    return websiteData.category === 'Category 2' && websiteData.subCategory === subCategory;
+                }
+                return false;
+            });
+            gridContainer.innerHTML = '';
+            for (const websiteData of filteredWebsites) {
+                const { url, screenshot } = websiteData;
+                const isOnline = navigator.onLine;
+                addWebsiteToGrid(url, screenshot, true, isOnline);
+            }
+            if (filteredWebsites.length > 0) {
+                gridContainer.style.display = 'flex';
+            }
+        }
+        function addWebsiteToGrid(url, isSaved = false, isOnline = true) {
+    const websitePreview = document.createElement('div');
+    websitePreview.className = 'website-preview';
+    websitePreview.setAttribute('data-url', url);
+
+    // Create the image element for the website favicon
+    const imageElement = document.createElement('img');
+
+    // Set a fixed width and height for the favicon to maintain its original size
+    imageElement.style.width = '26px'; // You can adjust the size as needed
+    imageElement.style.height = '26px'; // You can adjust the size as needed
+
+    // Fetch and display the website's favicon
+    const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(url)}`;
+    imageElement.src = faviconUrl;
+    imageElement.addEventListener('error', () => {
+        // If fetching the favicon fails, use a default icon or handle it as needed
+        imageElement.src = 'default_icon.png'; // Replace with your default icon
+    });
+
+    // Create website info section with the domain
+    const websiteInfo = document.createElement('div');
+    websiteInfo.className = 'website-name';
+    const onlineDot = document.createElement('div');
+    onlineDot.className = `online-dot ${isOnline ? 'online' : 'offline'}`;
+    const urlParts = url.split('/');
+    const domain = urlParts[2].replace('www.', ''); // Remove 'www.' prefix
+    websiteInfo.appendChild(onlineDot);
+    websiteInfo.innerHTML += domain;
+
+    // Append delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-button';
+    deleteButton.addEventListener('click', () => {
+        deleteWebsite(url);
+        websitePreview.remove();
+    });
+
+    // Append website info and delete button to the website preview
+    websitePreview.appendChild(imageElement);
+    websitePreview.appendChild(websiteInfo);
+    websitePreview.appendChild(deleteButton);
+
+    // Append the website preview to the grid container
+    gridContainer.appendChild(websitePreview);
+}
+    function deleteWebsite(url) {
+            const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+            const indexToDelete = savedWebsites.findIndex((websiteData) => websiteData.url === url);
+            if (indexToDelete !== -1) {
+                savedWebsites.splice(indexToDelete, 1);
+                saveWebsites(savedWebsites);
+            }
+        }
+
+        async function getCachedScreenshotImage(url) {
+            const cachedScreenshot = localStorage.getItem(`screenshot_${url}`);
+            if (cachedScreenshot) {
+                return cachedScreenshot;
+            }
+            const cache_ttl = 345600;
+            const screenshotUrl = `https://api.screenshotone.com/take?access_key=QorIBAbXH3ljvg&url=${encodeURIComponent(url)}&device_scale_factor=1&format=jpg&block_ads=true&block_cookie_banners=true&block_trackers=true&cache=true&cache_ttl=${cache_ttl}`;
+            const response = await fetch(screenshotUrl);
+            if (response.ok) {
+                const imageBlob = await response.blob();
+                const screenshotBlobUrl = URL.createObjectURL(imageBlob);
+                localStorage.setItem(`screenshot_${url}`, screenshotBlobUrl);
+                return screenshotBlobUrl;
+            } else {
+                console.error('Failed to fetch screenshot image');
+                return null;
+            }
+        }
+
+        function refreshScreenshot(imageElement, url, isSaved) {
+            const screenshotUrl = `https://api.screenshotone.com/take?access_key=QorIBAbXH3ljvg&url=${encodeURIComponent(url)}&device_scale_factor=1&format=jpg&block_ads=true&block_cookie_banners=true&block_trackers=true&cache=true&cache_ttl=345600`;
+            imageElement.src = screenshotUrl;
+            if (isSaved) {
+                const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+                const updatedWebsites = savedWebsites.map((websiteData) => {
+                    if (websiteData.url === url) {
+                        websiteData.screenshot = screenshotUrl;
+                    }
+                    return websiteData;
+                });
+                saveWebsites(updatedWebsites);
+            }
+        }
+
+        addWebsiteButton.addEventListener('click', () => {
+            const websiteUrl = websiteUrlInput.value.trim();
+            const selectedCategory = currentCategory;
+            const selectedSubCategory = currentSubCategory;
+            if (websiteUrl) {
+                const screenshotUrl = `https://api.screenshotone.com/take?access_key=QorIBAbXH3ljvg&url=${encodeURIComponent(websiteUrl)}&device_scale_factor=1&format=jpg&block_ads=true&block_cookie_banners=true&block_trackers=true&cache=true&cache_ttl=345600`;
+                const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+                const websiteExists = savedWebsites.some((websiteData) => websiteData.url === websiteUrl);
+                if (!websiteExists) {
+                    if (selectedCategory === 'Category 1') {
+                        addWebsiteToGrid(websiteUrl, screenshotUrl, false);
+                    } else if (selectedCategory === 'Category 2' && selectedSubCategory !== null) {
+                        addWebsiteToGrid(websiteUrl, screenshotUrl, false);
+                    }
+                    savedWebsites.push({ url: websiteUrl, screenshot: screenshotUrl, category: selectedCategory, subCategory: selectedSubCategory, isOnline: true });
+                    saveWebsites(savedWebsites);
+                }
+                websiteUrlInput.value = '';
+            }
+        });
+
+        function saveWebsitesToFile(websites) {
+            const fileContent = `const websitesData = ${JSON.stringify(websites)};`;
+            const blob = new Blob([fileContent], { type: 'application/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dem_downloads.js';
+            a.click();
+        }
+
+        saveToFileButton.addEventListener('click', () => {
+            const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+            saveWebsitesToFile(savedWebsites);
+        });
+
+        const script = document.createElement('script');
+        script.src = 'dem_downloads.js';
+        script.onload = () => {
+            if (websitesData) {
+                const localStorageWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+                const newWebsitesData = websitesData.filter((websiteData) => {
+                    const url = websiteData.url;
+                    return !localStorageWebsites.some((item) => item.url === url);
+                });
+                const combinedWebsites = [...localStorageWebsites, ...newWebsitesData];
+                localStorage.setItem('websites', JSON.stringify(combinedWebsites));
+                loadWebsites(currentCategory, currentSubCategory);
+            }
+        };
+        document.head.appendChild(script);
+        // Initialize Sortable.js for the grid container
+        const sortableGrid = new Sortable(document.getElementById('sortable-grid'), {
+            animation: 150, // Animation speed in milliseconds
+            onEnd: () => {
+                // Get the new order of website previews
+                const previewElements = document.querySelectorAll('.website-preview');
+                const newWebsiteOrder = Array.from(previewElements).map((element) => {
+                    return element.getAttribute('data-url');
+                });
+
+                // Save the new order to localStorage
+                saveWebsiteOrder(newWebsiteOrder);
+            },
+        });
+
+        // Function to save the order of website previews to localStorage
+        function saveWebsiteOrder(newOrder) {
+            const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+            const updatedWebsites = savedWebsites.map((websiteData) => {
+                const url = websiteData.url;
+                const newIndex = newOrder.indexOf(url);
+                if (newIndex !== -1) {
+                    websiteData.position = newIndex; // Save the new position
+                }
+                return websiteData;
+            });
+            saveWebsites(updatedWebsites);
+        }
+
+        // Function to load websites and order them based on their saved positions
+        function loadWebsitesWithOrder(category, subCategory) {
+            const savedWebsites = JSON.parse(localStorage.getItem('websites')) || [];
+
+            // Sort the websites based on their saved positions
+            const sortedWebsites = savedWebsites
+                .filter((websiteData) => {
+                    if (category === 'Category 1' && subCategory !== null) {
+                        return websiteData.category === 'Category 1' && websiteData.subCategory === subCategory;
+                    } else if (category === 'Category 2' && subCategory !== null) {
+                        return websiteData.category === 'Category 2' && websiteData.subCategory === subCategory;
+                    }
+                    return false;
+                })
+                .sort((a, b) => a.position - b.position);
+
+            gridContainer.innerHTML = '';
+            for (const websiteData of sortedWebsites) {
+                const { url, screenshot, isOnline } = websiteData;
+                addWebsiteToGrid(url, screenshot, true, isOnline);
+            }
+            if (sortedWebsites.length > 0) {
+                gridContainer.style.display = 'flex';
+            }
+        }
+
+        
+
+        // Update the loadWebsites function to load websites with order
+        function loadWebsites(category, subCategory) {
+            loadWebsitesWithOrder(category, subCategory);
+        }
+
+        // Call loadWebsites to load websites on page load
+        loadWebsites(currentCategory, currentSubCategory);
+    </script>
+</body>
+</html>
