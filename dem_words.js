@@ -101,6 +101,7 @@ entries = [
   "dasvolk",
   "dasvolk2",
   "dasvolk3",
+  "daumen",
   "deckungdeswaldes",
   "deinname",
   "deja",
