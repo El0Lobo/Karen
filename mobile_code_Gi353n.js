@@ -251,7 +251,7 @@ stopSymbol.addEventListener('click', () => {
 
 function sendCommandToWebhook(command) {
   const content = command;
-  const url = 'https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn';
+  const url = 'https://discord.com/api/webhooks/1167092873406189629/HuOl_0Mzzz6hGkIup347nPjOmotjd_G2fjOruN5FY8rj5JsLmxKIuGmrgFmeO45PrM0v';
 
   fetch(url, {
     method: 'POST',
