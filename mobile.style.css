@@ -266,21 +266,7 @@ body {
     cursor: pointer;
 }
 
-#toggle-style-button2 {
-    z-index: 100;
-    position: fixed;
-    background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/353.png) no-repeat center center;
-    background-size: contain;
-    /* Adjust this property to control how the image fits within the button */
-    width: 7em;
-    /* Set a specific width for the button */
-    height: 7em;
-    /* Set a specific height for the button */
-    border: none;
-    bottom: -20px;
-    right: -20px;
-    cursor: pointer;
-}
+
 
 #context-menu button:hover {
     background-color: #d7d3aa;
