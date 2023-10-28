@@ -37,6 +37,7 @@ header {
     background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png');
     background-size: cover;
     background-position: center center;
+    filter: hue-rotate(90deg);
 }
 
 body {
@@ -127,6 +128,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
+    filter: hue-rotate(90deg);
 }
 
 .pagination {
@@ -269,7 +271,7 @@ body {
 #toggle-style-button2 {
     z-index: 100;
     position: fixed;
-    background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/353.png) no-repeat center center;
+    background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/rep.png) no-repeat center center;
     background-size: contain;
     /* Adjust this property to control how the image fits within the button */
     width: 7em;
