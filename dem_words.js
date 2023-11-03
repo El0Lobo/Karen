@@ -20,6 +20,7 @@ entries = [
   "amusiert",
   "animals",
   "ante",
+  "anzeige",
   "apparate",
   "arbeitnach",
   "arena",
