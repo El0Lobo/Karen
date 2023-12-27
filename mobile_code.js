@@ -209,18 +209,18 @@ const button = document.querySelector('.slide ul li button');
 button.addEventListener('click', animateLogo);
 
 function playDiscord(soundName) {
-  const content = "!" + soundName
-  const url = "https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn"
+  const content = "!" + soundName;
 
-  fetch(url, {
+  fetch(webhookURL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ content })
   })
-    .catch((error) => console.log('Error:', error))
+    .catch((error) => console.log('Error:', error));
 }
+
 
 // Add event listener to the mute button
 muteButton.addEventListener('click', () => {
@@ -251,21 +251,21 @@ stopSymbol.addEventListener('click', () => {
 
 function sendCommandToWebhook(command) {
   const content = command;
-  const url = 'https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn';
 
-  fetch(url, {
+  fetch(webhookURL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ content }),
   })
-  .catch((error) => console.log('Error:', error));
+    .catch((error) => console.log('Error:', error));
 }
 
 // Get the context menu elements
-const contextMenu = document.getElementById('context-menu')
-const favouriteButton = document.getElementById('favourite-button')
+const contextMenu = document.getElementById('context-menu');
+const favouriteButton = document.getElementById('favourite-button');
+
 
 // Keep track of the current button
 let currentButton = null
