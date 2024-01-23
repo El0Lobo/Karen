@@ -527,6 +527,7 @@ entries = [
   "whoverwhelm",
   "whspeehsmareehns",
   "wildsau",
+  "wilhelm",
   "willhelm",
   "willi",
   "wirwollenpep",
