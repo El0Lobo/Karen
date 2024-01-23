@@ -342,6 +342,7 @@ entries = [
   "normal3",
   "norules",
   "norweger",
+  "notfine",
   "nuke",
   "oesterreich",
   "oesterreich2",
