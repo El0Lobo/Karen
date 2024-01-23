@@ -101,6 +101,7 @@ entries = [
   "cricket",
   "critics",
   "cubanpete",
+  "curb",
   "cursed",
   "damage",
   "danger",
