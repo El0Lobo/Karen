@@ -218,6 +218,7 @@ entries = [
   "heli",
   "hello",
   "hellohello",
+  "hellomf",
   "hermitderwaffe",
   "high",
   "hill",
