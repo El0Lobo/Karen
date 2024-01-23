@@ -70,6 +70,7 @@ entries = [
   "boys",
   "brain",
   "brokeit",
+  "bruh",
   "bullshit",
   "bvnbh",
   "calm",
