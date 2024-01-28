@@ -71,6 +71,7 @@ entries = [
   "brain",
   "brokeit",
   "bruh",
+  "buchderfriesen",
   "bullshit",
   "bvnbh",
   "calm",
