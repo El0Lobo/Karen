@@ -132,6 +132,8 @@ entries = [
   "disappointed",
   "dj",
   "djhorn",
+  "doener650",
+  "doenerkomplett",
   "doh",
   "doom",
   "door",
