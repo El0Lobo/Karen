@@ -566,6 +566,7 @@ entries = [
   "zerstorer",
   "zink",
   "zipline",
+  "zipline2",
   "zonk",
   "zuege",
   "zufett",
