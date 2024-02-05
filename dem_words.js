@@ -502,6 +502,7 @@ entries = [
   "vigo2",
   "violence",
   "vogt",
+  "vollekopeferoteaugen",
   "vorheressen",
   "wah",
   "wah2",
