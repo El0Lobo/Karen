@@ -134,6 +134,7 @@ entries = [
   "djhorn",
   "doener650",
   "doenerkomplett",
+  "doenerlecker",
   "doh",
   "doom",
   "door",
