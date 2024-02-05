@@ -318,6 +318,7 @@ entries = [
   "maul",
   "mcg",
   "messer",
+  "microwave",
   "microwellenstrahler",
   "miristfad",
   "mister",
