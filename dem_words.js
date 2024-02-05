@@ -490,6 +490,7 @@ entries = [
   "uter",
   "uter2",
   "vector",
+  "veganlion",
   "veralbern",
   "verbrecherzwerg",
   "verbrennen",
