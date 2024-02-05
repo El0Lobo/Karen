@@ -282,6 +282,7 @@ entries = [
   "kohlen",
   "kohlen2",
   "kohlen3",
+  "kommherichwilldichbeleidigen",
   "konig",
   "korn",
   "korrektkorrekt",
