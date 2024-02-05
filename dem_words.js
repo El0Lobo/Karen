@@ -279,6 +279,7 @@ entries = [
   "kleinarbeit",
   "kluk",
   "knecht",
+  "koharenz",
   "kohlen",
   "kohlen2",
   "kohlen3",
