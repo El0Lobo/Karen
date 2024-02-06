@@ -126,6 +126,7 @@ entries = [
   "diablo",
   "dichterdunklerwald",
   "dickunddoof2",
+  "didijustscore",
   "diearbeit",
   "diegaben",
   "dinkleberg",
