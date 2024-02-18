@@ -575,6 +575,8 @@ entries = [
   "zufruh",
   "zugzeit",
   "zugzeit2",
+  "zugzeit3",
+  "zugzeitherzlichwillkomen",
   "zuhause",
   "zwangslage",
   "zweilebensfragen",
