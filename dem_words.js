@@ -148,6 +148,7 @@ entries = [
   "dump",
   "earthstyle",
   "east",
+  "eichhornchen",
   "eineidee",
   "einwas",
   "einwunderschoenesgefuehl",
