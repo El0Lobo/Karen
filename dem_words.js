@@ -476,6 +476,7 @@ entries = [
   "thebest",
   "thermo",
   "thuglife",
+  "tickets",
   "tief",
   "tiger",
   "timmy",
