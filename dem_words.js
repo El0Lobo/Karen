@@ -387,6 +387,7 @@ entries = [
   "plus350",
   "pokal1",
   "pokal2",
+  "polizei",
   "poochie",
   "popcorn",
   "popeye",
