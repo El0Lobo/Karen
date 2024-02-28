@@ -372,6 +372,7 @@ entries = [
   "oz",
   "pack",
   "paddlin",
+  "password",
   "pause",
   "perimeter",
   "pflaster",
