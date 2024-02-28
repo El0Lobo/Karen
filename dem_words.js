@@ -97,6 +97,7 @@ entries = [
   "convoy2",
   "convoy3",
   "corn",
+  "corn2",
   "corneliuscornwall",
   "cornpowers",
   "coronan",
