@@ -190,7 +190,7 @@ function divClick(soundBox) {
     playDiscord("supremenavalinvade");
   } else {
     // Send a random link along with the soundBox command if it's one of the specified sounds.
-    if (['zugdauerundrichtung', 'zugzeit', 'zugzeit2', 'zugzeit3', 'zugzeit4', 'zugzeitherzlichwillkomen'].includes(soundBox)) {
+    if (['zugdauerundrichtung', 'zugzeit', 'zugzeit2', 'zugzeit3', 'zugzeit4', 'zugzeitherzlichwillkomen', 'bong', 'zuege'].includes(soundBox)) {
       const randomLink = links[Math.floor(Math.random() * links.length)]; // Select a random link
       playDiscord(soundBox); // Play the specific sound
       sendRandomLink(randomLink); // Send the random link
