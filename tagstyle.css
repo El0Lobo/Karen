@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.column {
+    margin: 10px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    flex: 1;
+    overflow: auto;
+}
+
+h2 {
+    color: #ADD8E6;
+}
+
+button {
+    background-color: #555;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+}
+
+#addTagButton {
+    left: 260px;
+}
+
+#associateTagsButton {
+
+}
+
+#exportButton {
+    right: 260px;
+}
+#DiscordButton {
+    right: 95px;
+}
+.selectable:hover {
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #666;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 5px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #555;
+}
+
+.dropdown-content div {
+    padding: 2px;
+    cursor: pointer;
+}
+
+.dropdown-content div:hover {
+    background-color: #444;
+}
+
+.column {
+    /* Unchanged styles */
+    max-height: 80vh; /* Adjust based on your header/footer */
+    overflow-y: auto;
+}
+
+.word-entry, .tag-entry {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.selected {
+    background-color: #555; /* Highlight color for selected items */
+}
