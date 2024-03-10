@@ -3,8 +3,12 @@ name: Scheduled Command and Link Trigger
 on:
   schedule:
     - cron: '20 4,16 * * *' # Runs at 4:20 AM and 4:20 PM UTC
+<<<<<<< Updated upstream
   workflow_dispatch: # This line allows manual triggering
 
+=======
+      workflow_dispatch: # This line allows manual triggering
+>>>>>>> Stashed changes
 jobs:
   send-command-and-link:
     runs-on: ubuntu-latest
@@ -22,6 +26,6 @@ jobs:
       run: npm install node-fetch
 
     - name: Run script
-      run: node sendCommand.js
+      run: node ./sendCommand.js
       env:
         WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
