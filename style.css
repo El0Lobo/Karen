@@ -35,15 +35,16 @@ header {
 #slides-container {
   flex: 1;
   display: flex;
-  justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin: 4%;
-  justify-content: center; /* Centers horizontally */
-  box-sizing: border-box; /* Include padding in the width and height calculations */
-  position: relative; /* For positioning children absolutely within */
-  top: 58px;
-  margin-bottom: 5%;
+  margin: 5%;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  top: 93px;
+  padding-bottom: 50px;
+  padding-top: 0px;
+  margin-top: 1%;
 }
 
 #pagination-container {
@@ -93,13 +94,13 @@ header {
 
 .fav-button {
   position: absolute;
-  top: -15px;
-  right: -10px;
+  top: -8px;
+  right: -3px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 15px;
-  color: black; /* Default color for unfavorite */
+  padding: 8px;
+  color: black;
   font-size: small;
   z-index: 9;
 }
