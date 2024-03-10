@@ -1,0 +1,387 @@
+body,
+html {
+  font-family: Arial, sans-serif;
+  min-height: 80vh; /* Ensure at least full viewport height */
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stack children vertically */
+  overflow: visible;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+header {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffc400;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+    2px 2px 0 black;
+  font-family: "Permanent Marker", Arial, sans-serif;
+  font-size: large;
+}
+#search-container {
+    z-index: 25;
+}
+
+#search-input {
+  padding: 1px;
+  margin-right: 5px;
+  position: fixed;
+  top: 16px;
+  left: 164px;
+}
+
+#slides-container {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 5%;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  top: 93px;
+  padding-bottom: 50px;
+  padding-top: 0px;
+  margin-top: 1%;
+}
+
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  margin: 20px 0;
+}
+
+.pagination-btn {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+.pagination-button {
+  margin: 2px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: purple;
+  border-radius: 5px;
+  font-size: normal;
+}
+.button-entry.favorite {
+  background-color: rgb(0, 0, 0);
+}
+.entry-container {
+  justify-self: center;
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+}
+
+.button-entry {
+  padding: 10px 40px 10px 10px; /* Adjust padding to make room for the fav button */
+  position: relative;
+  overflow: hidden; /* Keep the fav button within the boundaries */
+  z-index: 1;
+}
+
+.fav-button {
+  position: absolute;
+  top: -8px;
+  right: -3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: black;
+  font-size: small;
+  z-index: 9;
+}
+
+.fav-button:hover {
+  color: gold; /* Change color on hover */
+  content: "★";
+}
+
+.fav-button.favorite {
+  color: black; /* Default color for unfavorite */
+}
+.fav-button.favorite:hover {
+  color: rgb(69, 69, 67); /* Change color on hover */
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 40px;
+  font-family: "Permanent Marker", Arial, sans-serif;
+  color: #ffc400;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  z-index: 50;
+  color: #ffc400;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.openbtn {
+  position: fixed; /* Stay in the same place regardless of scrolling */
+  top: 50%; /* Center vertically */
+  left: 1%; /* Adjust this value based on your design/layout */
+  transform: translateY(-50%); /* Centering adjustment */
+  z-index: 1;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  font-size: 2em;
+  color: #ddd;
+}
+
+#background {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  z-index: -1;
+  background-image: url("https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/purple2.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+.fullscreen-button {
+  position: fixed;
+  top: 7px;
+  right: 10px;
+  padding: 5px;
+  background: transparent;
+  font-size: x-large;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fullscreen-button i {
+  margin-right: 5px;
+}
+
+.mute-button {
+  position: fixed;
+  top: 2px;
+  left: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  margin-top: 13px;
+  margin-left: 10px;
+  z-index: 2;
+}
+
+.search-button,
+.skip-button,
+.stop-button {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: fixed;
+  top: 2px;
+  cursor: pointer;
+  color: white;
+  font-size: 22px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  z-index: 25;
+}
+
+.skip-button {
+  left: 30px;
+  /* Adjust the left position as needed */
+}
+
+.stop-button {
+  left: 65px;
+  /* Adjust the left position as needed */
+}
+
+.search-button {
+    left: 94px;
+    font-size: large;
+    top: 5px;
+  }
+
+.skip-button span,
+.stop-button span
+.search-button span {
+  margin-left: 5px;
+  z-index: 25;
+}
+
+/* Spin background in old hanna-barbara style action sequeance */
+.spin {
+  animation: spin 2s linear;
+  /* Adjust the duration, easing, and iteration count as needed */
+}
+
+.button-entry {
+  display: flex;
+  background-color: #ffc400;
+  text-emphasis-color: white;
+  font-family: "Special Elite", Arial, sans-serif;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 8px 8px 0px;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3), 2px 5px 5px #040404;
+  text-transform: capitalize;
+  font-size: x-large;
+  cursor: pointer;
+  font-weight: bolder;
+  margin: 2px;
+  padding-right: 10px;
+}
+
+.button-entry:hover {
+  background-color: rgb(140, 97, 3);
+  z-index: 8;
+}
+
+.button-entry:active {
+  transform: scale(1.4);
+  z-index: 8;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(480deg);
+  }
+}
+
+#toggle-style-button {
+  z-index: 100;
+  position: fixed;
+  background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/nobatkaren.png)
+    no-repeat center center;
+  background-size: contain;
+  /* Adjust this property to control how the image fits within the button */
+  width: 7em;
+  /* Set a specific width for the button */
+  height: 7em;
+  /* Set a specific height for the button */
+  border: none;
+  bottom: -20px;
+  left: -20px;
+  cursor: pointer;
+}
+
+/* Define the pulsate animation separately */
+@keyframes pulsate {
+  0% {
+    transform: scale(0.6);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(0.6);
+  }
+}
+.batman-logo.visible {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  opacity: 1;
+  z-index: 1000;
+  animation: pulsate 0.7s infinite;
+  height: 40vh;
+  width: 60vh;
+  background-image: url("https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png");
+  background-size: cover;
+  background-position: center;
+  border: none;
+  overflow: visible;
+}
+
+.batman-logo {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 96vh;
+  width: 100%;
+  background-image: url("https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/batkaren2.png");
+  background-size: cover;
+  background-position: center;
+  border: none;
+  opacity: 0;
+  z-index: -1; /* Set a positive initial z-index */
+  overflow: visible;
+}
+
+.gif-command-button {
+    width: 153px;
+    height: 98px;
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/XiPo.png');
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    scale: 0.3;
+    position: fixed;
+    right: 5px;
+    top: -22px;
+    z-index: 25; /* Set a positive initial z-index */
+}
+
+.gif-command-button:hover {
+    background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/XiPo.gif'); /* Path to the animated GIF */
+}
