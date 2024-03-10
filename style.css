@@ -352,18 +352,15 @@ header {
 #edit-button {
   z-index: 100;
   position: fixed;
-  background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/spray.png.png)
-    no-repeat center center;
+  background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/spray.png) no-repeat center center;
+  background-size: auto;
   background-size: contain;
-  /* Adjust this property to control how the image fits within the button */
-  width: 7em;
-  /* Set a specific width for the button */
-  height: 7em;
-  /* Set a specific height for the button */
   border: none;
-  top: -20px;
-  right: -20px;
+  top: 9px;
+  right: 41px;
   cursor: pointer;
+  width: 40px;
+  height: 24px;
 }
 
 /* Define the pulsate animation separately */
