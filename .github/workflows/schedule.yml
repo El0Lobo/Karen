@@ -19,7 +19,7 @@ jobs:
         node-version: '14' # Specify the Node.js version
 
     - name: Install dependencies
-      run: npm npm install node-fetch@2.6.7
+      run: npm install node-fetch@2.6.7
 
     - name: Run script
       run: node ./sendCommand.js
