@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Slides & Pagination</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Stuff to host/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Stuff to host/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Stuff to host/favicon-16x16.png">
+    <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/favicon-32x32.png" type="image/png">
+    <link rel="manifest" href="/Stuff to host/site.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        const webhookURL = "https://discord.com/api/webhooks/1107730139229474988/1e3mO9BL6m0hF9bWAq1rBcMr7FWq9xSCsXyDewc8GxOm_9apxPV9eb5G2bZqOgtbg5Nn";
+    </script>
+</head>
+<style>
+    #toggle-style-button2 {
+        z-index: 100;
+        position: fixed;
+        background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/353.png) no-repeat center center;
+        background-size: contain;
+        /* Adjust this property to control how the image fits within the button */
+        width: 6em;
+        /* Set a specific width for the button */
+        height: 6em;
+        /* Set a specific height for the button */
+        border: none;
+        bottom: -20px;
+        right: -20px;
+        cursor: pointer;
+    }
+    </style>
+    
+<body>
+    <div id="background"></div>
+    <div class="batman-logo"></div>
+    <i class="mute-button fas fa-volume-up"></i>
+    <header>
+        <h1 style="margin-top: 0px;">Complaint Form</h1>
+    </header>
+    <button class="search-button">
+        <span class="fas fa-search"></span>
+    </button>
+
+    <div id="search-container" style="display: none;">       
+     <input type="text" id="search-input" placeholder="Search entries...">
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <!-- Tags will be populated here dynamically -->
+    </div>
+    <button class="skip-button">
+        <span class="fas fa-forward"></span>
+    </button>
+    <button class="stop-button">
+        <span class="fas fa-stop"></span>
+    </button>
+
+    <div class="gif-command-button"></div>
+
+    <button id="toggle-style-button"></button>
+    <a id="toggle-style-button2" href="https://el0lobo.github.io/Karen/KarenMobileControl-Gi353n"></a>
+
+    <div id="slides-container"></div>
+    <button class="fullscreen-button" onclick="toggleFullscreen()">
+        <i class="fa-solid fa-maximize"></i>
+    </button>
+    <footer>
+        <div id="pagination-container"></div>
+    </footer>
+    <script src="dem_tags.js"></script>
+    <script src="dem_words.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
