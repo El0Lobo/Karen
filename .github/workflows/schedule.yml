@@ -1,0 +1,27 @@
+name: Scheduled Command and Link Trigger
+
+on:
+  schedule:
+    - cron: '20 4,16 * * *' # Runs at 4:20 AM and 4:20 PM UTC
+  workflow_dispatch: # This line allows manual triggering
+
+jobs:
+  send-command-and-link:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Specify the Node.js version
+
+    - name: Install dependencies
+      run: npm install node-fetch@2.6.7
+
+    - name: Run script
+      run: node ./sendCommand.js
+      env:
+        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
