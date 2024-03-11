@@ -115,7 +115,6 @@ function exportToDiscord() {
     const formData = new FormData();
     formData.append('content', 'Urgh here is your files, you cunt:');
     formData.append('files[0]', new Blob([dataStr], { type: "text/javascript;charset=utf-8" }), 'dem_tags.js');
-
     fetch(webhookUrl, {
         method: 'POST',
         body: formData
