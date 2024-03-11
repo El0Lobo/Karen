@@ -47,7 +47,9 @@ tags = [
       "zink",
       "zwiebel",
       "esel",
-      "paddlin"
+      "paddlin",
+      "zufett",
+      "yoink"
     ]
   ],
   [
