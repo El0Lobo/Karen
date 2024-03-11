@@ -29,10 +29,14 @@ tags = [
     [
       "bbbbbb",
       "carleave",
+      "esel",
       "flanders",
+      "jebus",
+      "jebus2",
       "kaufmich",
       "mahok2",
       "monarchenschweine",
+      "paddlin",
       "planeleave",
       "sabbat",
       "schinkengeklaut",
@@ -40,15 +44,13 @@ tags = [
       "sogutwietot",
       "spinnengift",
       "streikbrecher",
-      "wurm",
-      "zink",
-      "zwiebel",
-      "esel",
-      "paddlin",
-      "zufett",
-      "yoink",
       "uter",
-      "uter2"
+      "uter2",
+      "wurm",
+      "yoink",
+      "zink",
+      "zufett",
+      "zwiebel"
     ]
   ],
   [
@@ -94,9 +96,9 @@ tags = [
       "steelrain",
       "superhot",
       "supremenavalinvade",
-      "zelda",
+      "tumbleweed",
       "zahlen",
-      "tumbleweed"
+      "zelda"
     ]
   ],
   [
@@ -131,8 +133,8 @@ tags = [
       "senat",
       "verbrennen",
       "wasserpfeife",
-      "zink",
-      "wrong"
+      "wrong",
+      "zink"
     ]
   ],
   [
@@ -181,23 +183,23 @@ tags = [
   [
     "Zugzeit",
     [
-      "zugzeitherzlichwillkomen",
-      "zugzeit4",
-      "zugzeit3",
-      "zugzeit2",
-      "zugzeit",
-      "zugistkrass",
-      "zugdauerundrichtung",
+      "zuege",
       "zugbremse",
-      "zuege"
+      "zugdauerundrichtung",
+      "zugistkrass",
+      "zugzeit",
+      "zugzeit2",
+      "zugzeit3",
+      "zugzeit4",
+      "zugzeitherzlichwillkomen"
     ]
   ],
   [
     "Spencer&Hill",
     [
-      "wildsau",
       "gott",
-      "vogt"
+      "vogt",
+      "wildsau"
     ]
   ]
 ]
