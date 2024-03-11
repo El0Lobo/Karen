@@ -45,7 +45,8 @@ tags = [
         "streikbrecher",
         "wurm",
         "zink",
-        "zwiebel"
+        "zwiebel",
+        "esel"
     ]
   ],
   [
