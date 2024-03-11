@@ -189,5 +189,12 @@ tags = [
       "zugbremse",
       "zuege"
     ]
+  ],
+  [
+    "Spencer&Hill",
+    [
+      "wildsau",
+      "gott"
+    ]
   ]
 ]
