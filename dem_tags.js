@@ -168,10 +168,7 @@ tags = [
       "wambo2",
       "weewoo",
       "west",
-      "westfired",
-      "boeses",
-      "boeseboeseboese",
-      "boesesimbusch"
+      "westfired"
     ]
   ],
   [
