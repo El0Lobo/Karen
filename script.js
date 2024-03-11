@@ -328,3 +328,5 @@ toggleStyleButton.addEventListener("click", () => {
         stylesheet.disabled = !stylesheet.disabled;
     }
 });
+
+
