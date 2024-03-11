@@ -95,7 +95,8 @@ tags = [
       "superhot",
       "supremenavalinvade",
       "zelda",
-      "zahlen"
+      "zahlen",
+      "tumbleweed"
     ]
   ],
   [
@@ -129,7 +130,9 @@ tags = [
       "nett",
       "senat",
       "verbrennen",
-      "wasserpfeife"
+      "wasserpfeife",
+      "zink",
+      "wrong"
     ]
   ],
   [
