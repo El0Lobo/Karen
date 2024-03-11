@@ -26,17 +26,6 @@ h2 {
     color: #FBC420;
 }
 
-button {
-    background-color: #555;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    position: fixed;
-    bottom: 50px;
-}
-
 #addTagButton {
     left: 260px;
 }
@@ -55,11 +44,51 @@ button {
     cursor: pointer;
 }
 
+button {
+    background-color: #555;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    transition: transform 1.2s ease-in-out, background-color 1.2s ease-in-out; /* Add transition here */
+}
+.delete-button {
+    cursor: pointer;
+    padding: 5px;
+    color: red;
+    margin-left: 5px;
+    margin-right: 5px;
+    user-select: none;
+    font-weight: bold;
+    top: -3px;
+    position: relative;
+    font-size: x-small;
+    left: -5px;
+    scale: 1;
+}
 
+/* Additional styling for hover effect to provide better user feedback */
+.delete-button:hover {
+    scale: 1.5;
+}
 button:hover {
+    background-color: #666;
+    transform: scale(1.2);
+    /* transition: transform 1.9s ease-in-out; This line is no longer needed here */
+}
+
+#DiscordButton:hover {
     background-color: #666;
 }
 
+#DiscordButton:active {
+    right: 260px;
+    color: #121212;
+    background-color: #FBC420;
+}
 .dropdown-content {
     display: none;
     margin-top: 5px;
@@ -90,4 +119,17 @@ button:hover {
 
 .selected {
     background-color: #555; /* Highlight color for selected items */
+}
+
+.check-mark {
+    color: green; /* Sets the color of the check mark to green */
+    margin-left: 5px; /* Adds some space between the word and the check mark */
+    font-weight: bold; /* Makes the check mark bold */
+}
+details[draggable="true"] {
+    cursor: grab; /* Cursor appears as a hand when you can grab */
+}
+
+details[draggable="true"]:active {
+    cursor: grabbing; /* Cursor appears as grabbing when item is being dragged */
 }
