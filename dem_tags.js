@@ -29,9 +29,6 @@ tags = [
     [
       "bbbbbb",
       "carleave",
-      "excludi1",
-      "excludi2",
-      "excludi3",
       "flanders",
       "kaufmich",
       "mahok2",
