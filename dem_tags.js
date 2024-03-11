@@ -28,11 +28,10 @@ tags = [
     "Simpsons",
     [
       "bbbbbb",
+      "bier",
       "carleave",
       "esel",
       "flanders",
-      "jebus",
-      "jebus2",
       "kaufmich",
       "mahok2",
       "monarchenschweine",
