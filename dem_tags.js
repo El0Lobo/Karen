@@ -193,7 +193,8 @@ tags = [
     "Spencer&Hill",
     [
       "wildsau",
-      "gott"
+      "gott",
+      "vogt"
     ]
   ]
 ]
