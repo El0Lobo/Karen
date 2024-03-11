@@ -47,7 +47,9 @@ tags = [
       "zink",
       "zwiebel",
       "esel",
-      "paddlin"
+      "paddlin",
+      "zufett",
+      "yoink"
     ]
   ],
   [
@@ -172,6 +174,27 @@ tags = [
     [
       "beenasfar",
       "beenasfar2"
+    ]
+  ],
+  [
+    "Zugzeit",
+    [
+      "zugzeitherzlichwillkomen",
+      "zugzeit4",
+      "zugzeit3",
+      "zugzeit2",
+      "zugzeit",
+      "zugistkrass",
+      "zugdauerundrichtung",
+      "zugbremse",
+      "zuege"
+    ]
+  ],
+  [
+    "Spencer&Hill",
+    [
+      "wildsau",
+      "gott"
     ]
   ]
 ]
