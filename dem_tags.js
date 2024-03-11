@@ -49,7 +49,8 @@ tags = [
       "esel",
       "paddlin",
       "zufett",
-      "yoink"
+      "yoink",
+      "uter"
     ]
   ],
   [
@@ -194,8 +195,7 @@ tags = [
     "Spencer&Hill",
     [
       "wildsau",
-      "gott",
-      "vogt"
+      "gott"
     ]
   ]
 ]
