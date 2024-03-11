@@ -2,7 +2,7 @@ name: Scheduled Command and Link Trigger
 
 on:
   schedule:
-    - cron: '20 4,16 * * *' # Runs at 4:20 AM and 4:20 PM UTC
+    - cron: '20 3,15 * * *' # Runs at 4:20 AM and 4:20 PM UTC
   workflow_dispatch: # This line allows manual triggering
 
 jobs:
