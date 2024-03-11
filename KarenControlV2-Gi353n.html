@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/Stuff to host/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Stuff to host/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Stuff to host/favicon-16x16.png">
-    <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/favicon-32x32.png"
+        type="image/png">
     <link rel="manifest" href="/Stuff to host/site.webmanifest">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker" />
@@ -18,23 +20,31 @@
     </script>
 </head>
 <style>
+    #background {
+        filter: hue-rotate(90deg);
+    }
+
+    .pagination-button {
+        filter: hue-rotate(90deg);
+    }
+
     #toggle-style-button2 {
         z-index: 100;
         position: fixed;
-        background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/353.png) no-repeat center center;
+        background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/rep.png) no-repeat center center;
         background-size: contain;
         /* Adjust this property to control how the image fits within the button */
-        width: 6em;
+        width: 7em;
         /* Set a specific width for the button */
-        height: 6em;
+        height: 7em;
         /* Set a specific height for the button */
         border: none;
         bottom: -20px;
         right: -20px;
         cursor: pointer;
     }
-    </style>
-    
+</style>
+
 <body>
     <div id="background"></div>
     <div class="batman-logo"></div>
@@ -46,8 +56,8 @@
         <span class="fas fa-search"></span>
     </button>
 
-    <div id="search-container" style="display: none;">       
-     <input type="text" id="search-input" placeholder="Search entries...">
+    <div id="search-container" style="display: none;">
+        <input type="text" id="search-input" placeholder="Search entries...">
     </div>
 
     <div id="mySidenav" class="sidenav">
@@ -63,7 +73,7 @@
     <div class="gif-command-button"></div>
 
     <button id="toggle-style-button"></button>
-    <a id="toggle-style-button2" href="https://el0lobo.github.io/Karen/KarenControlV2-Gi353n"></a>
+    <a id="toggle-style-button2" href="https://el0lobo.github.io/Karen/KarenControlV2"></a>
 
     <div id="slides-container"></div>
     <button class="fullscreen-button" onclick="toggleFullscreen()">
@@ -80,4 +90,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
