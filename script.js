@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     // Function to create and display entries
-    const displayEntries = (filteredEntries = entries) => {
+    displayEntries = (filteredEntries = entries) => {
         slidesContainer.innerHTML = ''; // Clear existing entries
         filteredEntries.forEach(entry => {
             const entryContainer = document.createElement('div');
@@ -190,7 +190,7 @@ const populateSidenav = () => {
         tagLink.href = "#";
         tagLink.onclick = (e) => {
             e.preventDefault();
-            displayEntriesForTag(tagEntries); // Display entries when the tag is clicked
+            displayEntries(tagEntries); // Display entries when the tag is clicked
         };
         sidenav.appendChild(tagLink);
     });
@@ -213,16 +213,6 @@ const populateSidenav = () => {
         sidenav.style.width = "0"; // Close the sidenav
     };
     sidenav.insertBefore(closeButton, sidenav.firstChild);
-};
-
-const displayEntriesForTag = (tagEntries) => {
-    slidesContainer.innerHTML = ''; // Clear existing entries
-    tagEntries.forEach(entry => {
-        const entryButton = document.createElement('button');
-        entryButton.className = 'button-entry';
-        entryButton.textContent = entry;
-        slidesContainer.appendChild(entryButton);
-    });
 };
 
 populateSidenav();
