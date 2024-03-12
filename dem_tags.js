@@ -117,6 +117,7 @@ tags = [
       "airwolf",
       "alteleier",
       "bekehrten",
+      "buchderfriesen",
       "dasandere",
       "energiekrise",
       "franzosisch",
