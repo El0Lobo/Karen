@@ -597,6 +597,7 @@ entries = [
   "zugzeit2",
   "zugzeit3",
   "zugzeit4",
+  "zugzeitdurchziehen",
   "zugzeitherzlichwillkomen",
   "zuhause",
   "zwangslage",
