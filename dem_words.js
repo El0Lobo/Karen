@@ -507,6 +507,7 @@ entries = [
   "unreal",
   "unserlied",
   "unsistsofad",
+  "unterstellung",
   "uter",
   "uter2",
   "vector",
