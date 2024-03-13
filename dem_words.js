@@ -307,6 +307,7 @@ entries = [
   "kreuzwortbanane",
   "kucken",
   "kustenwache",
+  "lalala1",
   "lasstunswaehlengehen",
   "laugh",
   "lead",
