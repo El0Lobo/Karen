@@ -142,6 +142,8 @@ tags = [
   [
     "Songs",
     [
+      "ante",
+      "arena",
       "arky",
       "arky2",
       "arky3",
