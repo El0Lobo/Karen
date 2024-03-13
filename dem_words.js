@@ -429,6 +429,7 @@ entries = [
   "rewind",
   "rickroll",
   "riseandshine",
+  "ritter1",
   "rohrich",
   "ruhm",
   "russenda",
