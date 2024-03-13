@@ -308,6 +308,7 @@ entries = [
   "kucken",
   "kustenwache",
   "lalala1",
+  "lalala2",
   "lasstunswaehlengehen",
   "laugh",
   "lead",
