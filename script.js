@@ -309,12 +309,11 @@ function toggleFullscreen() {
     document.querySelector('.search-button').addEventListener('click', () => {
         const searchBar = document.getElementById('search-container');
         searchBar.style.display = searchBar.style.display === 'none' ? '' : 'none'; // Toggle display
-        button.addEventListener('click', () => {
             // Your existing logic to filter entries
             landingPage.style.display = 'none'; // Hide the landing page
             slidesContainer.style.display = ''; // Show the slides container
-        });
     });
+
 
     // Send a random command from the GIF button
     document.querySelector('.gif-command-button').addEventListener('click', () => {

@@ -24,13 +24,13 @@ canvas {
     position: absolute;
     cursor: pointer;
     transition: transform 0.3s ease;
-    z-index: 101;
+    z-index: 102;
     transition: transform 0.3s ease, box-shadow 0.3s ease-in-out; /* Add transition for box-shadow */
 }
 
 .connectable:hover {
     scale: 2;
-    z-index: 102;
+    z-index: 103;
 }
 
 #button1{
@@ -68,4 +68,16 @@ canvas {
     left: 10px; /* Adjust as needed */
     color: white; /* Set your text color */
     z-index: 210; /* Ensures it's above the canvas */
+}
+
+.interactive-object {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 50px;
+    background: #8B4513;
+    border-radius: 25px;
+    z-index: 5;
 }
