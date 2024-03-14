@@ -1,0 +1,71 @@
+#landing-page {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    z-index: 99;
+}
+
+#ropeCanvasContainer {
+    position: fixed;
+    width: 90vw;
+    height: 100vh;
+    margin: auto;
+    z-index: 99;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.connectable {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 101;
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out; /* Add transition for box-shadow */
+}
+
+.connectable:hover {
+    scale: 2;
+    z-index: 102;
+}
+
+#button1{
+    scale:2
+}
+#button2{
+    width: 200px;
+    height: 200px;
+}
+#button2:hover{
+    width: 200px;
+    height: 200px;
+}
+
+#button5 {
+    right: 0px;
+    width: 160px;
+    height: 200px;
+    top: 200px; 
+    right: 150px;
+    z-index: 506;
+}
+
+#button5:hover{
+    box-shadow: none;
+    width: 238px;
+    scale: 1;
+    right: 85px;
+    z-index: 506;
+}
+
+.text-overlay {
+    position: absolute; /* This takes it out of the normal flow and positions it over the canvas */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    color: white; /* Set your text color */
+    z-index: 210; /* Ensures it's above the canvas */
+}

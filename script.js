@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const slidesContainer = document.getElementById('slides-container');
     const paginationContainer = document.getElementById('pagination-container');
     const searchInput = document.getElementById('search-input');
+    const landingPage = document.getElementById('landing-page');
+    
+    // Initially hide slides container and show the landing page
+    slidesContainer.style.display = 'none';
+    landingPage.style.display = '';
 
     const audio = new Audio('https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/batman-transition-download-sound-link.mp3');
 
@@ -102,21 +107,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initialize pagination buttons
     const createPagination = () => {
-        const paginationButtons = ['#', ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)), 'All', '⭐️'];
+        // Add '🍀' first to ensure it appears on the left
+        const paginationButtons = ['🍀', '#', ...Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)), 'All', '⭐️'];
         paginationContainer.innerHTML = '';
         paginationButtons.forEach(label => {
             const button = document.createElement('button');
             button.textContent = label;
             button.className = `pagination-button ${label.toLowerCase()}`;
-            button.onclick = () => filterEntries(label.toLowerCase());
+    
+            // Check for the special '🍀' button
+            if (label === '🍀') {
+                button.addEventListener('click', () => {
+                    // Ensure these elements are correctly targeted and exist
+                    landingPage.style.display = ''; // Show the landing page
+                    slidesContainer.style.display = 'none'; // Hide the slides container
+                });
+            } else {
+                button.addEventListener('click', () => {
+                    // Your existing logic to filter entries
+                    landingPage.style.display = 'none'; // Hide the landing page
+                    slidesContainer.style.display = ''; // Show the slides container
+                    filterEntries(label.toLowerCase());
+                });
+            }
             paginationContainer.appendChild(button);
         });
     };
-
+    
+    // Call to display entries and set up pagination as before
     displayEntries(); // Initial display of entries
-    createPagination(); // Set up pagination buttons
+    createPagination(); // Set up pagination buttons with the new logic
+    
 
     // Function to play a sound, perform animations, and send a text to Discord
     function divClick(soundBox) {
@@ -287,6 +309,11 @@ function toggleFullscreen() {
     document.querySelector('.search-button').addEventListener('click', () => {
         const searchBar = document.getElementById('search-container');
         searchBar.style.display = searchBar.style.display === 'none' ? '' : 'none'; // Toggle display
+        button.addEventListener('click', () => {
+            // Your existing logic to filter entries
+            landingPage.style.display = 'none'; // Hide the landing page
+            slidesContainer.style.display = ''; // Show the slides container
+        });
     });
 
     // Send a random command from the GIF button

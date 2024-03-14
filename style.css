@@ -55,7 +55,7 @@ header {
   bottom: -15px;
   left: 0;
   right: 0;
-  z-index: 55;
+  z-index: 200;
   margin: 20px 0;
 }
 
@@ -121,7 +121,7 @@ header {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 50;
+  z-index: 203;
   top: 0;
   left: 0;
   background-color: #111;
@@ -139,7 +139,7 @@ header {
   color: #818181;
   display: block;
   transition: 0.3s;
-  z-index: 50;
+  z-index: 204;
   color: #ffc400;
 }
 
@@ -333,7 +333,7 @@ header {
 }
 
 #toggle-style-button {
-  z-index: 100;
+  z-index: 205;
   position: fixed;
   background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/nobatkaren.png)
     no-repeat center center;
