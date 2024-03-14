@@ -346,3 +346,26 @@ for (const stylesheet of styleSheets) {
     stylesheet.disabled = !stylesheet.disabled;
 }
 });
+
+function sendRandomTagCommand(tagName) {
+    // Find the tag in window.tags by its name
+    const tag = window.tags.find(t => t[0] === tagName);
+    if (!tag) {
+        console.error("Tag not found:", tagName);
+        return;
+    }
+
+    // Select a random command from the chosen tag and prepend "!" to the command
+    const commands = tag[1]; 
+    const randomCommandIndex = Math.floor(Math.random() * commands.length);
+    const randomCommand = "!" + commands[randomCommandIndex];
+
+    // Send the selected command to Discord
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: randomCommand })
+    }).catch((error) => console.log('Error:', error));
+}
