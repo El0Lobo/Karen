@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const entries = window.entries.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
     const slidesContainer = document.getElementById('slides-container');
     const paginationContainer = document.getElementById('pagination-container');
-    const searchInput = document.getElementById('search-input');
-    const landingPage = document.getElementById('landing-page');
+    searchInput = document.getElementById('search-input');
+    landingPage = document.getElementById('landing-page');
     
     // Initially hide slides container and show the landing page
     slidesContainer.style.display = 'none';
@@ -213,6 +213,8 @@ const populateSidenav = () => {
         tagLink.onclick = (e) => {
             e.preventDefault();
             displayEntries(tagEntries); // Display entries when the tag is clicked
+            landingPage.style.display = 'none'; // Hide the landing page
+            slidesContainer.style.display = ''
         };
         sidenav.appendChild(tagLink);
     });
@@ -305,15 +307,13 @@ function toggleFullscreen() {
     }).catch(error => console.log('Error:', error));
   }
 
-  // Toggle search bar visibility
+    // Toggle search bar visibility
     document.querySelector('.search-button').addEventListener('click', () => {
         const searchBar = document.getElementById('search-container');
         searchBar.style.display = searchBar.style.display === 'none' ? '' : 'none'; // Toggle display
-        button.addEventListener('click', () => {
-            // Your existing logic to filter entries
-            landingPage.style.display = 'none'; // Hide the landing page
-            slidesContainer.style.display = ''; // Show the slides container
-        });
+        // Your existing logic to filter entries
+        slidesContainer.style.display = ''; // Show the slides container
+        landingPage.style.display = 'none'; // Hide the landing page
     });
 
     // Send a random command from the GIF button
