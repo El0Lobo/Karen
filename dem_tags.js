@@ -68,12 +68,21 @@ tags = [
   [
     "Batman",
     [
+      "aufmerksamkeit",
+      "baby",
+      "banal",
       "batfranzosisch",
       "batgurt",
       "epigram",
       "hurr",
       "kamelgras",
+      "lektion",
+      "normal",
+      "normal3",
+      "pokal1",
+      "pokal2",
       "praxis",
+      "talk",
       "zwangslage",
       "zynisch"
     ]
@@ -223,6 +232,20 @@ tags = [
       "whip",
       "whoverwhelm",
       "whspeehsmareehns"
+    ]
+  ],
+  [
+    "JerryB.Anderson",
+    [
+      "aufmerksamkeit",
+      "baby",
+      "banal",
+      "lektion",
+      "normal",
+      "normal3",
+      "pokal1",
+      "pokal2",
+      "talk"
     ]
   ]
 ]
