@@ -35,7 +35,6 @@ tags = [
       "flanders",
       "kaufmich",
       "mahok2",
-      "monarchenschweine",
       "ohwowarenwirdertod",
       "paddlin",
       "planeleave",
