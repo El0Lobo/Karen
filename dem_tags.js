@@ -12,7 +12,6 @@ tags = [
       "magie",
       "microwellenstrahler",
       "physik",
-      "putin",
       "raumfahrt",
       "silencium",
       "sonne",
@@ -32,14 +31,8 @@ tags = [
       "carleave",
       "dertoddaister",
       "dertodschleichtan",
-      "downtown",
-      "elch",
-      "elected",
       "esel",
-      "excellent",
       "flanders",
-      "fuhrer",
-      "gleiten",
       "kaufmich",
       "mahok2",
       "ohwowarenwirdertod",
@@ -53,6 +46,7 @@ tags = [
       "streikbrecher",
       "uter",
       "uter2",
+      "wurm",
       "yoink",
       "zink",
       "zufett",
@@ -103,8 +97,11 @@ tags = [
       "superhot",
       "supremenavalinvade",
       "tumbleweed",
+      "wow",
+      "wow2",
       "zahlen",
-      "zelda"
+      "zelda",
+      "zonk"
     ]
   ],
   [
@@ -164,7 +161,9 @@ tags = [
       "segata3",
       "speedra",
       "titanic",
-      "unserlied"
+      "unserlied",
+      "x",
+      "yello"
     ]
   ],
   [
@@ -200,6 +199,7 @@ tags = [
       "zugzeit2",
       "zugzeit3",
       "zugzeit4",
+      "zugzeitdurchziehen",
       "zugzeitherzlichwillkomen"
     ]
   ],
