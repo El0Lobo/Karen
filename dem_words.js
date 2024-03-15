@@ -521,6 +521,7 @@ entries = [
   "verbrennen",
   "verhort",
   "verschwinden",
+  "versicherungsbetrug",
   "victorymusic",
   "viecher",
   "vigo",
