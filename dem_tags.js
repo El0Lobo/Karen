@@ -77,12 +77,7 @@ tags = [
       "hurr",
       "kamelgras",
       "lektion",
-      "normal",
-      "normal3",
-      "pokal1",
-      "pokal2",
       "praxis",
-      "talk",
       "zwangslage",
       "zynisch"
     ]
@@ -237,10 +232,6 @@ tags = [
   [
     "JerryB.Anderson",
     [
-      "aufmerksamkeit",
-      "baby",
-      "banal",
-      "lektion",
       "normal",
       "normal3",
       "pokal1",
