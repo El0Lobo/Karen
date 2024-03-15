@@ -6,7 +6,6 @@ tags = [
       "bertruhe",
       "derelektrojude",
       "ichbegrueszesie",
-      "imp",
       "implosionstechnologie",
       "kleinarbeit",
       "logarithmischespirale",
@@ -142,8 +141,6 @@ tags = [
   [
     "Songs",
     [
-      "ante",
-      "arena",
       "arky",
       "arky2",
       "arky3",
@@ -204,6 +201,20 @@ tags = [
       "gott",
       "vogt",
       "wildsau"
+    ]
+  ],
+  [
+    "Warhammer",
+    [
+      "whbattlebrothers",
+      "whdeepstrikes",
+      "whduty",
+      "whenemydeath",
+      "whfury",
+      "whglory",
+      "whip",
+      "whoverwhelm",
+      "whspeehsmareehns"
     ]
   ]
 ]
