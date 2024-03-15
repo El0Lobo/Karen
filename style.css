@@ -189,21 +189,27 @@ header {
 }
 
 .fullscreen-button {
-  position: fixed;
-  top: 7px;
-  right: 10px;
-  padding: 5px;
-  background: transparent;
-  font-size: x-large;
-  color: white;
   border: none;
+  background: none;
+  padding: 5px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1005;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 0px;
+  font-size: 32px;
+  top: 5px;
+  color: white;
+}
+
+#fullscreen-button i {
+  color: #ffffff; /* Change the color to what you prefer */
 }
 
 .gif-command-button {
   width: 153px;
-  height: 98px;
+  height: 103px;
   background-image: url('https://raw.githubusercontent.com/El0Lobo/Karen/main/Stuff%20to%20host/XiPo.png');
   background-size: cover;
   cursor: pointer;
@@ -211,15 +217,17 @@ header {
   outline: none;
   scale: 0.3;
   position: fixed;
-  right: 42px;
-  top: -22px;
+  top: -16px;
+  right: 88px;
   z-index: 1000;
 }
 
 .edit-button {
   position: fixed;
-  top: 7px;
-  right: 53px;
+  top: 15px;
+  right: 88px;
+  width: 40px;
+  height: 24px;
   padding: 5px;
   background: transparent;
   font-size: x-large;
@@ -232,7 +240,9 @@ header {
 .fullscreen-button i {
   z-index: 1000;
 }
-
+.fullscreen-button:hover {
+  opacity: 0.8;
+}
 .mute-button {
   position: fixed;
   top: 2px;
@@ -244,7 +254,9 @@ header {
   margin-left: 10px;
   z-index: 1000;
 }
-
+.mute-button:hover {
+  opacity: 0.8;
+}
 .search-button,
 .skip-button,
 .stop-button {
@@ -262,11 +274,16 @@ header {
   z-index: 1000;
 }
 
+.search-button:hover,
+.skip-button:hover,
+.stop-button:hover {
+  opacity: 0.8;
+}
+
 .skip-button {
   left: 30px;
   /* Adjust the left position as needed */
 }
-
 .stop-button {
   left: 65px;
   /* Adjust the left position as needed */
@@ -352,15 +369,21 @@ header {
 #edit-button {
   z-index: 100;
   position: fixed;
-  background: url(https://github.com/El0Lobo/Karen/raw/main/Stuff%20to%20host/spray.png) no-repeat center center;
+  background: url("Stuff to host/spray.png") no-repeat center center;
   background-size: auto;
   background-size: contain;
   border: none;
-  top: 9px;
-  right: 41px;
+  top: 17px;
+  right: 91px;
   cursor: pointer;
   width: 40px;
   height: 24px;
+
+}
+
+#edit-button:hover {
+  background: url("Stuff to host/spray2.png") no-repeat center center;
+  background-size: contain;
 }
 
 /* Define the pulsate animation separately */

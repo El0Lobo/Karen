@@ -317,26 +317,7 @@ document.querySelector('.search-button').addEventListener('click', () => {
 });
 
 
-// Send a random command from the GIF button
-document.querySelector('.gif-command-button').addEventListener('click', () => {
-    const commands = ['!zugdauerundrichtung', '!zugzeit', '!zugzeit2', '!zugzeit3', '!zugzeit4', '!zugzeitherzlichwillkomen'];
-    const randomCommand = commands[Math.floor(Math.random() * commands.length)];
-    sendCommandToWebhook(randomCommand);
-// Optionally, after sending the command, you want to send a link
-const randomLink = links[Math.floor(Math.random() * links.length)];
 
-// Send the random link to the webhook, similar to sending a command
-fetch(webhookURL, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ content: randomLink }),
-})
-.then(response => response.json()) // Assuming you want to handle the JSON response
-.then(data => console.log('Link sent successfully:', data))
-.catch((error) => console.log('Error sending link:', error));
-});
 
 const toggleStyleButton = document.getElementById("toggle-style-button");
 const styleSheets = document.querySelectorAll('link[rel="stylesheet"]');
@@ -369,3 +350,6 @@ function sendRandomTagCommand(tagName) {
         body: JSON.stringify({ content: randomCommand })
     }).catch((error) => console.log('Error:', error));
 }
+
+
+
