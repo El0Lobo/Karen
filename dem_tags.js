@@ -164,6 +164,9 @@ tags = [
   [
     "Spongebob",
     [
+      "boeseboeseboese",
+      "boeses",
+      "boesesimbusch",
       "geistigemechanismen",
       "hinterdiefelsen",
       "wambo1",
