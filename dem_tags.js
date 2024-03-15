@@ -46,7 +46,6 @@ tags = [
       "streikbrecher",
       "uter",
       "uter2",
-      "wurm",
       "yoink",
       "zink",
       "zufett",
