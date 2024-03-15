@@ -347,8 +347,7 @@ function sendCommandData() {
     formData.append("soundFile", fileInput.files[0]);
   }
 
-  // Assuming webhookURL is defined in your HTML or JavaScript
-  const webhookURL = "YOUR_WEBHOOK_URL_HERE";
+ 
   fetch(webhookURL, {
     method: "POST",
     body: formData,

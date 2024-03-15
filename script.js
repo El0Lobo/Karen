@@ -349,7 +349,10 @@ function sendRandomTagCommand(tagName) {
         },
         body: JSON.stringify({ content: randomCommand })
     }).catch((error) => console.log('Error:', error));
+    
 }
 
-
+document.addEventListener('triggerSendRandomTagCommand', function(e) {
+    sendRandomTagCommand(e.detail.tagName);
+});
 

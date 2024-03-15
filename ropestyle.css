@@ -22,7 +22,6 @@ canvas {
 
 .connectable {
     position: absolute;
-    cursor: pointer;
     z-index: 102;
 }
 
@@ -31,17 +30,54 @@ canvas {
 }
 
 #button1{
-    scale:2
+    cursor: pointer;
+    top: 450px;
+    left: 50px;
+    width: 250px;
+    height: 168px;
 }
+
 #button2{
-    width: 200px;
+    transition: transform 1.5s; /* Adjust the time to control the speed */
+    width: 150px;
+    height: 150px;
+    position: fixed;
+    bottom: 18px;
+    right: 44px;
+    z-index: 501;
+    cursor: pointer;
+}
+
+#button2:hover{
+    transform: scale(1.1);
+}
+
+#button2-1{
+    width: 350px;
     height: 200px;
     transition: transform 1.5s; /* Adjust the time to control the speed */
+    bottom: 50px;
+    right: -28px;
+    cursor: pointer;
 }
-#button2:hover{
-    width: 200px;
-    height: 200px;
-    transform: scale(1.1);
+
+#button3 {
+    right: 525px;
+    z-index: 506;
+    cursor: pointer;
+    top: 191px;
+    width: 187px;
+    height: 244px;
+}
+
+#button4 {
+    height: 103px;
+    width: 250px;
+    right: 100px;
+    z-index: 506;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 #button5 {
@@ -51,6 +87,16 @@ canvas {
     top: 200px; 
     right: 100px;
     z-index: 506;
+    cursor: pointer;
+}
+
+#button6 {
+    width: 238px;
+    height: 143px;
+    top: 95px;
+    right: -104px;
+    z-index: 506;
+    cursor: pointer;
 }
 
 #button5:hover{
@@ -61,15 +107,14 @@ canvas {
 }
 
 .text-overlay {
-    position: absolute; /* This takes it out of the normal flow and positions it over the canvas */
-    top: 55px;
-    left: 639px;
+    position: fixed; 
     color: white; /* Set your text color */
     z-index: 210; /* Ensures it's above the canvas */
     font-family: "Fasthand", cursive;
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    transform: translate(670px, 50px);
 }
 
 
