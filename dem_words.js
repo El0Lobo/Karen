@@ -294,6 +294,7 @@ entries = [
   "kleinarbeit",
   "klotz",
   "kluk",
+  "knaller",
   "knecht",
   "koharenz",
   "kohlen",
