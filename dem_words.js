@@ -461,6 +461,7 @@ entries = [
   "sodom",
   "sogutwietot",
   "soklug",
+  "sollbruchstelle",
   "sonne",
   "soviet",
   "speedra",
