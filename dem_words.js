@@ -1,5 +1,4 @@
 entries = [
-  "1",
   "200kabelkasette",
   "200onoff",
   "200puls",
