@@ -175,6 +175,7 @@ entries = [
   "fachpresse",
   "failedyou",
   "fanfare",
+  "fart",
   "fatal",
   "fattening",
   "feellikebatman",
