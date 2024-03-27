@@ -303,69 +303,78 @@ function sendCommandData() {
   const mainCommand = document.getElementById("mainCommandSelect").value;
   let commandString = "";
 
-  // Logic to construct the command string
+  // Construct the command string based on the selected command
   switch (mainCommand) {
     case "add":
-      const name = document.getElementsByName("name")[0].value;
+      let name = document.getElementsByName("name")[0].value.toLowerCase(); // Convert name to lowercase
       const link = document.getElementsByName("link")[0].value || "";
       const start = document.getElementsByName("start")[0].value || "";
       const end = document.getElementsByName("end")[0].value || "";
-      commandString = `!add ${name}`;
-      if (link) commandString += ` ${link}`;
-      if (start) commandString += ` ${start}`;
-      if (end) commandString += ` ${end}`;
+      commandString = `!add ${name} ${link} ${start} ${end}`;
       break;
     case "misc":
       const subCommandMisc = document.getElementById("subCommandSelect").value;
       const sounds = document.querySelectorAll("#miscOptions select");
-      const soundValues = Array.from(sounds)
-        .map((s) => s.value)
-        .join(" ");
+      const soundValues = Array.from(sounds).map(s => s.value).join(" ");
       commandString = `!${subCommandMisc} ${soundValues}`;
       const count = document.getElementsByName("count")[0]?.value || "";
       if (count) commandString += ` ${count}`;
       break;
     case "modify":
-      const subCommandModify =
-        document.getElementById("subCommandSelect").value;
+      const subCommandModify = document.getElementById("subCommandSelect").value;
       const soundModify = document.getElementsByName("sound")[0].value;
-      const newValue =
-        document.querySelectorAll("#modifyOptions input")[0]?.value || "";
+      const newValue = document.querySelectorAll("#modifyOptions input")[0]?.value || "";
       commandString = `!${subCommandModify} ${soundModify} ${newValue}`;
       break;
   }
 
-  // Log the constructed command for verification
   console.log("Constructed Command:", commandString);
 
-  // Appending command and file (if exists) to FormData
-  formData.append("command", commandString);
-  const fileInput = document.querySelector(
-    '#subCommandSection > input[type="file"]'
-  );
+  const payload = {
+    content: commandString
+    // Include other fields as needed
+  };
+
+  // For file uploads, include both the command and the file in the FormData
+  const fileInput = document.querySelector('#subCommandSection > input[type="file"]');
   if (fileInput && fileInput.files.length > 0) {
-    formData.append("soundFile", fileInput.files[0]);
+    formData.append("payload_json", JSON.stringify(payload)); // Include text content in payload_json
+    formData.append("files[0]", fileInput.files[0]); // Append the file
+  } else {
+    // If no file is included, send as JSON
+    return fetch(webhookURL, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(handleResponse)
+    .catch(handleError);
   }
 
- 
+  // Use fetch with FormData for file uploads, without setting Content-Type header
   fetch(webhookURL, {
     method: "POST",
-    body: formData,
+    body: formData
   })
-    .then((response) => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Success:", data);
-      clearFormData();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  .then(handleResponse)
+  .catch(handleError);
+}
+
+function handleResponse(response) {
+  console.log(`Response status: ${response.status} ${response.statusText}`);
+  if (!response.ok) throw new Error("Network response was not ok");
+  // Handling non-JSON responses, as successful webhook posts may not return JSON
+  response.text().then(text => console.log(text ? JSON.parse(text) : "No content"));
+}
+
+function handleError(error) {
+  console.error("Error:", error);
 }
 
 function clearFormData() {
   document.querySelector("#commandForm").reset();
   // Additional logic to reset any dynamic UI elements or selections
 }
+
