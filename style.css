@@ -172,8 +172,8 @@ header {
   transform: translateY(-50%); /* Centering adjustment */
   z-index: 301;
   cursor: pointer; /* Change cursor to indicate it's clickable */
-  font-size: 2em;
-  color: #ddd;
+  font-size: 3em;
+  color: #ffffff;
 }
 
 #background {
