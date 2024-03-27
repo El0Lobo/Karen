@@ -19,6 +19,7 @@ header {
     2px 2px 0 black;
   font-family: "Permanent Marker", Arial, sans-serif;
   font-size: large;
+  cursor:default;
 }
 #search-container {
     z-index: 25;
