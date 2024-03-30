@@ -582,6 +582,7 @@ entries = [
   "wow",
   "wow2",
   "wrong",
+  "wuermer",
   "wuerstchen",
   "wunsch",
   "wurm",
