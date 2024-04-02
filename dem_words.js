@@ -201,6 +201,7 @@ entries = [
   "gebusch",
   "gefaerdet",
   "gefunden",
+  "geheimwissen",
   "geistigemechanismen",
   "geld",
   "geldmagnet",
