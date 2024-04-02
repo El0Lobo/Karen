@@ -496,6 +496,7 @@ entries = [
   "tief",
   "tiger",
   "timmy",
+  "tisch",
   "titan",
   "titanic",
   "toofar",
