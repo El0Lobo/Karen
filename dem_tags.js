@@ -16,6 +16,7 @@ tags = [
       "silencium",
       "sonne",
       "strafplanet",
+      "tisch",
       "transmedialekontakte",
       "wetterkrieg",
       "wissen",
