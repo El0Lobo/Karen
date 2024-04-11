@@ -22,6 +22,7 @@ entries = [
   "ante",
   "anzeige",
   "apparate",
+  "aramsam",
   "aramsamsam",
   "arbeitnach",
   "arena",
