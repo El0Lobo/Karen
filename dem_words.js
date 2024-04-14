@@ -388,6 +388,7 @@ entries = [
   "oof",
   "ooh",
   "osteo",
+  "ownitsc",
   "oxy",
   "oz",
   "pack",
