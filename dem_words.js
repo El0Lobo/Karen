@@ -23,7 +23,6 @@ entries = [
   "anzeige",
   "apparate",
   "aramsam-1712856854466",
-  "aramsamsam",
   "arbeitnach",
   "arena",
   "arky",
