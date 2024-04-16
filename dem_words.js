@@ -22,7 +22,6 @@ entries = [
   "ante",
   "anzeige",
   "apparate",
-  "aramsam-1712856854466",
   "arbeitnach",
   "arena",
   "arky",
