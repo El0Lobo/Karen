@@ -610,6 +610,8 @@ entries = [
   "zufett",
   "zufruh",
   "zugbremse",
+  "zugbremse-1713278536420",
+  "zugbremse-1713278544007",
   "zugdauerundrichtung",
   "zugistkrass",
   "zugzeit",
