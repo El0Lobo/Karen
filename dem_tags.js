@@ -10,7 +10,6 @@ tags = [
       "ichbegrueszesie",
       "implosionstechnologie",
       "keiner",
-      "kleinarbeit",
       "logarithmischespirale",
       "magie",
       "microwellenstrahler",
