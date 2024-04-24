@@ -4,6 +4,7 @@ entries = [
   "200puls",
   "200schwarzerbildschirm",
   "321",
+  "8armig",
   "8m",
   "90prozent",
   "a",
