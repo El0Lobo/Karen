@@ -310,6 +310,7 @@ entries = [
   "kommherichwilldichbeleidigen",
   "konig",
   "korn",
+  "kornholen",
   "korrektkorrekt",
   "kranplatze",
   "kreuzwortbanane",
