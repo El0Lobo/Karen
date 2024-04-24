@@ -559,6 +559,7 @@ entries = [
   "wee",
   "weewoo",
   "wehrerei",
+  "weihnachtsbaumkanone",
   "weinhuren",
   "weistduwasdasist",
   "weristamzug",
