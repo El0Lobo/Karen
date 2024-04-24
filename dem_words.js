@@ -150,7 +150,6 @@ entries = [
   "drank",
   "drogen",
   "drones",
-  "dudeinefreundinundich",
   "dump",
   "earthstyle",
   "east",
