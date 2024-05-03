@@ -136,6 +136,7 @@ entries = [
   "diearbeit",
   "diegaben",
   "dinkleberg",
+  "direktaufunszu",
   "disappointed",
   "dj",
   "djhorn",
