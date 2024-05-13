@@ -567,6 +567,7 @@ entries = [
   "wehrerei",
   "weihnachtsbaumkanone",
   "weinhuren",
+  "weissichnicht",
   "weistduwasdasist",
   "weristamzug",
   "wert",
