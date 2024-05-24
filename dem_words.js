@@ -451,6 +451,7 @@ entries = [
   "sadmusic",
   "sagsuppe",
   "salat",
+  "samennimmt",
   "sand",
   "sandmaennchen",
   "schabernack",
