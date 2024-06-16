@@ -449,6 +449,7 @@ entries = [
   "sabbat",
   "sachenmachen",
   "sadmusic",
+  "saeulen",
   "sagsuppe",
   "salat",
   "samennimmt",
