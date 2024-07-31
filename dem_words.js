@@ -8,6 +8,7 @@ entries = [
   "8m",
   "90prozent",
   "a",
+  "aale",
   "aberesmachtspass",
   "achild",
   "agameofchess",
