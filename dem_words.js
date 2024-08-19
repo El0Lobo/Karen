@@ -264,6 +264,7 @@ entries = [
   "ichfrag",
   "ichhabneidee",
   "ichmussraus",
+  "ichzug",
   "idoubtit",
   "imp",
   "implosionstechnologie",
