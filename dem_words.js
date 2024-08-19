@@ -468,6 +468,7 @@ entries = [
   "segata",
   "segata2",
   "segata3",
+  "segenbennett",
   "senat",
   "senior",
   "shoes",
