@@ -24,6 +24,7 @@ entries = [
   "ante",
   "anzeige",
   "apparate",
+  "ar15",
   "arbeitnach",
   "arena",
   "arky",
