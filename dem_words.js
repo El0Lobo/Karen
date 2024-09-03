@@ -353,6 +353,7 @@ entries = [
   "mcg",
   "meinsamen",
   "messer",
+  "metalpipe",
   "microwave",
   "microwellenstrahler",
   "miristfad",
