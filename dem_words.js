@@ -395,6 +395,7 @@ entries = [
   "onward",
   "oof",
   "ooh",
+  "openyourmind",
   "osteo",
   "ownitsc",
   "oxy",
