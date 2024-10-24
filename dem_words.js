@@ -384,6 +384,7 @@ entries = [
   "normal3",
   "norules",
   "norweger",
+  "nosferatu",
   "notfine",
   "nuke",
   "oesterreich",
