@@ -190,6 +190,7 @@ entries = [
   "feind",
   "fgdn",
   "fhritp",
+  "finsteretat",
   "fit",
   "flanders",
   "flasche",
