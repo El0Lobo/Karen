@@ -165,6 +165,7 @@ entries = [
   "einwas",
   "einwunderschoenesgefuehl",
   "einzelfaelle",
+  "eisgeruecht",
   "elch",
   "elected",
   "eliminator",
