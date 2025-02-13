@@ -18,6 +18,7 @@ entries = [
   "airwolf",
   "ak47",
   "alarm",
+  "alkohol",
   "alle3",
   "allthekids",
   "alteleier",
