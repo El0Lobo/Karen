@@ -624,6 +624,7 @@ entries = [
   "wutangstyle",
   "x",
   "yello",
+  "yesking",
   "yoink",
   "yourmothersabitch",
   "zahlen",
