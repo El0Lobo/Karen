@@ -89,6 +89,7 @@ entries = [
   "chemtrails",
   "chewbacca",
   "children",
+  "chill",
   "chocolate",
   "chocolate2",
   "choo",
