@@ -37,6 +37,7 @@ entries = [
   "armesocke",
   "arsch",
   "asshole",
+  "aufderstrae",
   "aufmerksamkeit",
   "aufsmaul",
   "auftrag",
