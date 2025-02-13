@@ -141,6 +141,7 @@ entries = [
   "dergeht",
   "dertoddaister",
   "dertodschleichtan",
+  "deutsch",
   "diablo",
   "dichterdunklerwald",
   "dickunddoof2",
