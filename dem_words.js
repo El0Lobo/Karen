@@ -500,6 +500,7 @@ entries = [
   "sonne",
   "soviet",
   "speedra",
+  "spiel",
   "spinnengift",
   "spongemusic",
   "stalkergranate",
