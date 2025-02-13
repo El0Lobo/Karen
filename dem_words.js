@@ -501,6 +501,7 @@ entries = [
   "schwachsinn",
   "scots",
   "sechstreffer",
+  "securityauth",
   "segata",
   "segata2",
   "segata3",
