@@ -469,6 +469,7 @@ entries = [
   "samennimmt",
   "sand",
   "sandmaennchen",
+  "saxo",
   "schabernack",
   "schinkengeklaut",
   "schnee",
