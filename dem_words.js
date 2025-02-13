@@ -72,6 +72,7 @@ entries = [
   "bleibtallesso",
   "blut",
   "blyatman",
+  "bober",
   "boeseboeseboese",
   "boeses",
   "boesesimbusch",
