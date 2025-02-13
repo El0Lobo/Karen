@@ -147,6 +147,7 @@ entries = [
   "dinkleberg",
   "direktaufunszu",
   "disappointed",
+  "discord",
   "dj",
   "djhorn",
   "doener650",
