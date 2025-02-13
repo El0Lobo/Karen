@@ -12,6 +12,7 @@ entries = [
   "aberesmachtspass",
   "abschuld",
   "achild",
+  "affenwarter",
   "agameofchess",
   "airhorn",
   "airwolf",
