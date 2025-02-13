@@ -552,6 +552,7 @@ entries = [
   "totalasshole",
   "transmedialekontakte",
   "truman",
+  "ts",
   "tuba",
   "tuledi",
   "tumbleweed",
