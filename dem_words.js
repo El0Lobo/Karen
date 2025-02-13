@@ -155,6 +155,7 @@ entries = [
   "drank",
   "drogen",
   "drones",
+  "drpepper",
   "dudeinefreundinundich",
   "dump",
   "earthstyle",
