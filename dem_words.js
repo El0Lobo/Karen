@@ -521,6 +521,7 @@ entries = [
   "sigma",
   "silencium",
   "skateboardforthelord",
+  "skibidi",
   "skill",
   "skills",
   "snuffelstuck",
