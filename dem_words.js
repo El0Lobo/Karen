@@ -498,6 +498,7 @@ entries = [
   "saxo",
   "schabernack",
   "schinkengeklaut",
+  "schmutz",
   "schnee",
   "schonsteplatz",
   "schwacheundkrueppel",
