@@ -564,6 +564,7 @@ entries = [
   "unterstellung",
   "uter",
   "uter2",
+  "uwe",
   "vector",
   "veganlion",
   "veralbern",
