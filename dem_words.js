@@ -252,6 +252,7 @@ entries = [
   "grundbesitz",
   "gum",
   "guteidee",
+  "gutenabend",
   "habenwirnochpeps",
   "habichgekauft",
   "haha",
