@@ -258,6 +258,7 @@ entries = [
   "hinterdiefelsen",
   "hookers",
   "horauf",
+  "hormal",
   "hornbach",
   "hum",
   "hunger",
