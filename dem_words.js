@@ -310,6 +310,7 @@ entries = [
   "justworks",
   "kamelgras",
   "kapriolen",
+  "karsten",
   "kassenbon",
   "kaufmich",
   "kazoo",
