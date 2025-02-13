@@ -367,6 +367,7 @@ entries = [
   "monarchenschweine",
   "monster",
   "monsterkill",
+  "morning",
   "mosq",
   "mosq2",
   "muy",
