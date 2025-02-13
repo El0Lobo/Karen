@@ -79,6 +79,7 @@ entries = [
   "boys",
   "brain",
   "brokeit",
+  "brother",
   "bruh",
   "buchderfriesen",
   "bullshit",
