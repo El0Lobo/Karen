@@ -443,6 +443,7 @@ entries = [
   "phintro",
   "physik",
   "pinky",
+  "plan",
   "planeleave",
   "plsfix",
   "plus350",
