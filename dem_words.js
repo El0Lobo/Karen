@@ -225,6 +225,7 @@ entries = [
   "gefunden",
   "geheimwissen",
   "geistigemechanismen",
+  "gekotzt",
   "geld",
   "geldmagnet",
   "genji",
