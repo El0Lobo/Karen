@@ -337,6 +337,7 @@ entries = [
   "kluk",
   "knaller",
   "knecht",
+  "knock",
   "koharenz",
   "kohlen",
   "kohlen2",
