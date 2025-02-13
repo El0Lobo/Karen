@@ -491,6 +491,7 @@ entries = [
   "sadmusic",
   "saeulen",
   "sagsuppe",
+  "sagtnein",
   "salat",
   "samennimmt",
   "sand",
