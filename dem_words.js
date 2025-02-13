@@ -343,6 +343,7 @@ entries = [
   "lasstunswaehlengehen",
   "laugh",
   "lead",
+  "lebenverlaengern",
   "legion",
   "lektion",
   "letsgo",
