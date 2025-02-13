@@ -140,6 +140,7 @@ entries = [
   "diablo",
   "dichterdunklerwald",
   "dickunddoof2",
+  "diddy",
   "didijustscore",
   "diearbeit",
   "diegaben",
