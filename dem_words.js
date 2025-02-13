@@ -200,6 +200,7 @@ entries = [
   "flasche",
   "foreveryone",
   "franzosisch",
+  "frauritter",
   "fresh",
   "fressehalten",
   "fressen",
