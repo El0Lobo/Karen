@@ -22,6 +22,7 @@ entries = [
   "allthekids",
   "alteleier",
   "amusiert",
+  "analphabeten",
   "animals",
   "ante",
   "anzeige",
