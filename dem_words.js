@@ -290,6 +290,7 @@ entries = [
   "ichfrag",
   "ichhabneidee",
   "ichmussraus",
+  "ichstinke",
   "ichzug",
   "idoubtit",
   "ihrensohn",
