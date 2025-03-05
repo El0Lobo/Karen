@@ -574,6 +574,7 @@ entries = [
   "truman",
   "ts",
   "tuba",
+  "tuedeldu",
   "tuledi",
   "tumbleweed",
   "tumor",
