@@ -668,6 +668,7 @@ entries = [
   "x",
   "yello",
   "yesking",
+  "yippi",
   "yoink",
   "yourmothersabitch",
   "zahlen",
