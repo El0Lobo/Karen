@@ -569,7 +569,6 @@ entries = [
   "tisch",
   "titan",
   "titanic",
-  "tngtransporter3clean",
   "toofar",
   "tosbosunwhistle3",
   "totalasshole",
