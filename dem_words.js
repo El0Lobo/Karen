@@ -71,6 +71,7 @@ entries = [
   "between",
   "between2",
   "bier",
+  "bioabfall",
   "bittehelfensiemir",
   "blau",
   "bleibtallesso",
