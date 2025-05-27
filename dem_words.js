@@ -39,6 +39,7 @@ entries = [
   "arsch",
   "asshole",
   "aufderstrae",
+  "aufderstrasse",
   "aufmerksamkeit",
   "aufsmaul",
   "auftrag",
