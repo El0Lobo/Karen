@@ -210,7 +210,7 @@ button.addEventListener('click', animateLogo);
 
 function playDiscord(soundName) {
   const content = "!" + soundName
-  const url = "https://discord.com/api/webhooks/1167092873406189629/HuOl_0Mzzz6hGkIup347nPjOmotjd_G2fjOruN5FY8rj5JsLmxKIuGmrgFmeO45PrM0v"
+  const url = "https://discord.com/api/webhooks/1326503332294033418/f27pNw_Mh89viOOdJvN6BvtXgxyHm6ksSmSdcH1GdEi2R_urNmFpDzAxbcUffjdrWvvS"
 
   fetch(url, {
     method: 'POST',
