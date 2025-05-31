@@ -256,6 +256,7 @@ entries = [
   "grease2",
   "griffin",
   "grip",
+  "grosskapitalist",
   "grundbesitz",
   "gum",
   "guteidee",
