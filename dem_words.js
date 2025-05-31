@@ -244,6 +244,7 @@ entries = [
   "gesicht",
   "getout",
   "gewitter",
+  "gewusst",
   "girls",
   "gleiten",
   "gmv",
