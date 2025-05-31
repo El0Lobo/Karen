@@ -397,6 +397,7 @@ entries = [
   "mister",
   "mojito",
   "monarchenschweine",
+  "monopolkapitalist",
   "monster",
   "monsterkill",
   "morning",
