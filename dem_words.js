@@ -559,6 +559,7 @@ entries = [
   "surrender",
   "suspense01",
   "suspense02",
+  "suspense03",
   "sweetvictory",
   "tagimarsch",
   "talk",
