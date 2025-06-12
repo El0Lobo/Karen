@@ -671,6 +671,7 @@ entries = [
   "wochenende",
   "wololo",
   "woranetjelegenhat",
+  "worfhug",
   "worldwithoutsigmas",
   "wow",
   "wow2",
