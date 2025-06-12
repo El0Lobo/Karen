@@ -337,6 +337,7 @@ entries = [
   "keinerstoren",
   "keinerussen",
   "keingeld",
+  "keinnazi",
   "keks",
   "kiffen",
   "kiffen2",
