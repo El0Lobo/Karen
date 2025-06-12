@@ -557,7 +557,7 @@ entries = [
   "supremenavalinvade",
   "surprise",
   "surrender",
-  "suspense01",
+  "suspense011",
   "suspense02",
   "suspense03",
   "suspense04",
