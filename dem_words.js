@@ -560,6 +560,7 @@ entries = [
   "suspense01",
   "suspense02",
   "suspense03",
+  "suspense04",
   "sweetvictory",
   "tagimarsch",
   "talk",
