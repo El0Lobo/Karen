@@ -557,6 +557,7 @@ entries = [
   "supremenavalinvade",
   "surprise",
   "surrender",
+  "suspense01",
   "sweetvictory",
   "tagimarsch",
   "talk",
