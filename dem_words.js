@@ -45,6 +45,7 @@ entries = [
   "aufsmaul",
   "auftrag",
   "aurora",
+  "avada",
   "baby",
   "badcops",
   "baguette",
